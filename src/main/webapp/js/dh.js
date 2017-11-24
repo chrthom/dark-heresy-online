@@ -15,7 +15,10 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
         templateUrl: 'pages/inventory.html'
     }).when('/onboarding', {
         controller: 'dhOnboarding',
-        templateUrl: 'pages/onboarding.html'
+        templateUrl: 'pages/onboarding0.html'
+    }).when('/onboarding/1', {
+        controller: 'dhOnboarding',
+        templateUrl: 'pages/onboarding1.html'
     }).otherwise({
         redirectTo: '/'
     })

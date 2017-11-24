@@ -1,0 +1,189 @@
+config.meleeWeapons = {
+  'Axt' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : 'W10+2 R',
+    'ap' : 0,
+    'special' : 'Primitiv, Unausgewogen',
+    'weight' : 4,
+    'price' : 20,
+    'availability' : 6
+  },
+  'Hammer' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : 'W10+1 W',
+    'ap' : 0,
+    'special' : 'Primitiv, Unausgewogen',
+    'weight' : 4,
+    'price' : 10,
+    'availability' : 7
+  },
+  'Knüppel' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : 'W10 W',
+    'ap' : 0,
+    'special' : 'Primitiv',
+    'weight' : 2,
+    'price' : 5,
+    'availability' : 8
+  },
+  'Messer' : {
+    'class' : 'Nahkampf, Wurfwaffe',
+    'type' : 'Primitiv',
+    'range' : 3,
+    'damage' : 'W5 R',
+    'ap' : 0,
+    'special' : 'Primitiv',
+    'weight' : 0.5,
+    'price' : 5,
+    'availability' : 8
+  },
+  'Morgenstern' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : 'W10+2 R',
+    'ap' : 0,
+    'special' : 'Flexibel, Primitiv, Zweihändig',
+    'weight' : 4,
+    'price' : 20,
+    'availability' : 5
+  },
+  'Schild' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : 'W5 W',
+    'ap' : 0,
+    'special' : 'Defensiv, Primitiv',
+    'weight' : 3,
+    'price' : 25,
+    'availability' : 6
+  },
+  'Schlagring' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : 'W5-1 W',
+    'ap' : 0,
+    'special' : 'Primitiv',
+    'weight' : 0.5,
+    'price' : 5,
+    'availability' : 9
+  },
+  'Schwert' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : 'W10 R',
+    'ap' : 0,
+    'special' : 'Ausgewogen, Primitiv',
+    'weight' : 3,
+    'price' : 15,
+    'availability' : 7
+  },
+  'Speer' : {
+    'class' : 'Nahkampf, Wurfwaffe',
+    'type' : 'Primitiv',
+    'range' : 10,
+    'damage' : 'W10 R',
+    'ap' : 0,
+    'special' : 'Primitiv',
+    'weight' : 3,
+    'price' : 15,
+    'availability' : 7
+  },
+  'Stab' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : 'W10-1 W',
+    'ap' : 0,
+    'special' : 'Ausgewogen, Primitiv, Zweihändig',
+    'weight' : 3,
+    'price' : 10,
+    'availability' : 9
+  },
+  'Zweihänder' : {
+    'class' : 'Nahkampf',
+    'type' : 'Primitiv',
+    'range' : 0,
+    'damage' : '2W10 R',
+    'ap' : 2,
+    'special' : 'Primitiv, Unhandlich, Zweihändig',
+    'weight' : 7,
+    'price' : 70,
+    'availability' : 5
+  },
+  'Kettenaxt' : {
+    'class' : 'Nahkampf',
+    'type' : 'Ketten',
+    'range' : 0,
+    'damage' : 'W10+4 R',
+    'ap' : 2,
+    'special' : 'Reißend',
+    'weight' : 13,
+    'price' : 450,
+    'availability' : 3
+  },
+  'Kettenschwert' : {
+    'class' : 'Nahkampf',
+    'type' : 'Ketten',
+    'range' : 0,
+    'damage' : 'W10+2 R',
+    'ap' : 2,
+    'special' : 'Ausgewogen, Reißend',
+    'weight' : 6,
+    'price' : 275,
+    'availability' : 4
+  },
+  'Energieklinge' : {
+    'class' : 'Nahkampf',
+    'type' : 'Energie',
+    'range' : 0,
+    'damage' : 'W10+3 E',
+    'ap' : 6,
+    'special' : 'Energiefeld',
+    'weight' : 1.5,
+    'price' : 1750,
+    'availability' : 3
+  },
+  'Energieschwert' : {
+    'class' : 'Nahkampf',
+    'type' : 'Energie',
+    'range' : 0,
+    'damage' : 'W10+5 E',
+    'ap' : 6,
+    'special' : 'Energiefeld',
+    'weight' : 3.5,
+    'price' : 2500,
+    'availability' : 3
+  },
+  'Elektro-Geißel' : {
+    'class' : 'Nahkampf',
+    'type' : 'Schock',
+    'range' : 0,
+    'damage' : 'W10+2 W',
+    'ap' : 0,
+    'special' : 'Flexibel, Schock, Zweihändig',
+    'weight' : 4.5,
+    'price' : 375,
+    'availability' : 4
+  },
+  'Schockschlagstock' : {
+    'class' : 'Nahkampf',
+    'type' : 'Schock',
+    'range' : 0,
+    'damage' : 'W10 W',
+    'ap' : 0,
+    'special' : 'Schock',
+    'weight' : 2.5,
+    'price' : 150,
+    'availability' : 4
+  }
+}
