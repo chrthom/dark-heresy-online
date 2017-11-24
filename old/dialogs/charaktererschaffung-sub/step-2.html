@@ -1,0 +1,113 @@
+<p><h2>Schritt 3 - F&auml;higkeiten &amp; Ausr&uuml;stung</h2></p>
+<p>
+  Mit dem Rang <b>{{player.general.rank}}</b> beginnt <i>{{player.name}}s</i> Karriere als <b>{{player.general.career}}</b>. <i>{{player.name}}</i> geh&ouml;rt entsprechend seiner Herkunft zur sozialen Schicht <b>{{player.general.socialClass}}</b>.
+  In diesem Rang beginnst du bereits mit einigen F&auml;higkeiten sowie Ausr&uuml;stung.
+  <br />
+  Im folgenden erh&auml;lst du hierüber eine &Uuml;bersicht und hast zudem die M&ouml;glichkeit dich zwischen Alternativen bei der Wahl deiner Startf&auml;higkeiten und -ausr&uuml;stung zu entscheiden.
+</p>
+<table>
+  <tr>
+    <th>
+      <h4>F&auml;higkeiten</h4>
+    </th>
+    <th>
+      <h4>Merkmal</h4>
+    </th>
+    <th>
+      <h4>Waffen</h4>
+    </th>
+    <th>
+      <h4>Ausr&uuml;stung</h4>
+    </th>
+  </tr>
+  <tr>
+    <td ng-init="form.skills = []">
+      <p ng-repeat="skill in conf.careers[player.general.career].skills | filterValues">
+        {{skill}}
+      </p>
+      <p ng-repeat="skill in conf.careers[player.general.career].skills | filterArrays">
+        <select ng-model="form.skills[$index]" ng-init="form.skills[$index] = skill[0]">
+          <option ng-repeat="choice in skill">{{choice}}</option>
+        </select>
+      </p>
+    </td>
+    <td ng-init="form.traits = []">
+      <p ng-repeat="trait in conf.careers[player.general.career].traits | filterValues">
+        {{trait}}
+      </p>
+      <p ng-repeat="trait in conf.careers[player.general.career].traits | filterArrays">
+        <select ng-model="form.traits[$index]" ng-init="form.traits[$index] = trait[0]">
+          <option ng-repeat="choice in trait">{{choice}}</option>
+        </select>
+      </p>
+    </td>
+    <td ng-init="form.weapons = []">
+      <p ng-repeat="weapon in conf.careers[player.general.career].weapons | filterValues">
+        {{weapon.type}} {{weapon.ammo && 'mit ' + weapon.ammo + (weapon.ammo == 1 && ' Magazin' || ' Patronen') || ''}}
+      </p>
+      <p ng-repeat="weapon in conf.careers[player.general.career].weapons | filterArrays">
+        <select ng-model="form.weapons[$index]" ng-init="form.weapons[$index] = weapon[0]"
+            ng-options="value as value.type + (value.ammo && ' mit ' + value.ammo + (value.ammo == 1 && ' Magazin' || ' Patronen') || '') for value in weapon">
+        </select>
+      </p>
+    </td>
+    <td ng-init="form.gears = []">
+      <p ng-repeat="gear in conf.careers[player.general.career].gears | filterValues">
+        {{gear}}
+      </p>
+      <p ng-repeat="gear in conf.careers[player.general.career].gears | filterArrays">
+        <select ng-model="form.gears[$index]" ng-init="form.gears[$index] = gear[0]">
+          <option ng-repeat="choice in gear">{{choice}}</option>
+        </select>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h5>Lebenspunkte:</h5>
+      <h4><font color="{{colorCode(player.progress.wounds, getScenario().wounds + 1, getScenario().wounds + 3)}}">
+        {{player.progress.wounds}}
+      </font></h4>
+    </td>
+    <td>
+      <h5>Schicksalspunkte:</h5>
+      <h4><font color="{{colorCode(player.progress.fate, getScenario().fate[0], getScenario().fate[4])}}">
+        {{player.progress.fate}}
+      </font></h4>
+    </td>
+    <td>
+      <h5>Startkapital:</h5>
+      <h4><font color="{{colorCode(player.stats.thrones, conf.careers[player.general.career].thrones.start + 3 * conf.careers[player.general.career].thrones.dices, conf.careers[player.general.career].thrones.start + 6 * conf.careers[player.general.career].thrones.dices)}}">
+        {{player.stats.thrones}}
+      </font></h4>
+      Thronen
+    </td>
+    <td>
+      <h5>Einkommen:</h5>
+      <h4>{{player.progress.income}}</h4>
+      Thronen pro Monat
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button type="button" class="btn btn-warning" ng-click="rerollWounds()" ng-disabled="!player.helpers.rerolls">
+        Lebenspunkte erneut w&uuml;rfeln
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-warning" ng-click="rerollFate()" ng-disabled="!player.helpers.rerolls">
+        Schicksalspunkte erneut w&uuml;rfeln
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-warning" ng-click="rerollThrones()" ng-disabled="!player.helpers.rerolls">
+        Throngeld erneut w&uuml;rfeln
+      </button>
+    </td>
+    <td colspan="4">
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({})">
+        Auswahl best&auml;tigen
+      </button>
+    </td>
+  </tr>
+</table>

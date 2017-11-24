@@ -1,0 +1,217 @@
+<p><h2>Schritt 4 - Erscheinungsbild & Weissagung</h2></p>
+<p>
+  Menschen mit dem Hintergrund <b>{{player.general.homeworld}}</b> teilen sich ein Spektrum an &auml;ußeren Merkmalen, die ihr Erscheinungsbild ausmachen. 
+  <br />
+  Im folgenden kannst du Bestandteile des zuf&auml;llig erstellten Erscheinungsbilds von <i>{{player.name}}</i> neu ausw&uuml;rfeln.
+  <br />
+  &Uuml;berdies hat jeder Charakter eine individuelle Weissagung. Diese kann nicht neu ausgew&uuml;rfelt werden.
+</p>
+<table>
+  <tr>
+    <td>
+      Alter zu Beginn der Karriere: <b>{{player.appearance.age}}</b> Jahre
+      <br />
+      ({{player.general.homeworld}} Durchschnittsalter: {{conf.age[getHomeworld()][5] + 5}} Jahre)
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollAge()" ng-disabled="!player.helpers.rerolls">
+        Alter neu ausw&uuml;rfeln
+      </button>
+    </td>
+    <td rowspan="3">
+      <p>K&ouml;rperbau: <b>{{player.appearance.build}}</b></p>
+      <ul>
+        <li>Größe: {{player.appearance.height}} cm</li>
+        <li>Gewicht: {{player.appearance.weight}} kg</li>
+        <li ng-show="getBuild().ch">
+          Charisma:
+          <b>
+            <font color="{{colorCode(getBuild().ch, -1 , 1)}}">
+              {{getBuild().ch > 0 && '+' || ''}}{{getBuild().ch}}
+            </font>
+          </b>
+        </li>
+        <li ng-show="getBuild().ge">
+          Geschicklichkeit:
+          <b>
+            <font color="{{colorCode(getBuild().ge, -1 , 1)}}">
+              {{getBuild().ge > 0 && '+' || ''}}{{getBuild().ge}}   
+            </font> 
+          </b>
+        </li>
+        <li ng-show="getBuild().st">
+          St&auml;rke:
+          <b>
+            <font color="{{colorCode(getBuild().st, -1 , 1)}}">
+              {{getBuild().st > 0 && '+' || ''}}{{getBuild().st}}   
+            </font> 
+          </b>
+        </li>
+        <li ng-show="getBuild().wi">
+          Widerstandskraft:
+          <b>
+            <font color="{{colorCode(getBuild().wi, -1 , 1)}}">
+              {{getBuild().wi > 0 && '+' || ''}}{{getBuild().wi}}
+            </font>
+          </b>
+        </li>
+      </ul>
+    </td>
+    <td rowspan="3">
+      <button type="button" class="btn btn-success" ng-click="rerollBuild()" ng-disabled="!player.helpers.rerolls">
+        K&ouml;rperbau neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hautfarbe: <b>{{player.appearance.skin}}</b>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollSkin()" ng-disabled="!player.helpers.rerolls">
+        Hautfarbe neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Augenfarbe: <b>{{player.appearance.eyes}}</b>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollEyes()" ng-disabled="!player.helpers.rerolls">
+        Augenfarbe neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Haarfarbe: <b>{{player.appearance.hair}}</b>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollHair()" ng-disabled="!player.helpers.rerolls">
+        Haarfarbe neu ausw&uuml;rfeln
+      </button>
+    </td>
+    <td colspan="2">
+      (Wiederholungsw&uuml;rfe: <b>{{player.helpers.rerolls}}</b>)
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      Weissagung:
+      <b>{{player.general.divination}}</b>
+      <ul>
+        <li ng-show="getDivination().corruption">
+          Korruption:
+          <b>
+            <font color="red">
+              +{{getDivination().corruption}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().madness">
+          Wahnsinn:
+          <b>
+            <font color="red">
+              +{{getDivination().madness}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().fate">
+          Schicksalspunkte:
+          <b>
+            <font color="{{colorCode(getDivination().fate, -1 , 1)}}">
+              {{getDivination().fate > 0 && '+' || ''}}{{getDivination().fate}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().wounds">
+          Lebenspunkte:
+          <b>
+            <font color="{{colorCode(getDivination().wounds, -1 , 1)}}">
+              {{getDivination().wounds > 0 && '+' || ''}}{{getDivination().wounds}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().bf">
+          Ballistische Fertigkeit:
+          <b>
+            <font color="{{colorCode(getDivination().bf, -1 , 1)}}">
+              {{getDivination().bf > 0 && '+' || ''}}{{getDivination().bf}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().ch">
+          Charisma:
+          <b>
+            <font color="{{colorCode(getDivination().ch, -1 , 1)}}">
+              {{getDivination().ch > 0 && '+' || ''}}{{getDivination().ch}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().ge">
+          Gewandtheit:
+          <b>
+            <font color="{{colorCode(getDivination().ge, -1 , 1)}}">
+              {{getDivination().ge > 0 && '+' || ''}}{{getDivination().ge}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().in">
+          Intelligenz:
+          <b>
+            <font color="{{colorCode(getDivination().in, -1 , 1)}}">
+              {{getDivination().in > 0 && '+' || ''}}{{getDivination().in}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().kg">
+          Kampfgeschick:
+          <b>
+            <font color="{{colorCode(getDivination().kg, -1 , 1)}}">
+              {{getDivination().kg > 0 && '+' || ''}}{{getDivination().kg}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().st">
+          St&auml;rke:
+          <b>
+            <font color="{{colorCode(getDivination().st, -1 , 1)}}">
+              {{getDivination().st > 0 && '+' || ''}}{{getDivination().st}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().wa">
+          Wahrnehmung:
+          <b>
+            <font color="{{colorCode(getDivination().wa, -1 , 1)}}">
+              {{getDivination().wa > 0 && '+' || ''}}{{getDivination().wa}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().wi">
+          Widerstandskraft:
+          <b>
+            <font color="{{colorCode(getDivination().wi, -1 , 1)}}">
+              {{getDivination().wi > 0 && '+' || ''}}{{getDivination().wi}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="getDivination().wk">
+          Willenskraft:
+          <b>
+            <font color="{{colorCode(getDivination().wk, -1 , 1)}}">
+              {{getDivination().wk > 0 && '+' || ''}}{{getDivination().wk}}   
+            </font>
+          </b>
+        </li>
+      </ul>
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({})">
+        Auswahl best&auml;tigen
+      </button>
+    </td>
+  </tr>
+</table>
+

@@ -1,0 +1,14 @@
+<div id="dialog-charaktererschaffung" class="content">
+  <p>
+    <h5>Willkommen bei Dark Heresy Online!</h5>
+    <br />
+    Da du neu hier bist besteht dein erster Schritt in der Erstellung deines Charakters. Folge dazu den hier erläuterten Schritten, um die Herkunft, Fähigkeiten und das Erscheinungsbild deines Charakters zu individualisieren.
+    <br />
+    An vielen Stellen der Charaktererstellung werden Eigenschaftsausprägung zufällig ermittelt. Du hast hier die Möglichkeit das Ergebnis zu wiederholen, musst das neue Resultat dann jedoch beibehalten.
+    <br />
+    Du kannst den Prozess der Charaktererstellung jederzeit unterbrechen und später zurückkehren. Dein Fortschritt wird nach jedem Schritt gespeichert.
+  </p>
+  <div ng-repeat="n in range(0, 3)" ng-include="'dialogs/charaktererschaffung-sub/step-' + n" ng-show="player.helpers.creationStep == n"></div>
+  <div ng-repeat="n in range(10, 10)" ng-include="'dialogs/charaktererschaffung-sub/step-' + n" ng-show="player.helpers.creationStep == n"></div>
+  <div ng-include="'dialogs/charaktererschaffung-sub/step-100'" ng-show="player.helpers.creationStep == 100"></div>
+</div>

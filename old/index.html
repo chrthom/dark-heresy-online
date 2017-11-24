@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="dhonline">
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	  <meta http-equiv='imagetoolbar' content='no' />
+	  <title>Dark Heresy Online</title>
+	  <link rel="stylesheet" href="style/jquery-ui-1.10.3.custom.css" type="text/css" />
+	  <link rel="stylesheet" href="style/core.css" type="text/css" />
+	  <link rel="stylesheet" href="style/buttons.css" type="text/css" />
+	  <link rel="stylesheet" href="style/dhonline.css" type="text/css" />
+	  <script src="js/lib/angular.min.js" type="text/javascript"></script>
+	  <script src="js/lib/angular.resource.min.js" type="text/javascript"></script>
+	  <script src="js/lib/jquery-1.9.1.js" type="text/javascript"></script>
+	  <script src="js/lib/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
+	  <script src="js/common.js" type="text/javascript"></script>
+	  <script src="js/characterGeneration.js" type="text/javascript"></script>
+	  <script src="js/models.js" type="text/javascript"></script>
+	  <script src="js/controller.js" type="text/javascript"></script>
+	</head>
+	<body ng-controller="CoreCtrl">
+	  <!-- Layout -->
+	  <div ng-include src="'layout'"></div>
+	  <!-- Dialogs -->
+	  <div id="dialogs">
+	    <div ng-repeat="(key, data) in menus" ng-include src="'dialogs/' + key.toLowerCase()"></div>
+	    <div ng-include src="'dialogs/charaktererschaffung'"></div>
+	    <div ng-include src="'dialogs/data-info'"></div>
+	  </div>
+	  <!--
+	    <p>Age: {{conf.age["Imperiale Welt"][0]}}</p>
+	    <p>Armour: {{conf.armour["Stahlhelm"]}}</p>
+	    <p>Build: {{conf.build.attributes["fit"]}}</p>
+	    <p>Careers: {{conf.careers["Adept"].skills}}</p>
+	    <p>Colouration: {{conf.colouration["Urzeitwelt"].hair}}</p>
+	    <p>Divination: {{conf.divination[43]}}</p>
+	    <p>Homeworlds: {{conf.homeworlds.attributes["Imperiale Welt"]}}</p>
+	    <p>Melee Weapons: {{conf.meleeweapons["Axt"]}}</p>
+	    <p>Missle Weapons: {{conf.missileweapons["Laserpistole"]}}</p>
+	    <p>Ranks: {{conf.ranks["Magister"]}}</p>
+	    <p>Skills: {{conf.skills["Akrobatik"]}}</p>
+	    <p>Social Classes: {{conf.socialclasses["Ausgestoßene"]}}</p>
+	    <p>Traits: {{conf.traits["Blind kämpfen"]}}</p>
+	  -->
+	</body>
+</html>

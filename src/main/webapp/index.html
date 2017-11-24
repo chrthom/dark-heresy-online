@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="dh">
+    <head lang="de">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link rel="shortcut icon" type="image/x-icon" href="style/images/favicon.png">
+        <link rel="stylesheet" type="text/css" href="style/lib/ionic.min.css" />
+        <link rel="stylesheet" type="text/css" href="style/dh.css" />
+        <title>Dark Heresy Online</title>
+    </head>
+    <body ng-controller="dhMain">
+        <ion-side-menus>
+            <ion-side-menu-content>
+                <ion-header-bar class="bar bar-assertive">
+                    <div class="buttons">
+                        <button class="button icon ion-navicon-round" menu-toggle="left"></button>
+                    </div>
+                    <h1 class="title">{{pageTitle}}</h1>
+                </ion-header-bar>
+                <ion-content>
+                    <div id="content-view" ng-view></div>
+                </ion-content>
+            </ion-side-menu-content>
+            <ion-side-menu side="left">
+                <ion-header-bar class="bar bar-assertive">
+                    <h1 class="title">Men&uuml;</h1>
+                </ion-header-bar>
+                <ion-content>
+                    <ion-list>
+                        <a class="item" href="#/" menu-toggle="left">&Uuml;bersicht</a>
+                        <a class="item" href="#/profile" menu-toggle="left">Profil</a>
+						<a class="item" href="#/inventory" menu-toggle="left">Inventar</a>
+                    </ion-list>
+                </ion-content>
+            </ion-side-menu>
+        </ion-side-menus>
+        <script src="js/lib/ionic.bundle.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.3/angular-route.min.js"></script>
+        <script src="js/service_config.js"></script>
+        <script src="js/config_age.js"></script>
+        <script src="js/service_profile.js"></script>
+        <script src="js/module_home.js"></script>
+        <script src="js/module_profile.js"></script>
+        <script src="js/module_inventory.js"></script>
+        <script src="js/module_onboarding.js"></script>
+        <script src="js/dh.js"></script>
+    </body>
+</html>

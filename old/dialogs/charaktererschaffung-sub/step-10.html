@@ -1,0 +1,100 @@
+<p><h2>Schritt 5 - Sanktionierung &amp; Psikr&auml;fte</h2></p>
+<p>
+  Als psionisch begabte Person hat man <i>{{player.name}}</i> auf den Schwarzen Schiffen aufs geheiligte Terra gebracht. 
+  <br />
+  Dort haben Agenten des Goldenen Throns mit allerlei feierlichen, profunden, und sehr schmerzhaften Ritualen, die die Widerstandskraft von <i>{{player.name}}s</i> Seele gegen die psychischen Raubtiere des Warp pr&uuml;fen sollten, die Sanktionierung durchgef&uuml;hrt.
+  <br />
+  Diese Sanktionierung hat <i>{{player.name}}</i> Jahre seines Lebens gekostet und blieb nicht ohne Nebenwirkung.
+  <br />
+  Als unerfahrener Psioniker verfügt <i>{{player.name}}</i> bereits &uuml;ber einige geringere Psikr&auml;fte und wurde einer Disziplin der Scholastica Psykana zugeordnet.
+</p>
+<table>
+  <tr>
+    <td>
+      Nebenwirkungen der Sanktionierung:
+      <b>{{player.general.sanction.name}}</b>
+      <p>{{player.general.sanction.text}}</p>
+      <ul>
+        <li ng-show="player.general.sanction.trait">
+          Merkmal:
+          <b>
+            {{player.general.sanction.trait}}
+          </b>
+        </li>
+        <li ng-show="player.general.sanction.thrones">
+          Startkapital in Thronen:
+          <b>
+            <font color="green">
+              +{{player.general.sanction.thrones}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="player.general.sanction.madness">
+          Wahnsinn:
+          <b>
+            <font color="red">
+              +{{player.general.sanction.madness}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="player.general.sanction.ch">
+          Charisma:
+          <b>
+            <font color="{{colorCode(player.general.sanction.ch, -1 , 1)}}">
+              {{player.general.sanction.ch > 0 && '+' || ''}}{{player.general.sanction.ch}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="player.general.sanction.in">
+          Intelligenz:
+          <b>
+            <font color="{{colorCode(player.general.sanction.in, -1 , 1)}}">
+              {{player.general.sanction.in > 0 && '+' || ''}}{{player.general.sanction.in}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="player.general.sanction.wi">
+          Widerstandskraft:
+          <b>
+            <font color="{{colorCode(player.general.sanction.wi, -1 , 1)}}">
+              {{player.general.sanction.wi > 0 && '+' || ''}}{{player.general.sanction.wi}}   
+            </font>
+          </b>
+        </li>
+        <li ng-show="player.general.sanction.wk">
+          Charisma:
+          <b>
+            <font color="{{colorCode(player.general.sanction.wk, -1 , 1)}}">
+              {{player.general.sanction.wk > 0 && '+' || ''}}{{player.general.sanction.wk}}   
+            </font>
+          </b>
+        </li>
+      </ul>
+    </td>
+    <td ng-init="form.psipowers = []">
+      <h4>Anfangs-Psikr&auml;fte</h4>
+      <p ng-repeat="i in range(0, player.characteristics.wk / 13)">
+        <select ng-model="form.psipowers[$index]" ng-init="form.psipowers[$index] = conf.psi[i]"
+            ng-options="choice as choice.name for choice in conf.psi | filter:'Geringere Psikraft'">
+        </select>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4>Scholastica Psykana</h4>
+      <p>
+        <select ng-model="form.scholastica" ng-init="form.scholastica = keys(conf.scholastica)[0]">
+          <option ng-repeat="(choice, ranks) in conf.scholastica">{{choice}}</option>
+        </select>
+        im Rang <b>{{conf.scholastica[form.scholastica][0]}}</b>
+      </p>
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({})">
+        Auswahl best&auml;tigen
+      </button>
+    </td>
+  </tr>
+</table>
+

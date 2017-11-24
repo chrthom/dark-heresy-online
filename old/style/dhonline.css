@@ -1,0 +1,226 @@
+.bg-upper-left,.bg-upper-mid,.bg-upper-right,.bg-right,.bg-left,
+.bg-left-mid,.bg-lower-left,.bg-lower-mid,.bg-lower-right,
+.header,.display-group-mental,.logo-imperium,.logo-inquisition,.credits,
+.menu-main,.menu-small,.menu-sub {
+  position: absolute;
+}
+
+.bg-upper-left {
+  top: 0;
+  left: 0;
+  height: 44px;
+  width: 500px;
+  background-image: url("img/bg-upper-left.png");
+}
+
+.bg-upper-mid {
+  top: 0;
+  left: 500px;
+  height: 6px;
+  width: -moz-calc(100% - 710px);
+	width: -webkit-calc(100% - 710px);
+	width: calc(100% - 710px);
+  background-image: url("img/bg-fill-horizontal.png");
+}
+
+.bg-upper-right {
+  top: 0;
+  right: 0;
+  height: 170px;
+  width: 210px;
+  background-image: url("img/bg-upper-right.png");
+}
+
+.bg-right {
+  bottom: 210px;
+  right: 0;
+  height: 240px;
+  width: 37px;
+  background-image: url("img/bg-right.png");
+  padding: 110px 5px 0 18px;
+}
+
+.bg-left {
+  top: 140px;
+  left: 0;
+  height: 115px;
+  width: 18px;
+  background-image: url("img/bg-left.png");
+  padding: 55px 0 0 42px;
+}
+
+.bg-left-mid {
+  top: 310px;
+  left: 0;
+  height: -moz-calc(100% - 840px);
+	height: -webkit-calc(100% - 840px);
+	height: calc(100% - 840px);
+  width: 45px;
+  background-image: url("img/bg-fill-vertical.png");
+}
+
+.bg-lower-left {
+  bottom: 0;
+  left: 0;
+  height: 530px;
+  width: 200px;
+  background-image: url("img/bg-lower-left.png");
+}
+
+.bg-lower-mid {
+  bottom: 0;
+  left: 200px;
+  height: 6px;
+  width: -moz-calc(100% - 700px);
+	width: -webkit-calc(100% - 700px);
+	width: calc(100% - 700px);
+  background-image: url("img/bg-fill-horizontal.png");
+}
+
+.bg-lower-right {
+  bottom: 0;
+  right: 0;
+  height: 170px;
+  width: 500px;
+  background-image: url("img/bg-lower-right.png");
+}
+
+.header {
+  top: 10px;
+  left: 86px;
+  height: 55px;
+  width: 138px;
+  background-image: url("img/bg-header.png");
+  padding: 2px 8px 3px 14px;
+}
+
+.header td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.display-group-mental {
+  top: 180px;
+  right: 7px;
+}
+
+.logo-imperium,.logo-inquisition {
+  top: 2px;
+  left: 8px;
+  height: 90px;
+  width: 90px;
+}
+
+.logo-imperium {
+  background-image: url("img/logo-imperium.png");
+}
+
+.logo-inquisition {
+  background-image: url("img/logo-inquisition.png");
+}
+
+.credits {
+  top: 310px;
+  left: 30px;
+  height: 120px;
+  width: 10px;
+  background-image: url("img/credits.png");
+}
+
+.menu-main {
+  top: 175px;
+  left: 65px;
+}
+
+.menu-main-entry {
+  height: 29px;
+  width: 94px;
+  background-image: url("img/menu-button-main.png");
+  padding: 6px 0 0 11px;
+}
+
+.menu-main-entry:hover,.menu-main-entry.opened {
+  background-position: -106px;
+}
+
+.menu-main-entry.active {
+  background-position: -211px;
+}
+
+.menu-small {
+  top: 10px;
+  right: 180px;
+  text-align: right;
+}
+
+.menu-small-entry {
+  float: left;
+  min-height: 23px;
+  width: 66px;
+  background-image: url("img/menu-button-small.png");
+  background-repeat: no-repeat;
+  text-align: left;
+  padding: 2px 2px 0 7px;
+}
+
+.menu-small-entry:hover,.menu-small-entry.opened {
+  background-position: -76px 0;
+}
+
+.menu-small-entry.active {
+  background-position: -151px 0;
+}
+
+.menu-small-entry p {
+  text-align: right;
+}
+
+.menu-small-entry p:hover,.menu-small-entry p.active {
+  background-color: #444;
+}
+
+.menu-sub {
+  bottom: 180px;
+  left: -52px;
+}
+
+.menu-sub div {
+  float: left;
+  padding: 0 3px;
+}
+
+.side-display-box {
+  height: 26px;
+  width: 28px;
+  background-image: url("img/side-display-box.png");
+  padding: 9px 0 0 7px;
+}
+
+.shaded:hover,.shaded.active {
+  background-color: #444;
+}
+
+.damage-bar {
+  position: absolute;
+  right: 5px;
+  width: 16px;
+}
+
+.gold-indicator {
+  color: #171717;
+  background-color: #886633;
+  opacity: 0.5;
+  width: 16px;
+  text-align: center;
+  margin: 3px 0;
+}
+
+.gold-indicator.active {
+  opacity: 1;
+}
+
+.symbol-heart {
+  width: 16px;
+  height: 14px;
+  background-image: url("img/heart.png");
+}

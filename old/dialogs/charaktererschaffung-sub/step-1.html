@@ -1,0 +1,167 @@
+<p><h2>Schritt 2 - Karriere &amp; Grundprofil</h2></p>
+<p>
+  Basierend auf <i>{{player.name}}s</i> Herkunftsszenario <b>{{player.general.homeworld}}</b> wurde ein zuf&auml;lliges Charakterprofil und eine der m&ouml;glichen Karrierepfade ausgew&uuml;rfelt.
+  <br />
+  Du hast die M&ouml;glichkeit einen von <i>{{player.name}}s</i> Profilwerten neu auszuw&uuml;rfeln. Ebenso kannst du den Karrierepfad bis zu zwei mal neu auswürfeln lassen.
+</p>
+<table>
+  <tr>
+    <td rowspan="9">
+      <img src="style/img/careers/{{fileFormat(player.general.career)}}_{{player.general.gender}}" />
+    </td>
+    <td>Kampfgeschick</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.kg, getScenario().kg + 6, getScenario().kg + 12)}}">
+          {{player.characteristics.kg}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('kg')" ng-disabled="!player.helpers.characteristicsRerolls">
+        Kampfgeschick neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>Ballistische Fertigkeit</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.bf, getScenario().bf + 6, getScenario().bf + 12)}}">
+          {{player.characteristics.bf}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('bf')" ng-disabled="!player.helpers.characteristicsRerolls">
+        Ballistische Fertigkeit neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>St&auml;rke</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.st, getScenario().st + 6, getScenario().st + 12)}}">
+          {{player.characteristics.st}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('st')" ng-disabled="!player.helpers.characteristicsRerolls">
+        St&auml;rke neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>Widerstandskraft</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.wi, getScenario().wi + 6, getScenario().wi + 12)}}">
+          {{player.characteristics.wi}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('wi')" ng-disabled="!player.helpers.characteristicsRerolls">
+        Widerstandskraft neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>Gewandtheit</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.ge, getScenario().ge + 6, getScenario().ge + 12)}}">
+          {{player.characteristics.ge}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('ge')" ng-disabled="!player.helpers.characteristicsRerolls">
+        Gewandtheit neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>Intelligenz</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.in, getScenario().in + 6, getScenario().in + 12)}}">
+          {{player.characteristics.in}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('in')" ng-disabled="!player.helpers.characteristicsRerolls">
+        Intelligenz neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>Wahrnehmung</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.wa, getScenario().wa + 6, getScenario().wa + 12)}}">
+          {{player.characteristics.wa}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('wa')" ng-disabled="!player.helpers.characteristicsRerolls">
+        Wahrnehmung neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>Willenskraft</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.wk, getScenario().wk + 6, getScenario().wk + 12)}}">
+          {{player.characteristics.wk}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('wk')" ng-disabled="!player.helpers.characteristicsRerolls">
+        Willenskraft neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>Charisma</td>
+    <td>
+      <h4>
+        <font color="{{colorCode(player.characteristics.ch, getScenario().ch + 6, getScenario().ch + 12)}}">
+          {{player.characteristics.ch}}
+        </font>
+      </h4>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success" ng-click="rerollCharacteristics('ch')" ng-disabled="!player.helpers.characteristicsRerolls">
+        Charisma neu ausw&uuml;rfeln
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      Karrierepfad: <b>{{player.general.career}}</b>
+      (Wiederholungsw&uuml;rfe: <b>{{player.helpers.careerRerolls}}</b>)
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4">
+    <div class="btn-group">
+        <button type="button" class="btn btn-warning" ng-click="rerollCareer()" ng-disabled="!player.helpers.careerRerolls">
+          Karriere neu auswürfeln
+        </button>
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-' + player.general.career, true)">
+          Informationen zu Karrierepfad {{player.general.career}}
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="characterGeneration({})">
+          Karrierepfad {{player.general.career}} &amp; Profil akzeptieren
+        </button>
+      </div>
+    </td>
+  </tr>
+</table>

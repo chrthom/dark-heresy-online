@@ -1,0 +1,190 @@
+<p><h2>Schritt 1 - Herkunft</h2></p>
+<p>
+  Bitte gebe deinem Charakter einen Namen und wähle sein Herkunftsszenario aus. Bei der Auswahl der Herkunft kannst du entweder eine der 4 Standardszenarien wählen oder deine Herkunft zukünftig wählen lassen.
+  <br />
+  Letzteres gibt dir die Möglichkeit weitere nicht direkt auswählbare Szenarien zu spielen. Die zufällige Auswahl des Szenarios kann jedoch nicht wiederholt werden.
+  <br />
+  Eventuell sind für dich auch weitere individuelle Spezialszenarios freigeschaltet. Diese haben eine vordefinierte Vorgeschichte und weniger Auswahlmöglichkeiten.
+</p>
+<table>
+  <tr>
+    <td><h3>Charaktername</h3></td>
+    <td><input ng-model="player.name" placeholder="unbekannt" ng-pattern="/[A-Z][A-Za-z -]{1,15} [A-Z][A-Za-z -]{1,15}/" title="Der Charaktername muss mindestens aus einem Vor- und einen Nachnamen bestehen. Beide Namensbausteine müssen mit einem Großbuchstaben beginnen. Alle Namensbestandteile müssen zwischen 2 und 15 Zeichen lang sein. Bis auf einen Bindestrich sind keine SOnderzeichen erlaubt." /></td>
+    <td><h3>Geschlecht</h3></td>
+    <td><input value="{{abbr[player.general.gender]}}" readonly /></td>
+  </tr>
+  <tr>
+    <td colspan="4"><h3>Herkunftsszenario</h3></td>
+  </tr>
+  <tr>
+    <td>
+      <p><h4>Makropolb&uuml;rger</h4></p>
+      <p><img src="style/img/homeworlds/makropolenwelt.jpg" ng-click="openDialog('Info-Makropolenbürger', true)" /></p>
+      <p>Geburtsort:<p>
+      <ul>
+        <li>Sektor: Neu-Triest</li>
+        <li>System: Jolis</li>
+        <li>Planet: Jolis</li>
+        <li>Klassifizierung: Makropolenwelt</li>
+        <li>Makropole: K&uuml;stwach</li>
+      </ul>
+      <p>Mögliche Karrierepfade<br />(absteigend nach Wahrscheinlichkeit):</p>
+      <ul>
+        <li>Abschaum</li>
+        <li>Arbitrator</li>
+        <li>Soldat</li>
+        <li>Kleriker</li>
+        <li>Imperialer Psioniker</li>
+        <li>Assassine</li>
+        <li>Techpriester</li>
+      </ul>
+      <p>Verfügbare Erfahrung: <b>400 EP</b></p>
+    </td>
+    <td>
+      <p><h4>Stammesmitglied</h4></p>
+      <p><img src="style/img/homeworlds/urzeitwelt.jpg" ng-click="openDialog('Info-Urzeitweltler', true)" /></p>
+      <p>Geburtsort:<p>
+      <ul>
+        <li>Sektor: Neu-Triest</li>
+        <li>System: Jolis</li>
+        <li>Planet: Everon</li>
+        <li>Klassifizierung: Feudalwelt</li>
+        <li>Herzogtum: Letazien</li>
+      </ul>
+      <p>Mögliche Karrierepfade<br />(absteigend nach Wahrscheinlichkeit):</p>
+      <ul>
+        <li>Soldat</li>
+        <li>Assassine</li>
+        <li>Abschaum</li>
+        <li>Imperialer Psioniker</li>
+      </ul>
+      <p>Verfügbare Erfahrung: <b>400 EP</b></p>
+    </td>
+    <td>
+      <p><h4>Imperialer B&uuml;rger</h4></p>
+      <p><img src="style/img/homeworlds/imperialewelt.jpg" ng-click="openDialog('Info-Imperialer-Bürger', true)" /></p>
+      <p>Geburtsort:<p>
+      <ul>
+        <li>Sektor: Neu-Triest</li>
+        <li>System: Jolis</li>
+        <li>Planet: Velos</li>
+        <li>Klassifizierung: Agrarwelt</li>
+        <li>Verwaltungsdistrikt: Kappa-08</li>
+      </ul>
+      <p>Mögliche Karrierepfade<br />(absteigend nach Wahrscheinlichkeit):</p>
+      <ul>
+        <li>Soldat</li>
+        <li>Kleriker</li>
+        <li>Adept</li>
+        <li>Abschaum</li>
+        <li>Arbitrator</li>
+        <li>Assassine</li>
+        <li>Imperialer Psioniker</li>
+        <li>Techpriester</li>
+      </ul>
+      <p>Verfügbare Erfahrung: <b>400 EP</b></p>
+    </td>
+    <td>
+      <p><h4>Besatzungsmitglied</h4></p>
+      <p><img src="style/img/homeworlds/kindderleere.jpg" ng-click="openDialog('Info-Besatzungsmitglied', true)" /></p>
+      <p>Geburtsort:<p>
+      <ul>
+        <li>Sektor: Neu-Triest</li>
+        <li>System: Obis Major</li>
+        <li>Flotte: Damokles Grenzflottille</li>
+        <li>Schiff: Albatros</li>
+        <li>Klassifizierung: Diktator Kreuzer</li>
+      </ul>
+      <p>Mögliche Karrierepfade<br />(absteigend nach Wahrscheinlichkeit):</p>
+      <ul>
+        <li>Adept</li>
+        <li>Arbitrator</li>
+        <li>Imperialer Psioniker</li>
+        <li>Abschaum</li>
+        <li>Techpriester</li>
+        <li>Kleriker</li>
+        <li>Assassine</li>
+      </ul>
+      <p>Verfügbare Erfahrung: <b>400 EP</b></p>
+    </td>
+    <td ng-repeat="scenario in user.scenarios">
+      <p><h4>{{scenario}}</h4></p>
+      <p><img src="style/img/homeworlds/{{scenario.toLowerCase()}}.jpg" /></p>
+      <p>Geburtsort:</p>
+      <ul>
+        <li ng-repeat="origin in conf.specialcharacters[scenario].origin">
+          {{origin}}
+        </li>
+      </ul>
+      <div ng-show="conf.specialcharacters[scenario].careers.length > 1">
+        <p>Mögliche Karrierepfade<br />(absteigend nach Wahrscheinlichkeit):</p>
+        <ul>
+          <li ng-repeat="career in conf.specialcharacters[scenario].careers">
+            {{career}}
+          </li>
+        </ul>
+      </div>
+      <div ng-show="conf.specialcharacters[scenario].careers.length == 1">
+        <p>Karrierepfad: {{conf.specialcharacters[scenario].careers[0]}}</p>
+      </div>
+      <p>Spezialszenario:</p>
+      <p>{{conf.specialcharacters[scenario].description}}</p>
+      <p>Verfügbare Erfahrung: <b>{{400 - conf.specialcharacters[scenario].costs}} EP</b></p>
+    </td>
+    <td>
+      <p><h4>Zufälliges Szenario</h4></p>
+      <p><img src="style/img/homeworlds/random.jpg" /></p>
+      <p>Mögliche Szenarien<br />(absteigend nach Wahrscheinlichkeit):</p>
+      <ul>
+        <li>B&uuml;rger der Makropolenwelt</li>
+        <li>B&uuml;rder der Imperialen Welt</li>
+        <li>Stammesmitglied der Feudalwelt</li>
+        <li>Mitglied der Grenzflottille</li>
+        <li>Absolvent der Schola Progenium</li>
+        <li>Arbeiter der Fabrikwelt Fornax</li>
+        <li>Spr&ouml;ssling eines Adelshauses</li>
+        <li>Gel&ouml;schte Erinnerung</li>
+      </ul>
+      <p>Verfügbare Erfahrung: <b>400 EP</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({homeworld : 'Makropolenwelt'})" ng-disabled="!player.name">Als Makropolb&uuml;rger spielen</button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({homeworld : 'Urzeitweltwelt'})" ng-disabled="!player.name">Als Stammesmitglied spielen</button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({homeworld : 'Imperiale Welt'})" ng-disabled="!player.name">Als Imperialer B&uuml;rger spielen</button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({homeworld : 'Kinder der Leere'})" ng-disabled="!player.name">Als Besatzungsmitglied spielen</button>
+    </td>
+    <td ng-repeat="scenario in user.scenarios">
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({homeworld : scenario, special : true})" ng-disabled="!player.name">Als {{scenario}} spielen</button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" ng-click="characterGeneration({})" ng-disabled="!player.name">Zufälliges Szenario spielen</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5">
+      <p><h3>Informationensdatenbank</h3></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-Adliger', true)">Adliger</button>
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-Besatzungsmitglied', true)">Besatzungsmitglied</button>
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-Fabrikweltarbeiter', true)">Fabrikweltarbeiter</button>
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-Gelöschte-Erinnerung', true)">Gel&ouml;schte Erinnerung</button>
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-Imperialer-Bürger', true)">Imperialer B&uuml;rger</button>
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-Makropolenbürger', true)">Makropolenb&uuml;rger</button>
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-Schola-Progenium', true)">Schola Progenium Absolvent</button>
+        <button type="button" class="btn btn-info" ng-click="openDialog('Info-Urzeitweltler', true)">Stammesmitglied</button>
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,104 @@
+<!-- Background shapes -->
+<div class="bg-upper-left"></div>
+<div class="bg-upper-mid"></div>
+<div class="bg-upper-right"></div>
+<div class="bg-right">
+  <small>Leben</small>
+  <div class="side-display-box">
+    <h3>{{player.stats.wounds}}</h3>
+  </div>
+  <br />
+  <small>Erschöpf.</small>
+  <div class="side-display-box">
+    <h3>{{player.stats.fatigue}}</h3>
+  </div>
+  <br />
+  <div class="gold damage-bar">
+    <div class="symbol-heart"></div>
+    <div class="gold-indicator {{injuryLevelActive(1, 2)}}">U</div>
+    <div class="gold-indicator {{injuryLevelActive(0.5, 1)}}">L</div>
+    <div class="gold-indicator {{injuryLevelActive(0, 0.5)}}">S</div>
+    <div class="gold-indicator {{injuryLevelActive(-9, 0)}}">K</div>
+  </div>
+</div>
+<div class="bg-left">
+  <div class="rotated">
+    <h5>{{active.menu.toUpperCase().substring(0, 13)}}</h5>
+  </div>
+</div>
+<div class="bg-left-mid"></div>
+<div class="bg-lower-left"></div>
+<div class="bg-lower-mid"></div>
+<div class="bg-lower-right"></div>
+<!-- 1st layer -->
+<div class="header">
+  <table>
+    <tr>
+      <td>
+        <h4>{{player.game.time}}</h4>
+      </td>
+      <td class="indicator" rowspan="2">
+        <h1>{{player.game.hoursLeft}}</h1>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h6>{{active.gameStatus}}</h6>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="shaded active">{{player.game.location}}</div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="display-group-mental">
+  <small>Schicksal</small>
+  <div class="side-display-box">
+    <h3>{{player.stats.fate}}/<span class="gold">{{player.progress.fate}}</span></h3>
+  </div>
+  <br />
+  <small>Wahn.</small>
+  <div class="side-display-box">
+    <h3>{{player.stats.madness}}</h3>
+  </div>
+  <br />
+  <small>Verderb.</small>
+  <div class="side-display-box">
+    <h3>{{player.stats.corruption}}</h3>
+  </div>
+</div>
+<!-- 2nd layer -->
+<div class="logo-imperium"></div>
+<div class="credits"></div>
+<!-- Menu -->
+<div class="menu-main">
+  <div class="menu-main-entry clickable" ng-class="menuIsActive(key)" 
+      ng-repeat="(key, data) in menus" ng-click="openDialog(key)">
+    <h2>{{10 * ($index + 1)}}</h2> <h5>{{key}}</h5>
+  </div>
+</div>
+<div class="menu-small">
+  <div class="menu-small-entry clickable" ng-class="menuIsActive(key)" 
+      ng-repeat="(key, data) in menus" ng-click="openDialog(key)">
+    <h3>{{10 * ($index + 1)}}</h3> <h6>{{key}}</h6>
+    <div class="small-space"></div>
+    <small>
+      <p class="shaded" ng-class="menuIsActive(submenu)" 
+          ng-repeat="submenu in data.submenus" ng-click="openDialog(submenu)">
+        {{submenu}} {{10 * ($parent.$index + 1) + $index + 1}}
+      </p>
+    </small>
+  </div>
+</div>
+<div class="menu-sub rotated">
+  <div class="menu-sub-entry" ng-repeat="(key, data) in menus">
+    <small>
+      <p class="shaded clickable" ng-class="menuIsActive(submenu)" 
+          ng-repeat="submenu in data.submenus" ng-click="openDialog(submenu)">
+        {{10 * ($parent.$index + 1) + $index + 1}} {{submenu}}
+      </p>
+    </small>
+  </div>
+</div>
