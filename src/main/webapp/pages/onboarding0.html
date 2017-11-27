@@ -1,2 +1,13 @@
-abcde<br />
-{{conf.armour}}<br />
+<h2>Willkommen bei Dark Heresy Online!</h2>
+<p>Da du neu hier bist besteht dein erster Schritt in der Erstellung deines Charakters. Folge dazu den hier erläuterten Schritten, um die Herkunft, Fähigkeiten und das Erscheinungsbild deines Charakters zu individualisieren.</p>
+<p>An vielen Stellen der Charaktererstellung werden Eigenschaftsausprägung zufällig ermittelt. Du hast hier die Möglichkeit das Ergebnis zu wiederholen, musst das neue Resultat dann jedoch beibehalten bzw. die Anzahl der Wiederholungen sind begrenzt.</p>
+<p>Gebe deinem Charakter zuerst einen Namen und best&auml;tige mit "Weiter".</p>
+<ion-list>
+    <label class="item item-input item-floating-label">
+        <span class="input-label">Name</span>
+        <input ng-model="onboarding.name" type="text" placeholder="Name">
+    </label>
+</ion-list>
+<a ng-click="proceed0()"
+        class="button button-assertive button-block icon-right ion-chevron-right"
+        ng-disabled="onboarding.name.length < 5 || !onboarding.name">Weiter</a>

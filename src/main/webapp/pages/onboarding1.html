@@ -1,2 +1,13 @@
-abcde<br />
-{{conf.armour}}<br />
+<h2>Schritt 1 - Herkunft</h2>
+<p>Bitte w&auml;hle ein Herkunftsszenario aus. Bei der Auswahl der Herkunft kannst du entweder eine der 4 Standardszenarien w&auml;hlen oder deine Herkunft zuk&uuml;nftig w&auml;hlen lassen.</p>
+<p>Letzteres gibt dir die M&ouml;glichkeit weitere nicht direkt ausw&auml;hlbare Szenarien zu spielen. Die zuf&auml;llige Auswahl des Szenarios kann jedoch nicht wiederholt werden.</p>
+<ion-list>
+    <ion-radio ng-model="onboarding.origin" ng-value="'Makropolenwelt'">Makropolb&uuml;rger</ion-radio>
+    <ion-radio ng-model="onboarding.origin" ng-value="'Imperiale Welt'">Imperialer B&uuml;rger</ion-radio>
+    <ion-radio ng-model="onboarding.origin" ng-value="'Urzeitwelt'">Stammesmitglied</ion-radio>
+    <ion-radio ng-model="onboarding.origin" ng-value="'Kinder der Leere'">Besatzungsmitglied</ion-radio>
+    <ion-radio ng-model="onboarding.origin" ng-value="'x'">Zuf&auml;lliges Szenario</ion-radio>
+</ion-list>
+<button ng-click="proceed1()"
+        class="button button-block button-assertive icon-right ion-chevron-right"
+        ng-diabled="onboarding.origin.length == 0 || !onboarding.origin">Weiter</button>

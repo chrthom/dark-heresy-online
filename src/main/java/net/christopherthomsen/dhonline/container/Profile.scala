@@ -10,7 +10,7 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   var movement: ProfileMovement = _
   var name: String = _
   var progress: ProfileProgress = _
-  var psipowers: List[String] = Nil
+  var psiPowers: List[String] = Nil
   var sanction: String = _
   var scholastica: IntTuple = _
   var skills: List[IntTuple] = Nil
@@ -56,9 +56,9 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
 
   def setProgress(progress: ProfileProgress): T = { this.progress = progress ; this.asInstanceOf[T] }
 
-  def getPsipowers: List[String] = psipowers
+  def getPsiPowers: List[String] = psiPowers
 
-  def setPsipowers(psipowers: List[String]): T = { this.psipowers = psipowers ; this.asInstanceOf[T] }
+  def setPsiPowers(psiPowers: List[String]): T = { this.psiPowers = psiPowers ; this.asInstanceOf[T] }
 
   def getSanction: String = sanction
 

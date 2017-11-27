@@ -21,7 +21,7 @@ config.homeworlds = {
   ],
   'attributes' : {
     'Urzeitwelt' : {
-      'basicskills' : [
+      'basicSkills' : [
         'Navigation (Oberfläche)',
         'Spuren lesen',
         'Überleben'
@@ -65,7 +65,7 @@ config.homeworlds = {
       ]
     },
     'Makropolenwelt' : {
-      'basicskills' : [
+      'basicSkills' : [
         'Tech-Gebrauch'
       ],
       'skills' : [
@@ -110,7 +110,7 @@ config.homeworlds = {
       ]
     },
     'Imperiale Welt' : {
-      'basicskills' : [
+      'basicSkills' : [
         'Allgemeinwissen (Imperium)',
         'Allgemeinwissen (Imperiale Religion)',
         'Allgemeinwissen (Krieg)',
@@ -156,7 +156,7 @@ config.homeworlds = {
       ]
     },
     'Kinder der Leere' : {
-      'basicskills' : [
+      'basicSkills' : [
         'Allgemeinwissen (Imperium)',
         'Allgemeinwissen (Imperiale Religion)',
         'Allgemeinwissen (Krieg)',
@@ -207,7 +207,7 @@ config.homeworlds = {
       ]
     },
     'Fabrikwelt' : {
-      'basicskills' : [
+      'basicSkills' : [
         'Allgemeinwissen (Tech)',
         'Allgemeinwissen (Maschinenkult)'
       ],
@@ -249,11 +249,10 @@ config.homeworlds = {
       'wounds' : 7,
       'fate' : [
         1, 1, 2, 2, 3
-      ],
-      'socialclass' : 'Arbeiter'
+      ]
     },
     'Gelöschtes Gedächtnis' : {
-      'basicskills' : [
+      'basicSkills' : [
         'Allgemeinwissen (Tech)',
         'Überleben'
       ],
@@ -299,7 +298,7 @@ config.homeworlds = {
       ]
     },
     'Adliger' : {
-      'basicskills' : [
+      'basicSkills' : [
         'Allgemeinwissen (Imperium)'
       ],
       'skills' : [
@@ -347,7 +346,7 @@ config.homeworlds = {
       'socialclass' : 'Adel'
     },
     'Schola Progenium' : {
-      'basicskills' : [
+      'basicSkills' : [
         'Allgemeinwissen (Administratum)',
         'Allgemeinwissen (Ekklesiarchie)',
         'Allgemeinwissen (Imperium)',
