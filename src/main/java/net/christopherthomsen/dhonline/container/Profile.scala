@@ -15,8 +15,8 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   var progress: ProfileProgress = _
   var psiPowers: JavaList[String] = _
   var sanction: String = _
-  var scholastica: IntTuple = _
-  var skills: JavaList[IntTuple] = _
+  var scholastica: NumericTuple = _
+  var skills: JavaList[NumericTuple] = _
   var socialClass: String = _
   var stats: ProfileStats = _
   var traits: JavaList[String] = _
@@ -71,13 +71,13 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
 
   def setSanction(sanction: String): T = { this.sanction = sanction ; this.asInstanceOf[T] }
 
-  def getScholastica: IntTuple = scholastica
+  def getScholastica: NumericTuple = scholastica
 
-  def setScholastica(scholastica: IntTuple): T = { this.scholastica = scholastica ; this.asInstanceOf[T] }
+  def setScholastica(scholastica: NumericTuple): T = { this.scholastica = scholastica ; this.asInstanceOf[T] }
 
-  def getSkills: JavaList[IntTuple] = skills
+  def getSkills: JavaList[NumericTuple] = skills
 
-  def setSkills(skills: JavaList[IntTuple]): T = { this.skills = skills ; this.asInstanceOf[T] }
+  def setSkills(skills: JavaList[NumericTuple]): T = { this.skills = skills ; this.asInstanceOf[T] }
 
   def getSocialClass: String = socialClass
 

@@ -47,7 +47,7 @@ abstract class RootContainer[T <: RootContainer[T]] extends Container {
 
   def getTimestamp: JavaLong = timestamp
 
-  def setTimestamp(timestamp: Long): T = {
+  def setTimestamp(timestamp: JavaLong): T = {
     this.timestamp = timestamp
     this.asInstanceOf[T]
   }
@@ -74,22 +74,22 @@ class StringTuple extends Container {
   }
 }
 
-class IntTuple extends Container {
+class NumericTuple extends Container {
   var key: String = _
-  var value: Int = _
+  var value: JavaLong = _
 
   override def indexed: Set[String] = Set[String]()
 
   def getKey: String = key
 
-  def setKey(key: String): IntTuple = {
+  def setKey(key: String): NumericTuple = {
     this.key = key
     this
   }
 
-  def getValue: Int = value
+  def getValue: JavaLong = value
 
-  def setValue(value: Int): IntTuple = {
+  def setValue(value: JavaLong): NumericTuple = {
     this.value = value
     this
   }

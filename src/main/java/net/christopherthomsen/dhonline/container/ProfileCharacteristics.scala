@@ -1,51 +1,53 @@
 package net.christopherthomsen.dhonline.container
 
+import java.lang.{Long => JavaLong}
+
 class ProfileCharacteristics extends Container {
-  var kg: Int = _
-  var bf: Int = _
-  var st: Int = _
-  var wi: Int = _
-  var ge: Int = _
-  var in: Int = _
-  var wa: Int = _
-  var wk: Int = _
-  var ch: Int = _
+  var kg: JavaLong = _
+  var bf: JavaLong = _
+  var st: JavaLong = _
+  var wi: JavaLong = _
+  var ge: JavaLong = _
+  var in: JavaLong = _
+  var wa: JavaLong = _
+  var wk: JavaLong = _
+  var ch: JavaLong = _
 
   override def indexed: Set[String] = Set()
 
-  def getKg: Int = kg
+  def getKg: JavaLong = kg
 
-  def setKg(kg: Int): ProfileCharacteristics = { this.kg = kg ; this }
+  def setKg(kg: JavaLong): ProfileCharacteristics = { this.kg = kg ; this }
 
-  def getBf: Int = bf
+  def getBf: JavaLong = bf
 
-  def setBf(bf: Int): ProfileCharacteristics = { this.bf = bf ; this }
+  def setBf(bf: JavaLong): ProfileCharacteristics = { this.bf = bf ; this }
 
-  def getSt: Int = st
+  def getSt: JavaLong = st
 
-  def setSt(st: Int): ProfileCharacteristics = { this.st = st ; this }
+  def setSt(st: JavaLong): ProfileCharacteristics = { this.st = st ; this }
 
-  def getWi: Int = wi
+  def getWi: JavaLong = wi
 
-  def setWi(wi: Int): ProfileCharacteristics = { this.wi = wi ; this }
+  def setWi(wi: JavaLong): ProfileCharacteristics = { this.wi = wi ; this }
 
-  def getGe: Int = ge
+  def getGe: JavaLong = ge
 
-  def setGe(ge: Int): ProfileCharacteristics = { this.ge = ge ; this }
+  def setGe(ge: JavaLong): ProfileCharacteristics = { this.ge = ge ; this }
 
-  def getIn: Int = in
+  def getIn: JavaLong = in
 
-  def setIn(in: Int): ProfileCharacteristics = { this.in = in ; this }
+  def setIn(in: JavaLong): ProfileCharacteristics = { this.in = in ; this }
 
-  def getWa: Int = wa
+  def getWa: JavaLong = wa
 
-  def setWa(wa: Int): ProfileCharacteristics = { this.wa = wa ; this }
+  def setWa(wa: JavaLong): ProfileCharacteristics = { this.wa = wa ; this }
 
-  def getWk: Int = wk
+  def getWk: JavaLong = wk
 
-  def setWk(wk: Int): ProfileCharacteristics = { this.wk = wk ; this }
+  def setWk(wk: JavaLong): ProfileCharacteristics = { this.wk = wk ; this }
 
-  def getCh: Int = ch
+  def getCh: JavaLong = ch
 
-  def setCh(ch: Int): ProfileCharacteristics = { this.ch = ch ; this }
+  def setCh(ch: JavaLong): ProfileCharacteristics = { this.ch = ch ; this }
 }
