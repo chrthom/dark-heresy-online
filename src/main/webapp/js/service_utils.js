@@ -1,5 +1,8 @@
 var utilsService = function() {
     return {
+        addOrUpdateArray: function(array, key, value) {
+            // TODO
+        },
         findName: function(name, target) {
           for (var i = 0; i < target.length; i++)
             if (target[i].name == name)

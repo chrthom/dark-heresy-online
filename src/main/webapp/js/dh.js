@@ -26,9 +26,9 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
         redirectTo: '/'
     })
 })
-.controller('dhMain', function($location, dhProfileConnector) {
+.controller('dhMain', function($location) {
     /*
-    dhProfileConnector.get(null, function(res) {
+    dhProfile.get(null, function(res) {
         if (res.status == 404) $location.path('/onboarding');
         else console.log('Ein Fehler ist aufgetreten. Bitte vesuchen sie es später erneut.\n\n' + res.statusText);
     });
@@ -37,6 +37,7 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
 .controller('dhHome', homeCtrl)
 .controller('dhOnboarding', onboardingCtrl)
 .controller('dhProfile', profileCtrl)
+.factory('dhAuth', authService)
 .factory('dhConfig', configService)
 .factory('dhProfile', profileService)
 .factory('dhUtils', utilsService);

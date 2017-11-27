@@ -3,11 +3,13 @@ var onboardingCtrl = function($scope, $location, dhConfig, dhProfile, dhUtils) {
     $scope.conf = dhConfig;
 
     $scope.onboarding = {};
-    var profile = dhProfileConnector;
+    $scope.profile = {};
+    dhProfile.get(function(res) { $scope.profile = res.data })
 
     $scope.proceed0 = function() {
         // Setup profile stub
-        profile = {
+        $scope.profile = {
+            username: 'test',
             appearance: null,
             career: null,
             characteristics: null,
@@ -17,38 +19,36 @@ var onboardingCtrl = function($scope, $location, dhConfig, dhProfile, dhUtils) {
             movement: null,
             name: null,
             progress: null,
-            psiPowers: null,
+            psiPowers: [],
             sanction: null,
             scholastica: null,
-            skills: null,
+            skills: [],
             socialClass: null,
             stats: null,
-            traits: null
+            traits: []
         };
         // Set character name
-        profile.name = $scope.onboarding.name;
-
-        //dhProfileConnector.set(profile);
-        $location.path('/onboarding/1');
+        $scope.profile.name = $scope.onboarding.name;
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/1') });
     };
 
     $scope.proceed1 = function() {
         // Set homeworld
-        profile.homeworld = $scope.onboarding.origin == 'x' ? dhUtils.getRandomElement($scope.conf.homeworlds.chances) : $scope.onboarding.origin;
-        var homeworld = $scope.conf.homeworlds.attributes[profile.homeworld];
+        $scope.profile.homeworld = $scope.onboarding.origin == 'x' ? dhUtils.getRandomElement($scope.conf.homeworlds.chances) : $scope.onboarding.origin;
+        var homeworld = $scope.conf.homeworlds.attributes[$scope.profile.homeworld];
         // Set starting skills for homeworld
-        profile.skills = {};
+        $scope.profile.skills = [];
         var i;
         for (i = 0; i < $scope.conf.basicSkills.length; i++)
-            profile.skills[$scope.conf.basicSkills[i]] = 0;
+            $scope.profile.skills.push({ key: $scope.conf.basicSkills[i], value: 0 });
         for (i = 0; i < homeworld.basicSkills.length; i++)
-            profile.skills[homeworld.basicSkills[i]] = 0;
+            $scope.profile.skills.push({ key: homeworld.basicSkills[i], value: 0 });
         for (i = 0; i < homeworld.skills.length; i++)
-            profile.skills[homeworld.skills[i]] = 1;
+            $scope.profile.skills.push({ key: homeworld.skills[i], value: 1 });
         // Set starting traits for homeworld
-        profile.traits = homeworld.traits;
+        $scope.profile.traits = homeworld.traits;
         // Set player base characteristics for homeworld
-        profile.characteristics = {
+        $scope.profile.characteristics = {
             'kg' : homeworld.kg + dhUtils.roll(10, 2),
             'bf' : homeworld.bf + dhUtils.roll(10, 2),
             'st' : homeworld.st + dhUtils.roll(10, 2),
@@ -60,20 +60,33 @@ var onboardingCtrl = function($scope, $location, dhConfig, dhProfile, dhUtils) {
             'ch' : homeworld.ch + dhUtils.roll(10, 2)
         };
         // If homeworld specifies socialClass, set it
-        if (homeworld.socialclass) profile.socialClass = homeworld.socialclass;
+        if (homeworld.socialclass) $scope.profile.socialClass = homeworld.socialclass;
         // Roll initial career
         rollCareer();
-
-        //dhProfileConnector.set(profile);
-        $location.path('/onboarding/2');
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/2') });
     };
 
     $scope.proceed2 = function() {
-        console.log(JSON.stringify(profile));
+        console.log(JSON.stringify($scope.profile));
+    };
+
+    $scope.getScenario = function() {
+        return $scope.conf.homeworlds.attributes[$scope.profile.homeworld];
+    };
+
+    $scope.colorCode = function(value, low, high) {
+        if (value <= low) return 'red';
+        else if (value < high) return 'orange';
+        return 'green';
+    };
+
+    $scope.rerollCharacteristics = function(characteristic) {
+        $scope.profile.characteristics[characteristic] = $scope.getScenario()[characteristic] + dhUtils.roll(10, 2);
+        $scope.onboarding.rerolledCharacteristic = true;
     };
 
     function rollCareer() {
-      profile.career = dhUtils.getRandomElement($scope.conf.homeworlds.attributes[profile.homeworld].careers);
-      if (profile.career == "Sororita" && profile.gender == "m") rollCareer();
+      $scope.profile.career = dhUtils.getRandomElement($scope.getScenario().careers);
+      if ($scope.profile.career == "Sororita" && $scope.profile.gender == "m") rollCareer();
     }
 };

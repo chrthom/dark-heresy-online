@@ -1,3 +1,19 @@
-<h2>Schritt 2 - Herkunft</h2>
+<h2>Schritt 2 - Karriere &amp; Grundprofil</h2>
+<p>Basierend auf <i>{{profile.name}}s</i> Herkunftsszenario <b>{{player.homeworld}}</b> wurde ein zuf&auml;lliges Charakterprofil und einer der m&ouml;glichen Karrierepfade ausgew&uuml;rfelt.</p>
+<p>Du hast die M&ouml;glichkeit einen von <i>{{player.name}}s</i> Profilwerten neu auszuw&uuml;rfeln. Ebenso kannst du den Karrierepfad bis zu zwei mal neu ausw&uuml;rfeln lassen.</p>
+<ion-list>
+    <div class="item item-divider">Profilwert neu w&uuml;rfeln</div>
+    <a class="item item-icon-left" ng-click="rerollCharacteristics('kg')" ng-disabled="onboarding.rerolledCharacteristic">
+        Kampfgeschick
+        <font color="{{colorCode(profile.characteristics.kg, getScenario().kg + 6, getScenario().kg + 12)}}" ng-bind="profile.characteristics.kg"></font>
+    </a>
+    <a class="item item-icon-left" ng-click="rerollCharacteristics('bf')" ng-disabled="onboarding.rerolledCharacteristic">
+        Ballistische Fertigkeit
+        <font color="{{colorCode(profile.characteristics.bf, getScenario().bf + 6, getScenario().bf + 12)}}" ng-bind="profile.characteristics.bf"></font>
+    </a>
+</ion-list>
+<button ng-click="proceed2()"
+        class="button button-block button-assertive icon-right ion-chevron-right">Weiter</button>
 
-<button ng-click="proceed2()" class="button button-block button-assertive icon-right ion-chevron-right">Weiter</button>
+<p>{{profile}}</p>
+<p>{{onboarding}}</p>

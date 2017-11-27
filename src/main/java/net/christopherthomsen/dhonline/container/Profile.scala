@@ -1,6 +1,9 @@
 package net.christopherthomsen.dhonline.container
 
+import java.util.{List => JavaList}
+
 abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
+  var username: String = _
   var appearance: ProfileAppearance = _
   var career: String = _
   var characteristics: ProfileCharacteristics = _
@@ -10,15 +13,19 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   var movement: ProfileMovement = _
   var name: String = _
   var progress: ProfileProgress = _
-  var psiPowers: List[String] = Nil
+  var psiPowers: JavaList[String] = _
   var sanction: String = _
   var scholastica: IntTuple = _
-  var skills: List[IntTuple] = Nil
+  var skills: JavaList[IntTuple] = _
   var socialClass: String = _
   var stats: ProfileStats = _
-  var traits: List[String] = Nil
+  var traits: JavaList[String] = _
 
-  override def indexed: Set[String] = Set()
+  override def indexed: Set[String] = Set("username")
+
+  def getUsername: String = username
+
+  def setUsername(username: String): T = { this.username = username ; this.asInstanceOf[T] }
 
   def getAppearance: ProfileAppearance = appearance
 
@@ -56,9 +63,9 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
 
   def setProgress(progress: ProfileProgress): T = { this.progress = progress ; this.asInstanceOf[T] }
 
-  def getPsiPowers: List[String] = psiPowers
+  def getPsiPowers: JavaList[String] = psiPowers
 
-  def setPsiPowers(psiPowers: List[String]): T = { this.psiPowers = psiPowers ; this.asInstanceOf[T] }
+  def setPsiPowers(psiPowers: JavaList[String]): T = { this.psiPowers = psiPowers ; this.asInstanceOf[T] }
 
   def getSanction: String = sanction
 
@@ -68,9 +75,9 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
 
   def setScholastica(scholastica: IntTuple): T = { this.scholastica = scholastica ; this.asInstanceOf[T] }
 
-  def getSkills: List[IntTuple] = skills
+  def getSkills: JavaList[IntTuple] = skills
 
-  def setSkills(skills: List[IntTuple]): T = { this.skills = skills ; this.asInstanceOf[T] }
+  def setSkills(skills: JavaList[IntTuple]): T = { this.skills = skills ; this.asInstanceOf[T] }
 
   def getSocialClass: String = socialClass
 
@@ -80,9 +87,9 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
 
   def setStats(stats: ProfileStats): T = { this.stats = stats ; this.asInstanceOf[T] }
 
-  def getTraits: List[String] = traits
+  def getTraits: JavaList[String] = traits
 
-  def setTraits(traits: List[String]): T = { this.traits = traits ; this.asInstanceOf[T] }
+  def setTraits(traits: JavaList[String]): T = { this.traits = traits ; this.asInstanceOf[T] }
 }
 
 class Profile extends ProfileBase[Profile]
