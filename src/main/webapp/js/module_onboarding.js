@@ -81,7 +81,8 @@ var onboardingCtrl = function($scope, $location, dhConfig, dhProfile, dhUtils) {
     };
 
     $scope.rerollCharacteristics = function(characteristic) {
-        $scope.profile.characteristics[characteristic] = $scope.getScenario()[characteristic] + dhUtils.roll(10, 2);
+        if (!$scope.onboarding.rerolledCharacteristic)
+            $scope.profile.characteristics[characteristic] = $scope.getScenario()[characteristic] + dhUtils.roll(10, 2);
         $scope.onboarding.rerolledCharacteristic = true;
     };
 
