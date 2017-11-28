@@ -3,6 +3,9 @@ var utilsService = function() {
         addOrUpdateArray: function(array, key, value) {
             // TODO
         },
+        fileFormat: function(name) {
+            return name.toLowerCase().replace(" ", "_");
+        },
         findName: function(name, target) {
           for (var i = 0; i < target.length; i++)
             if (target[i].name == name)

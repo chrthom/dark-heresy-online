@@ -1,6 +1,9 @@
 config.careers = {
   'Abschaum' : {
     'rank' : 'Herumtreiber',
+    'description' : 'Schon immer sammelte sich das Treibgut menschlicher Gesellschaften an den finstersten Orten, wuchs, blühte und gedieh. Das Imperium ist gewaltig, und es ist unendlich schwer, in ihm zu überleben, weswegen die Unerwünschten und die, um die sich keiner kümmert, an den unwahrscheinlichsten und unwirtlichsten Orten dahinvegetieren - oder gedeihen. Die Unterweltmakropolen, verlassene Habs und sogar ganze Monde, auf denen es inzwischen keinerlei Ressourcen mehr gibt, sind die Heimat derer, die die Exekutive pauschal als Abschaum bezeichnet. Sie sind der Bodensatz der imperialen Gesellschaft - selbst die Ekklesiarchie scheint sie aufgegeben zu haben, auch wenn manche Missionare auf den Versuch bestehen, ihre Seelen zu retten, notfalls auch ungebeten!',
+    'quote' : 'Siehst du, du hast schon wieder gewonnen. Ich sagte dir doch, ich bin kein guter Kartenspieler. Noch eine Runde, aber nur, weil du darauf bestehst.',
+    'quoteby' : 'Reetheus Orl, genannt Bellender Heiliger, Makropole Sibellius',
     'skills' : [
       'Allgemeinwissen (Imperium)',
       'Aufmerksamkeit',
@@ -90,6 +93,9 @@ config.careers = {
   },
   'Adept' : {
     'rank' : 'Archivar',
+    'description' : 'Adepten sind weise, gelehrte Scholaren oder hoffen zumindest eines Tages welche zu werden. Sie sind sprachbegabt, kenntnisreich und treten oft als Hirn von Gruppierungen und Organisationen auf. Sie sind keine besonders guten Kämpfer, und manche sind gänzlich ungeübt darin, mit Menschen zu kommunizieren. Wenn es jedoch um den Bereich des Geistes geht, kann ihnen niemand das Wasser reichen.',
+    'quote' : 'Wissen ist Macht. Verschwende es nicht an die Massen.',
+    'quoteby' : 'Sektorgouverneur Marius Hax',
     'skills' : [
       'Allgemeinwissen (Imperium)',
       [
@@ -177,6 +183,9 @@ config.careers = {
   },
   'Arbitrator' : {
     'rank' : 'Vollzugsbeamter',
+    'description' : 'Arbitratoren sind harte Ordnungshüter und Richter. Sie stellen sicher, dass die Gesetze des Imperiums eingehalten werden, richten aber auch Rebellen, Umstürzler und Unruhestifter hin. Arbitratoren sind einsame Gesetzeshüter oder Wächter, dienen bei einer lokalen Polizeitruppe oder gehören zu einer größeren Organisation: dem Ardeptus Arbites. Arbitratoren mangelt es häufig an Umgangsformen. Wenn es aber um die reine Fähigkeit geht, Gegnern standzuhalten oder Beute aufzuspüren, dann will man sie zweifells an seiner Seite wissen.',
+    'quote' : 'Kein Schild hält die Klinge der Grechtigkeit auf.',
+    'quoteby' : 'Meditation des Adeptus Arbites',
     'skills' : [
       'Allgemeinwissen (Imperium)',
       'Allgemeinwissen (Adeptus Arbites)',
@@ -258,6 +267,9 @@ config.careers = {
   },
   'Assassine' : {
     'rank' : 'Meuchler',
+    'description' : 'Assassinen sind geübte Mörder, die gut darin sind, sich einem Ziel zu nähern und sein Leben zu beenden. Manche sind kaltblütige Henker, die im Blutvergießen schwelgen, andere vollkommene Profis, die sehr stolz auf ihre Kunst sind. Wie auch immer ihre Motive aussehen, sie gehören zu den gefährlichsten Männern und Frauen im Imperium und jeder einzelne von ihnen ist ein tödlich scharf geschliffenes Mordwerkzeug.',
+    'quote' : 'Alles folgt den Wünschen des Imperators, auch der Tod. Manche Tode wünscht er schneller als andere...',
+    'quoteby' : 'Astrid, Prieterin des Assassinorum',
     'skills' : [
       'Aufmerksamkeit',
       'Ausweichen',
@@ -347,6 +359,9 @@ config.careers = {
   },
   'Imperialer Psioniker' : {
     'rank' : 'Sanktionierter',
+    'description' : 'Psioniker sind fremdartige Individuen mit übernatürlichen Kräften und haben viele unterschiedliche Fähigkeiten, vom Gedankenlesen bis zum Schleudern bioelektrischer Energiestöße. Diese seltsamen Kräfte haben jedoch einen schrecklichen Preis, den jeder Psioniker ist ein Tor in die Höllendimensionen des Immateriums, den Wohnsitz der Dämonen, psychischer Raubtiere und schlimmerer Dinge. Ein imperialer Psioniker riskiert jedes Mal, wenn er seine Fähigkeiten einsetzt, seine Seele, und er weiß, dass der Tod durch den kalten Stahl einer psikanischen Gnadenklinge noch das beste Schicksal ist, auf das ein Besessener hoffen kann.',
+    'quote' : 'Ich stand im Palast des Geheiligten Terra, direkt vor dem Thron. Dort ward meine Seele zerschmettert und neu zusammengesetzt, eine lebende Waffe, geschmiedet nach dem Willen des Imperators.',
+    'quoteby' : 'Primaris-Psionikerin Thassail Kain',
     'skills' : [
       'Anrufung',
       [
@@ -434,6 +449,9 @@ config.careers = {
   },
   'Kleriker' : {
     'rank' : 'Novize',
+    'description' : 'Kleriker sind die Priester des Imperiums, Angehörige der gewaltigen Organisation namens Ekklesiarchie. Sie sind charismatische. fähige Führungskräfte und angesehene Autoritätspersonen. Kleriker genießen eine breitgefächerte Ausbildung und kennen sich mit fast allem aus. Vor allem wissen sie, wie man führt und inspiriert und sie predigen an vorderster Front, während sie in die Schlacht stürmen.',
+    'quote' : 'Ein Mann ohne Glauben ist ein Mann ohne Seele. Dulde keine Seelenlosen in deinem Sprengel, denn sie öffnen gefährlichen Kräften Tür und Tor.',
+    'quoteby' : 'Gebote der Ekklesiarchie',
     'skills' : [
       'Allgemeinwissen (Imperiale Religion)',
       'Allgemeinwissen (Ekklesiarchie)',
@@ -532,6 +550,9 @@ config.careers = {
   },
   'Soldat' : {
     'rank' : 'Rekrut',
+    'description' : 'Soldaten sind die Krieger des 41. Jahrtausend. Manche sind vielleicht Mitglied einer offiziellen Armee oder gar Teil der Imperialen Armee. Andere sind hingegen nur Söldner und Schläger. Manche sind sogar verurteilte Verbrecher, die Sprengkragen tragen und in Straflegionen dienen müssen, um ihre schrecklichen Verbrechen zu sühnen. Es muss wohl nicht extra erwähnt werden, dass Soldaten weder besonders schlau noch besonders umgänglich sind. Das machen die mit ihrer Fähigkeit, Dinge auf laute, unangenehme Weise sterben zu lassen, mehr als wett.',
+    'quote' : 'Leben ist Krieg, und ich werde ihn gewinnen!',
+    'quoteby' : '"Grabenschädel" Jones',
     'skills' : [
       [
         'Fahren (Bodenfahrzeug)',
@@ -637,6 +658,9 @@ config.careers = {
   },
   'Sororita' : {
     'rank' : 'Schwester',
+    'description' : 'Das Adeptus Sororitas ist die übergeordnete Organisation einer Reihe monastischer Orden der Ekklesiarchie, die zum Teil wichtige zivile Funktionen im Imperium übernehmen. Es besteht ausschließlich aus weiblichen Waisen, Abgängerinnen der Schola Progenium, weshalb es auch als Die Schwesternschaft oder Die Töchter des Imperators bezeichnet wird. Die Sororitas bewachen die Pilgerrouten und heiligen Stätten des Glaubens, stellen Eskorten für hohe Mitglieder des Klerus und stellen sicher, dass in der Bevölkerung die gebührende Ehrfurcht vor dem Imperialen Kult gezeigt wird. Sie sorgen auch dafür, dass bei der Kollekte stets die Sammelteller gut gefüllt sind. Sind sie nicht in diesen Aufgaben aktiv, so verbringen die Schwestern ihre Zeit mit Gebet und Ausbildung - für sie untrennbare Seiten der gleichen Verfplichtung als Ordenskriegerinnen des Imperators.',
+    'quote' : 'Es ist nicht genug, dem Imperator zu dienen oder ihn zu lieben. Du musst ihm alles geben, was Du je besessen hast oder besitzen wirst. Du musst dich gänzlich seiner Göttlichkeit ergeben und ein Gefäß seines Willens werden. Nur dann ist Dein Opfer ausreichend.',
+    'quoteby' : 'Aus den Statuten der Sororitas',
     'skills' : [
       'Allgemeinwissen (Imperiale Religion)',
       'Lesen/Schreiben',
@@ -712,6 +736,9 @@ config.careers = {
   },
   'Techpriester' : {
     'rank' : 'Technograph',
+    'description' : 'Techpriester sind die Hüter der Maschinengeister und Bewahrer der Tech-Traditionen. Sie gebieten über unglaubliche arkane Maschinen und erfahren viele Geheimnisse, etwa die Riten der Zündung und die Kunst der Wartung. Während sie immer mehr von der alten Wissenschaft erfahren, suchen sie nach verlorener Technologie und ersetzen ihr schwaches Fleisch durch schimmernden Stahl oder klappernde Schaltkreise.',
+    'quote' : 'Ich bin ein Kind des Omnissiah, ein Kultist des Maschinengottes. Ich kenne die Riten der mannigfaltigen Anwendungen, die Liturigen der Zündung und die Lieder des Maschinensehens. Ich spreche mit den Geistern alter Tech-Maschinen, vom Kriegerherzen eines Kampfpanzers bis zur geheimen Weisheit eines Cogitators.',
+    'quoteby' : 'Funk-Servitor TH3TA im Namen Manuels, eines Priesters des Adeptus Mechanicus',
     'skills' : [
       [
         'Beruf (Graveur)',

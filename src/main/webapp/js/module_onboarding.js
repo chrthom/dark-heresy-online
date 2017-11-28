@@ -1,4 +1,4 @@
-var onboardingCtrl = function($scope, $location, dhConfig, dhProfile, dhUtils) {
+var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dhUtils) {
     $scope.pageTile = 'Charaktererstellung';
     $scope.conf = dhConfig;
 
@@ -9,12 +9,12 @@ var onboardingCtrl = function($scope, $location, dhConfig, dhProfile, dhUtils) {
     $scope.proceed0 = function() {
         // Setup profile stub
         $scope.profile = {
-            username: 'test',
+            username: dhAuth.username,
             appearance: null,
             career: null,
             characteristics: null,
             divination: null,
-            gender: 'w',
+            gender: dhAuth.gender,
             homeworld: null,
             movement: null,
             name: null,
@@ -78,6 +78,15 @@ var onboardingCtrl = function($scope, $location, dhConfig, dhProfile, dhUtils) {
         if (value <= low) return 'red';
         else if (value < high) return 'orange';
         return 'green';
+    };
+
+    $scope.fileFormat = dhUtils.fileFormat;
+
+    $scope.rerollCareer = function() {
+        if ($scope.onboarding.careerRerolls > 0) {
+            rollCareer($scope);
+            $scope.onboarding.careerRerolls--;
+        }
     };
 
     $scope.rerollCharacteristics = function(characteristic) {
