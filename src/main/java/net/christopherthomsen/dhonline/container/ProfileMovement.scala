@@ -1,26 +1,28 @@
 package net.christopherthomsen.dhonline.container
 
+import java.lang.{Double => JavaDouble}
+
 class ProfileMovement extends Container {
-  var half: Double = _
-  var full: Double = _
-  var charge: Double = _
-  var run: Double = _
+  var half: JavaDouble = _
+  var full: JavaDouble = _
+  var charge: JavaDouble = _
+  var run: JavaDouble = _
 
   override def indexed: Set[String] = Set()
 
-  def getHalf: Double = half
+  def getHalf: JavaDouble = half
 
-  def setHalf(half: Double): ProfileMovement = { this.half = half ; this }
+  def setHalf(half: JavaDouble): ProfileMovement = { this.half = half ; this }
 
-  def getFull: Double = full
+  def getFull: JavaDouble = full
 
-  def setFull(full: Double): ProfileMovement = { this.full = full ; this }
+  def setFull(full: JavaDouble): ProfileMovement = { this.full = full ; this }
 
-  def getCharge: Double = charge
+  def getCharge: JavaDouble = charge
 
-  def setCharge(charge: Double): ProfileMovement = { this.charge = charge ; this }
+  def setCharge(charge: JavaDouble): ProfileMovement = { this.charge = charge ; this }
 
-  def getRun: Double = run
+  def getRun: JavaDouble = run
 
-  def setRun(run: Double): ProfileMovement = { this.run = run ; this }
+  def setRun(run: JavaDouble): ProfileMovement = { this.run = run ; this }
 }

@@ -1,16 +1,10 @@
 config.homeworlds = {
   'chances' : [
     'Urzeitwelt',
-    'Urzeitwelt',
-    'Urzeitwelt',
-    'Makropolenwelt',
-    'Makropolenwelt',
     'Makropolenwelt',
     'Makropolenwelt',
     'Imperiale Welt',
     'Imperiale Welt',
-    'Imperiale Welt',
-    'Kinder der Leere',
     'Kinder der Leere',
     'Fabrikwelt',
     'Fabrikwelt',
@@ -21,6 +15,7 @@ config.homeworlds = {
   ],
   'attributes' : {
     'Urzeitwelt' : {
+      'description' : 'Du hast den Großteil deines bisherigen Lebens bei deinem Volk auf einer präindustriellen und vielerorts lebensfeindlichen Urzeitwelt verbracht, wo Stärke, Mut und Kampfkraft mehr zählen als alles andere. Dennoch weisen die meisten Kulturen auf Urzeitwelten trotz ihres primitiven Technologieniveaus feudale Strukturen auf.',
       'basicSkills' : [
         'Navigation (Oberfläche)',
         'Spuren lesen',
@@ -65,6 +60,7 @@ config.homeworlds = {
       ]
     },
     'Makropolenwelt' : {
+      'description' : 'Die großen Makropolen sind nicht wie Städte auf anderen Welten im Imperium, und du bist kein normaler Mensch. Schon immer umgibt dich Technologie, und dass sie anderswo so selten ist, findest du verwirrend. Du bist Abenteurer, du nutzst Gelegenheiten - Du bist neugieriger als deine Mitmenschen und ziehst zweifellos auch schneller!',
       'basicSkills' : [
         'Tech-Gebrauch'
       ],
@@ -110,6 +106,7 @@ config.homeworlds = {
       ]
     },
     'Imperiale Welt' : {
+      'description' : 'Du stammst von einer imperialen Welt, einem von einer Millionen von Menschen besiedelter Planeten, die der Glaube an den unsterblichen Imperator eint. Soldaten, Fanatiker, Dieb, Söldner, Adeliger: Sie alle leben auf imperialen Welten. So unterschiedlich wie imperiale Welten sind so unterschiedlich sind auch ihre Menschen.',
       'basicSkills' : [
         'Allgemeinwissen (Imperium)',
         'Allgemeinwissen (Imperiale Religion)',
@@ -156,6 +153,7 @@ config.homeworlds = {
       ]
     },
     'Kinder der Leere' : {
+      'description' : 'Du wurdest nicht auf einer der Welten des Imperiums geboren, sondern auf einem gewaltigen Schiff in den Tiefen des Raums - vielleicht sogar im Warp selbst. Niemand weiß, warum dich das von deinen Mitmenschen unterscheidet, aber dein Aussehen, Handeln und Denken ist irgendwie anders. Du wuchst im Umfeld von Psionikern auf, und was andere hassen und verabscheuen, ist für dich normal.',
       'basicSkills' : [
         'Allgemeinwissen (Imperium)',
         'Allgemeinwissen (Imperiale Religion)',
@@ -207,6 +205,7 @@ config.homeworlds = {
       ]
     },
     'Fabrikwelt' : {
+      'description' : 'Du bist Teil des gealtigen industriellen Apparats, den das Adeptus Mechanicus auf den Fabrikwelten des Imperiums geschaffen hat. Die meisten Menschen hier sind nicht viel mehr als Zahnrädchen im Getriebe der Produktionskomplexes, doch auch zahlreiche Adepten, Soldaten und Techpriester entstammen diesen Welten.',
       'basicSkills' : [
         'Allgemeinwissen (Tech)',
         'Allgemeinwissen (Maschinenkult)'
@@ -252,6 +251,7 @@ config.homeworlds = {
       ]
     },
     'Gelöschtes Gedächtnis' : {
+      'description' : 'Dein Gedächtnis ist komplett ausgelöscht. Du weißt nicht warum oder wo du her stammst oder wer du bist.',
       'basicSkills' : [
         'Allgemeinwissen (Tech)',
         'Überleben'
@@ -298,6 +298,7 @@ config.homeworlds = {
       ]
     },
     'Adliger' : {
+      'description' : 'Du gehörst dem oberen einen Prozent der Bevölkerung an. Durch deine Adern fließt blaues Blut. Armut und das Elend der Massen ist dir fern und du strebst nach viel höheren Zielen.',
       'basicSkills' : [
         'Allgemeinwissen (Imperium)'
       ],
@@ -346,6 +347,7 @@ config.homeworlds = {
       'socialclass' : 'Adel'
     },
     'Schola Progenium' : {
+      'description' : 'Du bist ein Waise, hattest jedoch das Glück auf Grund des Standes oder der Verdienste deiner verstorbenen Eltern in der Schola Progenium aufgenommen zu werden. In dieser werden Jünglinge zur nächsten Generation der Elite des Imperiums ausgebildet. Du erhielst hier intensive Indoktrination des Imperialen Glaubens und seiner Werte sowie eine exzellente Ausbildung, um dem Imperium zu dienen.',
       'basicSkills' : [
         'Allgemeinwissen (Administratum)',
         'Allgemeinwissen (Ekklesiarchie)',

@@ -1,36 +1,38 @@
 package net.christopherthomsen.dhonline.container
 
+import java.lang.{Long => JavaLong}
+
 class ProfileProgress extends Container {
-  var fate: Int = _
-  var income: Int = _
-  var level: Int = _
-  var wounds: Int = _
-  var xp: Int = _
-  var xpFree: Int = _
+  var fate: JavaLong = _
+  var income: JavaLong = _
+  var level: JavaLong = _
+  var wounds: JavaLong = _
+  var xp: JavaLong = _
+  var xpFree: JavaLong = _
 
   override def indexed: Set[String] = Set()
 
-  def getFate: Int = fate
+  def getFate: JavaLong = fate
 
-  def setFate(fate: Int): ProfileProgress = { this.fate = fate ; this }
+  def setFate(fate: JavaLong): ProfileProgress = { this.fate = fate ; this }
 
-  def getIncome: Int = income
+  def getIncome: JavaLong = income
 
-  def setIncome(income: Int): ProfileProgress = { this.income = income ; this }
+  def setIncome(income: JavaLong): ProfileProgress = { this.income = income ; this }
 
-  def getLevel: Int = level
+  def getLevel: JavaLong = level
 
-  def setLevel(level: Int): ProfileProgress = { this.level = level ; this }
+  def setLevel(level: JavaLong): ProfileProgress = { this.level = level ; this }
 
-  def getWounds: Int = wounds
+  def getWounds: JavaLong = wounds
 
-  def setWounds(wounds: Int): ProfileProgress = { this.wounds = wounds ; this }
+  def setWounds(wounds: JavaLong): ProfileProgress = { this.wounds = wounds ; this }
 
-  def getXp: Int = xp
+  def getXp: JavaLong = xp
 
-  def setXp(xp: Int): ProfileProgress = { this.xp = xp ; this }
+  def setXp(xp: JavaLong): ProfileProgress = { this.xp = xp ; this }
 
-  def getXpFree: Int = xpFree
+  def getXpFree: JavaLong = xpFree
 
-  def setXpFree(xpFree: Int): ProfileProgress = { this.xpFree = xpFree ; this }
+  def setXpFree(xpFree: JavaLong): ProfileProgress = { this.xpFree = xpFree ; this }
 }

@@ -4,7 +4,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
 
     $scope.onboarding = {};
     $scope.profile = {};
-    dhProfile.get(function(res) { $scope.profile = res.data })
+    dhProfile.get(function(res) { $scope.profile = res.data });
 
     $scope.proceed0 = function() {
         // Setup profile stub
@@ -20,6 +20,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
             name: null,
             progress: null,
             psiPowers: [],
+            rank: null,
             sanction: null,
             scholastica: null,
             skills: [],
@@ -47,17 +48,17 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
             $scope.profile.skills.push({ key: homeworld.skills[i], value: 1 });
         // Set starting traits for homeworld
         $scope.profile.traits = homeworld.traits;
-        // Set player base characteristics for homeworld
+        // Set profile base characteristics for homeworld
         $scope.profile.characteristics = {
-            'kg' : homeworld.kg + dhUtils.roll(10, 2),
-            'bf' : homeworld.bf + dhUtils.roll(10, 2),
-            'st' : homeworld.st + dhUtils.roll(10, 2),
-            'wi' : homeworld.wi + dhUtils.roll(10, 2),
-            'ge' : homeworld.ge + dhUtils.roll(10, 2),
-            'in' : homeworld.in + dhUtils.roll(10, 2),
-            'wa' : homeworld.wa + dhUtils.roll(10, 2),
-            'wk' : homeworld.wk + dhUtils.roll(10, 2),
-            'ch' : homeworld.ch + dhUtils.roll(10, 2)
+            kg : homeworld.kg + dhUtils.roll(10, 2),
+            bf : homeworld.bf + dhUtils.roll(10, 2),
+            st : homeworld.st + dhUtils.roll(10, 2),
+            wi : homeworld.wi + dhUtils.roll(10, 2),
+            ge : homeworld.ge + dhUtils.roll(10, 2),
+            in : homeworld.in + dhUtils.roll(10, 2),
+            wa : homeworld.wa + dhUtils.roll(10, 2),
+            wk : homeworld.wk + dhUtils.roll(10, 2),
+            ch : homeworld.ch + dhUtils.roll(10, 2)
         };
         // If homeworld specifies socialClass, set it
         if (homeworld.socialclass) $scope.profile.socialClass = homeworld.socialclass;
@@ -67,12 +68,43 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
     };
 
     $scope.proceed2 = function() {
-        console.log(JSON.stringify($scope.profile));
+        // Starting rank
+        $scope.profile.rank = $scope.conf.careers[$scope.profile.career].rank;
+        // Movement based on characteristics
+        $scope.profile.movement = {
+            half : Math.floor($scope.profile.characteristics.ge / 10),
+            full : Math.floor($scope.profile.characteristics.ge / 5),
+            charge : Math.floor($scope.profile.characteristics.ge * 3 / 10),
+            run : Math.floor($scope.profile.characteristics.ge * 2 / 5)
+        };
+        // Set social class except if existing social class (from origin) is better
+        if (!$scope.profile.socialClass
+                || $scope.conf.socialClasses[$scope.profile.socialClass].income
+                        < $scope.conf.socialClasses[$scope.conf.careers[$scope.profile.career].socialclass].income)
+            $scope.profile.socialClass = $scope.conf.careers[$scope.profile.career].socialclass;
+        // Instantiate progress object
+        $scope.profile.progress = {
+            fate : null,
+            income : $scope.conf.socialClasses[$scope.profile.socialClass].income,
+            level : 1,
+            wounds : null,
+            xp : 0,
+            xpFree : 400
+        };
+        rollFate();
+        rollWounds();
+        // Instantiate stats
+        $scope.profile.stats = {
+            madness : 0,
+            corruption : 0,
+            fatigue : 0,
+            thrones : null
+        };
+        rollThrones();
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/3') });
     };
 
-    $scope.getScenario = function() {
-        return $scope.conf.homeworlds.attributes[$scope.profile.homeworld];
-    };
+    $scope.getScenario = getScenario;
 
     $scope.colorCode = function(value, low, high) {
         if (value <= low) return 'red';
@@ -91,12 +123,29 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
 
     $scope.rerollCharacteristics = function(characteristic) {
         if (!$scope.onboarding.rerolledCharacteristic)
-            $scope.profile.characteristics[characteristic] = $scope.getScenario()[characteristic] + dhUtils.roll(10, 2);
+            $scope.profile.characteristics[characteristic] = getScenario()[characteristic] + dhUtils.roll(10, 2);
         $scope.onboarding.rerolledCharacteristic = true;
     };
 
+    function getScenario() {
+        return $scope.conf.homeworlds.attributes[$scope.profile.homeworld];
+    }
+
     function rollCareer() {
-      $scope.profile.career = dhUtils.getRandomElement($scope.getScenario().careers);
-      if ($scope.profile.career == "Sororita" && $scope.profile.gender == "m") rollCareer();
+        $scope.profile.career = dhUtils.getRandomElement(getScenario().careers);
+        if ($scope.profile.career == "Sororita" && $scope.profile.gender == "m") rollCareer();
+    }
+
+    function rollFate() {
+        $scope.profile.progress.fate = dhUtils.getRandomElement(getScenario().fate);
+    }
+
+    function rollThrones() {
+      var thrones = $scope.conf.careers[$scope.profile.career].thrones;
+      $scope.profile.stats.thrones = thrones.start + dhUtils.roll(10, thrones.dices);
+    }
+
+    function rollWounds() {
+      $scope.profile.progress.wounds = getScenario().wounds + dhUtils.roll(5);
     }
 };

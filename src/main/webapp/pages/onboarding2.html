@@ -1,95 +1,116 @@
-<h2>Schritt 2 - Karriere &amp; Grundprofil</h2>
-<p>Basierend auf <i>{{profile.name}}s</i> Herkunftsszenario <b>{{profile.homeworld}}</b> wurde ein zuf&auml;lliges Charakterprofil und einer der m&ouml;glichen Karrierepfade ausgew&uuml;rfelt.</p>
-<p>Du hast die M&ouml;glichkeit einen von <i>{{profile.name}}s</i> Profilwerten neu auszuw&uuml;rfeln. Ebenso kannst du den Karrierepfad bis zu zwei mal neu ausw&uuml;rfeln lassen.</p>
-<div class="list card">
-    <div class="item item-avatar item-text-wrap">
-        <img src="/style/images/logo-imperium.png">
-        <h2 ng-bind="profile.career"></h2>
-        <p>"<i ng-bind="conf.careers[profile.career].quote"></i>"</p>
-        <p ng-bind="conf.careers[profile.career].quoteby"></p>
-    </div>
-    <div class="item item-image">
-        <img ng-src="/style/images/careers/{{fileFormat(profile.career)}}_{{profile.gender}}.jpg">
-    </div>
-    <div class="item item-text-wrap">
-        <p ng-bind="conf.careers[profile.career].description"></p>
-    </div>
-    <a class="item item-icon-left ion-refresh"
-       ng-click="rerollCareer()"
-       ng-init="onboarding.careerRerolls = 2"
-       ng-disabled="onboarding.careerRerolls <= 0">
-        Karrierepfad erneut w&uuml;rfeln
-        <span class="badge badge-assertive" ng-bind="onboarding.careerRerolls"></span>
-    </a>
-</div>
 <ion-list>
-    <div class="item item-divider" ng-hide="onboarding.rerolledCharacteristic">Profilwert neu w&uuml;rfeln</div>
-    <a class="item item-icon-left ion-knife"
-       ng-click="rerollCharacteristics('kg')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        Kampfgeschick
-        <font color="{{colorCode(profile.characteristics.kg, getScenario().kg + 6, getScenario().kg + 12)}}"
-              ng-bind="profile.characteristics.kg"></font>
-    </a>
-    <a class="item item-icon-left ion-android-locate"
-       ng-click="rerollCharacteristics('bf')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        Ballistische Fertigkeit
-        <font color="{{colorCode(profile.characteristics.bf, getScenario().bf + 6, getScenario().bf + 12)}}"
-              ng-bind="profile.characteristics.bf"></font>
-    </a>
-    <a class="item item-icon-left ion-android-hand"
-       ng-click="rerollCharacteristics('st')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        St&auml;rke
-        <font color="{{colorCode(profile.characteristics.st, getScenario().st + 6, getScenario().st + 12)}}"
-              ng-bind="profile.characteristics.st"></font>
-    </a>
-    <a class="item item-icon-left ion-heart"
-       ng-click="rerollCharacteristics('wi')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        Widerstandskraft
-        <font color="{{colorCode(profile.characteristics.wi, getScenario().wi + 6, getScenario().wi + 12)}}"
-              ng-bind="profile.characteristics.wi"></font>
-    </a>
-    <a class="item item-icon-left ion-android-walk"
-       ng-click="rerollCharacteristics('ge')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        Gewandtheit
-        <font color="{{colorCode(profile.characteristics.ge, getScenario().ge + 6, getScenario().ge + 12)}}"
-              ng-bind="profile.characteristics.ge"></font>
-    </a>
-    <a class="item item-icon-left ion-university"
-       ng-click="rerollCharacteristics('in')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        Intelligenz
-        <font color="{{colorCode(profile.characteristics.in, getScenario().in + 6, getScenario().in + 12)}}"
-              ng-bind="profile.characteristics.in"></font>
-    </a>
-    <a class="item item-icon-left ion-android-camera"
-       ng-click="rerollCharacteristics('wa')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        Wahrnehmung
-        <font color="{{colorCode(profile.characteristics.wa, getScenario().wa + 6, getScenario().wa + 12)}}"
-              ng-bind="profile.characteristics.wa"></font>
-    </a>
-    <a class="item item-icon-left ion-ios-flower"
-       ng-click="rerollCharacteristics('wk')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        Willenskraft
-        <font color="{{colorCode(profile.characteristics.wk, getScenario().wk + 6, getScenario().wk + 12)}}"
-              ng-bind="profile.characteristics.wk"></font>
-    </a>
-    <a class="item item-icon-left ion-bowtie"
-       ng-click="rerollCharacteristics('ch')"
-       ng-disabled="onboarding.rerolledCharacteristic">
-        Charisma
-        <font color="{{colorCode(profile.characteristics.ch, getScenario().ch + 6, getScenario().ch + 12)}}"
-              ng-bind="profile.characteristics.ch"></font>
-    </a>
+    <div class="item item-text-wrap">
+        <h2>Schritt 2 - Karriere &amp; Grundprofil</h2>
+        <p>Basierend auf {{profile.name}}s Herkunftsszenario <b ng-bind="profile.homeworld"></b> wurde ein zuf&auml;lliges Charakterprofil und einer der m&ouml;glichen Karrierepfade ausgew&uuml;rfelt.</p>
+        <p>Du hast die M&ouml;glichkeit einen von {{profile.name}}s Profilwerten neu auszuw&uuml;rfeln. Ebenso kannst du den Karrierepfad bis zu zwei mal neu ausw&uuml;rfeln lassen.</p>
+    </div>
 </ion-list>
-<button ng-click="proceed2()"
-        class="button button-block button-assertive icon-right ion-chevron-right">Weiter</button>
+<div class="row responsive-lg">
+    <div class="col">
+        <div class="list card">
+            <a class="item item-divider item-icon-left ion-refresh"
+               ng-click="rerollCareer()"
+               ng-init="onboarding.careerRerolls = 2"
+               ng-hide="onboarding.careerRerolls <= 0">
+                Karrierepfad erneut w&uuml;rfeln
+                <span class="badge badge-assertive" ng-bind="onboarding.careerRerolls"></span>
+            </a>
+            <div class="item item-avatar item-text-wrap">
+                <img src="/style/images/logo-imperium.png">
+                <h2 ng-bind="profile.career"></h2>
+                <p>"<i ng-bind="conf.careers[profile.career].quote"></i>"</p>
+                <p ng-bind="conf.careers[profile.career].quoteby"></p>
+            </div>
+            <div class="item item-image">
+                <img style="max-width:500px;" ng-src="/style/images/careers/{{fileFormat(profile.career)}}_{{profile.gender}}.jpg">
+            </div>
+            <div class="item item-text-wrap">
+                <p ng-bind="conf.careers[profile.career].description"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider item-icon-left ion-refresh"
+                 ng-hide="onboarding.rerolledCharacteristic">
+                Profilwert neu w&uuml;rfeln
+                <span class="badge badge-assertive">1</span>
+            </div>
+            <a class="item item-icon-left ion-android-open"
+               ng-click="rerollCharacteristics('kg')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                Kampfgeschick
+                <font color="{{colorCode(profile.characteristics.kg, getScenario().kg + 7, getScenario().kg + 15)}}"
+                      ng-bind="profile.characteristics.kg"></font>
+            </a>
+            <a class="item item-icon-left ion-android-locate"
+               ng-click="rerollCharacteristics('bf')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                Ballistische Fertigkeit
+                <font color="{{colorCode(profile.characteristics.bf, getScenario().bf + 7, getScenario().bf + 15)}}"
+                      ng-bind="profile.characteristics.bf"></font>
+            </a>
+            <a class="item item-icon-left ion-android-hand"
+               ng-click="rerollCharacteristics('st')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                St&auml;rke
+                <font color="{{colorCode(profile.characteristics.st, getScenario().st + 7, getScenario().st + 15)}}"
+                      ng-bind="profile.characteristics.st"></font>
+            </a>
+            <a class="item item-icon-left ion-heart"
+               ng-click="rerollCharacteristics('wi')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                Widerstandskraft
+                <font color="{{colorCode(profile.characteristics.wi, getScenario().wi + 7, getScenario().wi + 15)}}"
+                      ng-bind="profile.characteristics.wi"></font>
+            </a>
+            <a class="item item-icon-left ion-android-walk"
+               ng-click="rerollCharacteristics('ge')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                Gewandtheit
+                <font color="{{colorCode(profile.characteristics.ge, getScenario().ge + 7, getScenario().ge + 15)}}"
+                      ng-bind="profile.characteristics.ge"></font>
+            </a>
+            <a class="item item-icon-left ion-university"
+               ng-click="rerollCharacteristics('in')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                Intelligenz
+                <font color="{{colorCode(profile.characteristics.in, getScenario().in + 7, getScenario().in + 15)}}"
+                      ng-bind="profile.characteristics.in"></font>
+            </a>
+            <a class="item item-icon-left ion-android-camera"
+               ng-click="rerollCharacteristics('wa')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                Wahrnehmung
+                <font color="{{colorCode(profile.characteristics.wa, getScenario().wa + 7, getScenario().wa + 15)}}"
+                      ng-bind="profile.characteristics.wa"></font>
+            </a>
+            <a class="item item-icon-left ion-ios-flower"
+               ng-click="rerollCharacteristics('wk')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                Willenskraft
+                <font color="{{colorCode(profile.characteristics.wk, getScenario().wk + 7, getScenario().wk + 15)}}"
+                      ng-bind="profile.characteristics.wk"></font>
+            </a>
+            <a class="item item-icon-left ion-bowtie"
+               ng-click="rerollCharacteristics('ch')"
+               ng-disabled="onboarding.rerolledCharacteristic">
+                Charisma
+                <font color="{{colorCode(profile.characteristics.ch, getScenario().ch + 7, getScenario().ch + 15)}}"
+                      ng-bind="profile.characteristics.ch"></font>
+            </a>
+        </div>
+        <div class="list card">
+            <div class="item item-thumbnail-left item-text-wrap">
+                <img ng-src="/style/images/homeworlds/{{fileFormat(profile.homeworld)}}_info.jpg">
+                <h2 ng-bind="profile.homeworld"></h2>
+                <p ng-bind="conf.homeworlds.attributes[profile.homeworld].description"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<a ng-click="proceed2()"
+   class="button button-block button-assertive icon-right ion-chevron-right">Weiter</a>
 
 <p>{{profile}}</p>
 <p>{{onboarding}}</p>

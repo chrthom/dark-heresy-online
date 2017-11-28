@@ -22,6 +22,9 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     }).when('/onboarding/2', {
         controller: 'dhOnboarding',
         templateUrl: 'pages/onboarding2.html'
+    }).when('/onboarding/3', {
+        controller: 'dhOnboarding',
+        templateUrl: 'pages/onboarding3.html'
     }).otherwise({
         redirectTo: '/'
     })
@@ -40,4 +43,13 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
 .factory('dhAuth', authService)
 .factory('dhConfig', configService)
 .factory('dhProfile', profileService)
-.factory('dhUtils', utilsService);
+.factory('dhUtils', utilsService)
+.filter('filterArrays', function(dhUtils) {
+  return function(input) {
+    return input.filter(dhUtils.isArray);
+  };
+}).filter('filterValues', function(dhUtils) {
+  return function(input) {
+    return input.filter(dhUtils.isValue);
+  };
+});

@@ -355,7 +355,7 @@ config.careers = {
       'start' : 110,
       'dices' : 5
     },
-    'socialclass' : 'Händler'
+    'socialclass' : 'Arbeiter'
   },
   'Imperialer Psioniker' : {
     'rank' : 'Sanktionierter',

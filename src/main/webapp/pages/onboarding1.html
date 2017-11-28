@@ -1,16 +1,40 @@
-<h2>Schritt 1 - Herkunft</h2>
-<p>Bitte w&auml;hle ein Herkunftsszenario aus. Bei der Auswahl der Herkunft kannst du entweder eine der 4 Standardszenarien w&auml;hlen oder deine Herkunft zuk&uuml;nftig w&auml;hlen lassen.</p>
-<p>Letzteres gibt dir die M&ouml;glichkeit weitere nicht direkt ausw&auml;hlbare Szenarien zu spielen. Die zuf&auml;llige Auswahl des Szenarios kann jedoch nicht wiederholt werden.</p>
 <ion-list>
-    <ion-radio ng-model="onboarding.origin" ng-value="'Makropolenwelt'">Makropolb&uuml;rger</ion-radio>
-    <ion-radio ng-model="onboarding.origin" ng-value="'Imperiale Welt'">Imperialer B&uuml;rger</ion-radio>
-    <ion-radio ng-model="onboarding.origin" ng-value="'Urzeitwelt'">Stammesmitglied</ion-radio>
-    <ion-radio ng-model="onboarding.origin" ng-value="'Kinder der Leere'">Besatzungsmitglied</ion-radio>
-    <ion-radio ng-model="onboarding.origin" ng-value="'x'">Zuf&auml;lliges Szenario</ion-radio>
+    <div class="item item-text-wrap">
+        <h2>Schritt 1 - Herkunft</h2>
+        <p>Bitte w&auml;hle ein Herkunftsszenario aus. Bei der Auswahl der Herkunft kannst du entweder eine der 4 Standardszenarien w&auml;hlen oder deine Herkunft zuk&uuml;nftig w&auml;hlen lassen.</p>
+        <p>Letzteres gibt dir die M&ouml;glichkeit weitere nicht direkt ausw&auml;hlbare Szenarien zu spielen. Die zuf&auml;llige Auswahl des Szenarios kann jedoch nicht wiederholt werden.</p>
+    </div>
 </ion-list>
-<button ng-click="proceed1()"
-        class="button button-block button-assertive icon-right ion-chevron-right"
-        ng-diabled="onboarding.origin.length == 0 || !onboarding.origin">Weiter</button>
+<ion-list>
+    <ion-radio class="item-avatar item-text-wrap" ng-model="onboarding.origin" ng-value="'Makropolenwelt'">
+        <img src="/style/images/homeworlds/makropolenwelt.jpg">
+        <h2>Makropolb&uuml;rger</h2>
+        <p ng-bind="conf.homeworlds.attributes['Makropolenwelt'].description"></p>
+    </ion-radio>
+    <ion-radio class="item-avatar item-text-wrap" ng-model="onboarding.origin" ng-value="'Imperiale Welt'">
+        <img src="/style/images/homeworlds/imperiale_welt.jpg">
+        <h2>Imperialer B&uuml;rger</h2>
+        <p ng-bind="conf.homeworlds.attributes['Imperiale Welt'].description"></p>
+    </ion-radio>
+    <ion-radio class="item-avatar item-text-wrap" ng-model="onboarding.origin" ng-value="'Urzeitwelt'">
+        <img src="/style/images/homeworlds/urzeitwelt.jpg">
+        <h2>Stammesmitglied</h2>
+        <p ng-bind="conf.homeworlds.attributes['Urzeitwelt'].description"></p>
+    </ion-radio>
+    <ion-radio class="item-avatar item-text-wrap" ng-model="onboarding.origin" ng-value="'Kinder der Leere'">
+        <img src="/style/images/homeworlds/kinder_der_leere.jpg">
+        <h2>Besatzungsmitglied</h2>
+        <p ng-bind="conf.homeworlds.attributes['Kinder der Leere'].description"></p>
+    </ion-radio>
+    <ion-radio class="item-avatar item-text-wrap" ng-model="onboarding.origin" ng-value="'x'">
+        <img src="/style/images/homeworlds/random.jpg">
+        <h2>Zuf&auml;lliges Szenario</h2>
+        <p>Entweder entstammst du einer der hier gezeigten Welten oder du hast eine exotischere Herkunft. So könntest du auf einer der Fabrikwelten des Adeptus Mechanicus entstammen, einem edlen Adelsgeschlecht angehören, als Waise in der Schola Progenium aufegnommen worden sein oder eine mysteriöse Vergangenheit haben durch dessen Resultate du jedoch dein Gedächtnis verloren hast.</p>
+    </ion-radio>
+</ion-list>
+<a ng-click="proceed1()"
+   class="button button-block button-assertive icon-right ion-chevron-right"
+   ng-diabled="onboarding.origin.length == 0 || !onboarding.origin">Weiter</a>
 
 <p>{{profile}}</p>
 <p>{{onboarding}}</p>

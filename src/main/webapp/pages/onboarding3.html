@@ -1,0 +1,31 @@
+<ion-list>
+    <div class="item item-text-wrap">
+        <h2>Schritt 3 - F&auml;higkeiten &amp; Ausr&uuml;stung</h2>
+        <p>Mit dem Rang <b ng-bind="profile.rank"></b> beginnt <i>{{profile.name}}s</i> Karriere als <b ng-bind="profile.career"></b>. {{profile.name}} geh&ouml;rt entsprechend seiner Herkunft zur sozialen Schicht "<b ng-bind="profile.socialClass"></b>".
+        <p>In diesem Rang beginnst du bereits mit einigen F&auml;higkeiten sowie Ausr&uuml;stung. Im folgenden erh&auml;lst du hier&uuml;ber eine &Uuml;bersicht und hast zudem die M&ouml;glichkeit dich zwischen Alternativen bei der Wahl deiner Startf&auml;higkeiten und -ausr&uuml;stung zu entscheiden.</p>
+    </div>
+</ion-list>
+<!--
+<div class="row responsive-lg">
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider" ng-init="onboarding.skills = []">F&auml;higkeiten</div>
+            <div class="item" ng-repeat="skill in conf.careers[profile.career].skills | filterValues" ng-bind="skill"></div>
+            <div class="item item-input item-select" ng-repeat="skill in conf.careers[profile.career].skills | filterArrays">
+                <div class="input-label">W&auml;hle...</div>
+                <select ng-model="onboarding.skills[$index]" ng-init="onboarding.skills[$index] = skill[0]">
+                    <option ng-repeat="choice in skill">{{choice}}</option>
+                </select>
+            </div>
+            <div class="item item-divider">Merkmale</div>
+            <div class="item item-divider">Waffen</div>
+            <div class="item item-divider">Ausr&uuml;stung</div>
+        </div>
+    </div>
+</div>
+-->
+<a ng-click="proceed3()"
+   class="button button-assertive button-block icon-right ion-chevron-right">Weiter</a>
+
+<p>{{profile}}</p>
+<p>{{onboarding}}</p>
