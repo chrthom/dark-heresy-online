@@ -6,7 +6,14 @@ String.prototype.replaceAll = function(search, replacement) {
 var utilsService = function() {
     return {
         addOrUpdateArray: function(array, key, value) {
-            // TODO
+            var i;
+            for (i = 0; i < array.length; i++) {
+                if (array[i].key == key) {
+                    array[i].value = value;
+                    return array;
+                }
+            }
+            array.push({ key: key, value: value });
         },
         fileFormat: function(f) {
             return !f ? '' : f.toLowerCase().replaceAll(" ", "_");

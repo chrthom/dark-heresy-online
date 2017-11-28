@@ -1,7 +1,9 @@
 <ion-list>
     <div class="item item-text-wrap">
         <h2>Schritt 4 - Erscheinungsbild & Weissagung</h2>
-        <p></p>
+        <p>Menschen mit dem Hintergrund <b ng-bind="player.general.homeworld"></b> teilen sich ein Spektrum an &auml;ußeren Merkmalen, die ihr Erscheinungsbild ausmachen.</p>
+        <p>Im Folgenden kannst du Bestandteile des zuf&auml;llig erstellten Erscheinungsbilds von {{player.name}} neu ausw&uuml;rfeln.</p>
+        <p>&Uuml;berdies hat jeder Charakter eine individuelle Weissagung. Diese kann nicht neu ausgew&uuml;rfelt werden.</p>
     </div>
 </ion-list>
 <div class="row responsive-lg">
@@ -12,7 +14,7 @@
     </div>
 </div>
 <a ng-click="proceed4()"
-   class="button button-assertive button-block icon-right ion-chevron-right">Weiter</a>
+   class="button button-block button-assertive icon-right ion-chevron-right">Weiter</a>
 
 <p>{{profile}}</p>
 <p>{{onboarding}}</p>

@@ -105,22 +105,36 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
     };
 
     $scope.proceed3 = function() {
-        var skills = getCareer().skills.filter(isValue);
-          skills.push.apply(skills, $scope.form.skills);
-          for (i = 0; i < skills.length; i++)
-            $scope.player.skills[skills[i]] = 1;
-          var traits = getCareer($scope).traits.filter(isValue);
-          traits.push.apply(traits, $scope.form.traits);
-          for (i = 0; i < traits.length; i++)
-            $scope.player.traits.push(traits[i]);
+        // Import skills, traits, wounds, fate and thrones from career
+        var i;
+        var skills = $scope.conf.careers[$scope.profile.career].skills.filter(dhUtils.isValue);
+        skills.push.apply(skills, $scope.onboarding.skills);
+        for (i = 0; i < skills.length; i++) dhUtils.addOrUpdateArray($scope.profile.skills, skills[i], 1);
+        $scope.profile.traits.push.apply($scope.profile.traits,
+            $scope.conf.careers[$scope.profile.career].traits.filter(dhUtils.isValue));
+        $scope.profile.traits.push.apply($scope.profile.traits, $scope.onboarding.traits);
+        /*
           var weapons = getCareer($scope).weapons.filter(isValue);
           weapons.push.apply(weapons, $scope.form.weapons);
-          $scope.player.weapons = weapons;
+          $scope.profile.weapons = weapons;
           var gears = getCareer($scope).gears.filter(isValue);
           gears.push.apply(gears, $scope.form.gears);
-          $scope.player.gears = gears;
-
+          $scope.profile.gears = gears;
+          */
+        // Generate random appearance and divination based on homeworld
+        $scope.profile.appearance = {};
+        rollAge();
+        rollBuild();
+        rollEyes();
+        rollHair();
+        rollSkin();
+        // Roll divination
+        rollDivination();
         dhProfile.set($scope.profile, function() { $location.path('/onboarding/4') });
+    };
+
+    $scope.proceed4 = function() {
+
     };
 
     $scope.getScenario = getScenario;
@@ -165,13 +179,54 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
         return $scope.conf.homeworlds.attributes[$scope.profile.homeworld];
     }
 
+    function rollAge() {
+        $scope.profile.appearance.age = dhUtils.getRandomElement($scope.conf.age[$scope.profile.homeworld]) + dhUtils.roll(10);
+    }
+
+    function rollBuild() {
+        $scope.profile.appearance.build = dhUtils.getRandomElement($scope.conf.build.chances[$scope.profile.homeworld]);
+        var build = $scope.conf.build.attributes[$scope.profile.appearance.build][$scope.profile.gender];
+        $scope.profile.appearance.height = build.height + dhUtils.roll(15) - dhUtils.roll(15);
+        $scope.profile.appearance.weight = build.weight + dhUtils.roll(10) - dhUtils.roll(10);
+    }
+
     function rollCareer() {
         $scope.profile.career = dhUtils.getRandomElement(getScenario().careers);
         if ($scope.profile.career == "Sororita" && $scope.profile.gender == "m") rollCareer();
     }
 
+    function rollDivination() {
+        var divination = dhUtils.getRandomElement($scope.conf.divination);
+        $scope.profile.divination = divination.text;
+        if (divination.corruption) $scope.profile.stats.corruption += divination.corruption;
+        if (divination.madness) $scope.profile.stats.madness += divination.madness;
+        if (divination.fate) $scope.profile.progress.fate += divination.fate;
+        if (divination.wounds) $scope.profile.progress.wounds += divination.wounds;
+        if (divination.bf) $scope.profile.characteristics.bf += divination.bf;
+        if (divination.ch) $scope.profile.characteristics.ch += divination.ch;
+        if (divination.ge) $scope.profile.characteristics.ge += divination.ge;
+        if (divination.in) $scope.profile.characteristics.in += divination.in;
+        if (divination.kg) $scope.profile.characteristics.kg += divination.kg;
+        if (divination.st) $scope.profile.characteristics.st += divination.st;
+        if (divination.wa) $scope.profile.characteristics.wa += divination.wa;
+        if (divination.wi) $scope.profile.characteristics.wi += divination.wi;
+        if (divination.wk) $scope.profile.characteristics.wk += divination.wk;
+    }
+
+    function rollEyes() {
+      $scope.profile.appearance.eyes = dhUtils.getRandomElement($scope.conf.colouration[$scope.profile.homeworld].eyes);
+    }
+
     function rollFate() {
         $scope.profile.progress.fate = dhUtils.getRandomElement(getScenario().fate);
+    }
+
+    function rollHair() {
+      $scope.profile.appearance.hair = dhUtils.getRandomElement($scope.conf.colouration[$scope.profile.homeworld].hair);
+    }
+
+    function rollSkin() {
+      $scope.profile.appearance.skin = dhUtils.getRandomElement($scope.conf.colouration[$scope.profile.homeworld].skin);
     }
 
     function rollThrones() {

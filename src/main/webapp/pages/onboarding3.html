@@ -33,8 +33,8 @@
                 </select>
             </div>
             <div class="item item-divider" ng-init="onboarding.gears = []">Ausr&uuml;stung</div>
-            <div class="item" align="right" ng-repeat="gear in conf.careers[profile.career].gears | filterValues" ng-bind="gear"></div>
-            <div class="item item-input item-select" ng-repeat="gear in conf.careers[profile.career].gears | filterArrays">
+            <div class="item" align="right" ng-repeat="gear in conf.careers[profile.career].gears | filterValues track by $index" ng-bind="gear"></div>
+            <div class="item item-input item-select" ng-repeat="gear in conf.careers[profile.career].gears | filterArrays track by $index">
                 <div class="input-label">&nbsp;</div>
                 <select ng-model="onboarding.gears[$index]" ng-init="onboarding.gears[$index] = gear[0]">
                     <option ng-repeat="choice in gear">{{choice}}</option>
@@ -71,7 +71,7 @@
     </div>
 </div>
 <a ng-click="proceed3()"
-   class="button button-assertive button-block icon-right ion-chevron-right">Weiter</a>
+   class="button button-block button-assertive icon-right ion-chevron-right">Weiter</a>
 
 <p>{{profile}}</p>
 <p>{{onboarding}}</p>
