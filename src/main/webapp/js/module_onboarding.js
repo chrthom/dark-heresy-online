@@ -104,6 +104,25 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
         dhProfile.set($scope.profile, function() { $location.path('/onboarding/3') });
     };
 
+    $scope.proceed3 = function() {
+        var skills = getCareer().skills.filter(isValue);
+          skills.push.apply(skills, $scope.form.skills);
+          for (i = 0; i < skills.length; i++)
+            $scope.player.skills[skills[i]] = 1;
+          var traits = getCareer($scope).traits.filter(isValue);
+          traits.push.apply(traits, $scope.form.traits);
+          for (i = 0; i < traits.length; i++)
+            $scope.player.traits.push(traits[i]);
+          var weapons = getCareer($scope).weapons.filter(isValue);
+          weapons.push.apply(weapons, $scope.form.weapons);
+          $scope.player.weapons = weapons;
+          var gears = getCareer($scope).gears.filter(isValue);
+          gears.push.apply(gears, $scope.form.gears);
+          $scope.player.gears = gears;
+
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/4') });
+    };
+
     $scope.getScenario = getScenario;
 
     $scope.colorCode = function(value, low, high) {
@@ -125,6 +144,21 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
         if (!$scope.onboarding.rerolledCharacteristic)
             $scope.profile.characteristics[characteristic] = getScenario()[characteristic] + dhUtils.roll(10, 2);
         $scope.onboarding.rerolledCharacteristic = true;
+    };
+
+    $scope.rerollFate = function() {
+        if (!$scope.onboarding.rerolled) rollFate();
+        $scope.onboarding.rerolled = true;
+    };
+
+    $scope.rerollThrones = function() {
+        if (!$scope.onboarding.rerolled) rollThrones();
+        $scope.onboarding.rerolled = true;
+    };
+
+    $scope.rerollWounds = function() {
+        if (!$scope.onboarding.rerolled) rollWounds();
+        $scope.onboarding.rerolled = true;
     };
 
     function getScenario() {

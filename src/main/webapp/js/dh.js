@@ -1,8 +1,6 @@
 if (window.location.protocol != 'https:' && window.location.hostname != 'localhost')
     window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 
-var userId = 1; // For testing
-
 angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     $routeProvider.when('/', {
         controller: 'dhHome',
@@ -25,6 +23,9 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     }).when('/onboarding/3', {
         controller: 'dhOnboarding',
         templateUrl: 'pages/onboarding3.html'
+    }).when('/onboarding/4', {
+        controller: 'dhOnboarding',
+        templateUrl: 'pages/onboarding4.html'
     }).otherwise({
         redirectTo: '/'
     })
@@ -46,10 +47,10 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
 .factory('dhUtils', utilsService)
 .filter('filterArrays', function(dhUtils) {
   return function(input) {
-    return input.filter(dhUtils.isArray);
+    return !input ? [] : input.filter(dhUtils.isArray);
   };
 }).filter('filterValues', function(dhUtils) {
   return function(input) {
-    return input.filter(dhUtils.isValue);
+    return !input ? [] : input.filter(dhUtils.isValue);
   };
 });

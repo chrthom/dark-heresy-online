@@ -1,29 +1,75 @@
 <ion-list>
     <div class="item item-text-wrap">
         <h2>Schritt 3 - F&auml;higkeiten &amp; Ausr&uuml;stung</h2>
-        <p>Mit dem Rang <b ng-bind="profile.rank"></b> beginnt <i>{{profile.name}}s</i> Karriere als <b ng-bind="profile.career"></b>. {{profile.name}} geh&ouml;rt entsprechend seiner Herkunft zur sozialen Schicht "<b ng-bind="profile.socialClass"></b>".
+        <p>Mit dem Rang <b ng-bind="profile.rank"></b> beginnt <i>{{profile.name}}s</i> Karriere als <b ng-bind="profile.career"></b>. {{profile.name}} geh&ouml;rt entsprechend seiner Herkunft zur sozialen Schicht <b ng-bind="profile.socialClass"></b>.
         <p>In diesem Rang beginnst du bereits mit einigen F&auml;higkeiten sowie Ausr&uuml;stung. Im folgenden erh&auml;lst du hier&uuml;ber eine &Uuml;bersicht und hast zudem die M&ouml;glichkeit dich zwischen Alternativen bei der Wahl deiner Startf&auml;higkeiten und -ausr&uuml;stung zu entscheiden.</p>
     </div>
 </ion-list>
-<!--
 <div class="row responsive-lg">
     <div class="col">
         <div class="list card">
             <div class="item item-divider" ng-init="onboarding.skills = []">F&auml;higkeiten</div>
-            <div class="item" ng-repeat="skill in conf.careers[profile.career].skills | filterValues" ng-bind="skill"></div>
+            <div class="item" align="right" ng-repeat="skill in conf.careers[profile.career].skills | filterValues" ng-bind="skill"></div>
             <div class="item item-input item-select" ng-repeat="skill in conf.careers[profile.career].skills | filterArrays">
-                <div class="input-label">W&auml;hle...</div>
+                <div class="input-label">&nbsp;</div>
                 <select ng-model="onboarding.skills[$index]" ng-init="onboarding.skills[$index] = skill[0]">
                     <option ng-repeat="choice in skill">{{choice}}</option>
                 </select>
             </div>
-            <div class="item item-divider">Merkmale</div>
-            <div class="item item-divider">Waffen</div>
-            <div class="item item-divider">Ausr&uuml;stung</div>
+            <div class="item item-divider" ng-init="onboarding.traits = []">Merkmale</div>
+            <div class="item" align="right" ng-repeat="trait in conf.careers[profile.career].traits | filterValues" ng-bind="trait"></div>
+            <div class="item item-input item-select" ng-repeat="trait in conf.careers[profile.career].traits | filterArrays">
+                <div class="input-label">&nbsp;</div>
+                <select ng-model="onboarding.traits[$index]" ng-init="onboarding.traits[$index] = trait[0]">
+                    <option ng-repeat="choice in trait">{{choice}}</option>
+                </select>
+            </div>
+            <div class="item item-divider" ng-init="onboarding.weapons = []">Waffen</div>
+            <div class="item" align="right" ng-repeat="weapon in conf.careers[profile.career].weapons | filterValues" ng-bind="weapon.type"></div>
+            <div class="item item-input item-select" ng-repeat="weapon in conf.careers[profile.career].weapons | filterArrays">
+                <div class="input-label">&nbsp;</div>
+                <select ng-model="onboarding.weapons[$index]" ng-init="onboarding.weapons[$index] = weapon[0].type">
+                    <option ng-repeat="choice in weapon">{{choice.type}}</option>
+                </select>
+            </div>
+            <div class="item item-divider" ng-init="onboarding.gears = []">Ausr&uuml;stung</div>
+            <div class="item" align="right" ng-repeat="gear in conf.careers[profile.career].gears | filterValues" ng-bind="gear"></div>
+            <div class="item item-input item-select" ng-repeat="gear in conf.careers[profile.career].gears | filterArrays">
+                <div class="input-label">&nbsp;</div>
+                <select ng-model="onboarding.gears[$index]" ng-init="onboarding.gears[$index] = gear[0]">
+                    <option ng-repeat="choice in gear">{{choice}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider item-icon-left ion-refresh"
+                 ng-hide="onboarding.rerolled">
+                Startwert neu w&uuml;rfeln
+                <span class="badge badge-assertive">1</span>
+            </div>
+            <a class="item item-icon-left ion-android-open"
+               ng-click="rerollWounds()"
+               ng-disabled="onboarding.rerolled">
+                <font color="{{colorCode(profile.progress.wounds, getScenario().wounds + 1, getScenario().wounds + 3)}}"
+                      ng-bind="profile.progress.wounds"></font> Lebenspunkte
+            </a>
+            <a class="item item-icon-left ion-android-open"
+               ng-click="rerollFate()"
+               ng-disabled="onboarding.rerolled">
+                <font color="{{colorCode(profile.progress.fate, getScenario().fate[0], getScenario().fate[4])}}"
+                      ng-bind="profile.progress.fate"></font> Schicksalspunkte
+            </a>
+            <a class="item item-icon-left ion-android-open"
+               ng-click="rerollThrones()"
+               ng-disabled="onboarding.rerolled">
+                <font color="{{colorCode(profile.stats.thrones, conf.careers[profile.career].thrones.start + 3 * conf.careers[profile.career].thrones.dices, conf.careers[profile.career].thrones.start + 6 * conf.careers[profile.career].thrones.dices)}}"
+                      ng-bind="profile.stats.thrones"></font> Thronen Startkapital
+            </a>
         </div>
     </div>
 </div>
--->
 <a ng-click="proceed3()"
    class="button button-assertive button-block icon-right ion-chevron-right">Weiter</a>
 

@@ -56,7 +56,7 @@ config.homeworlds = {
       'ch' : 15,
       'wounds' : 9,
       'fate' : [
-        1, 1, 2, 2, 2
+        1, 1, 2, 2, 3
       ]
     },
     'Makropolenwelt' : {
@@ -149,7 +149,7 @@ config.homeworlds = {
       'ch' : 20,
       'wounds' : 8,
       'fate' : [
-        2, 2, 2, 2, 3
+        1, 2, 2, 2, 3
       ]
     },
     'Kinder der Leere' : {
@@ -201,7 +201,7 @@ config.homeworlds = {
       'ch' : 20,
       'wounds' : 6,
       'fate' : [
-        2, 2, 3, 3, 3
+        1, 2, 3, 3, 3
       ]
     },
     'Fabrikwelt' : {

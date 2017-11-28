@@ -31,7 +31,7 @@ var utilsService = function() {
           return obj instanceof Array;
         },
         isValue: function(obj) {
-          return !isArray(obj);
+          return !(obj instanceof Array);
         },
         range: function(from, to, step) {
           step = typeof step == 'undefined' ? 1 : step;
@@ -44,7 +44,7 @@ var utilsService = function() {
           dices = typeof dices == 'undefined' ? 1 : dices;
           var sum = 0;
           for (var i = 0; i < dices; i++)
-            sum += Math.floor(Math.random() * sides) + 1;
+            sum += Math.floor(Math.random() * sides);
           return sum;
         }
     };
