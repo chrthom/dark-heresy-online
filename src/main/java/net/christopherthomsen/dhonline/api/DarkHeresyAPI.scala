@@ -51,7 +51,7 @@ class DarkHeresyAPI {
   @ApiMethod(name = "stats.list",
     path = "stats",
     httpMethod = ApiMethod.HttpMethod.GET)
-  def listStats: JavaList[Inventory] = InventoryDAO.list.asJava
+  def listStats: JavaList[Stats] = StatsDAO.list.asJava
 
   @ApiMethod(name = "stats.get",
     path = "stats/{username}",

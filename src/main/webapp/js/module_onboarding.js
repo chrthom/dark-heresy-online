@@ -92,6 +92,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         rollWounds();
         // Instantiate stats
         $scope.stats = {
+            username : dhAuth.username,
             madness : $scope.profile.career == 'Gelöschtes Gedächtnis' ? 2 + dhUtils.roll(10) : 0,
             corruption : 0,
             fatigue : 0,
@@ -106,7 +107,11 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             case 'Soldat': $scope.profile.characteristics.bf += 3; break;
             case 'Techpriester': $scope.profile.characteristics.wk += 4; break;
         }
-        dhProfile.set($scope.profile, function() { $location.path('/onboarding/3'); });
+        dhProfile.set($scope.profile, function() {
+            dhStats.set($scope.stats, function() {
+                $location.path('/onboarding/3');
+            });
+        });
     };
 
     $scope.proceed3 = function() {
@@ -134,7 +139,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         // Import bionics
         $scope.profile.bionics = [];
         var bionics = $scope.conf.careers[$scope.profile.career].bionics;
-        for (var i = 0; i < bionics.length; i++)
+        if (bionics) for (var i = 0; i < bionics.length; i++)
             $scope.profile.bionics.push.apply($scope.profile.bionics.push.apply, { key: bionics[i], value: 1 });
         // Generate random appearance and divination based on homeworld
         $scope.profile.appearance = {};
@@ -147,7 +152,9 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         rollDivination();
         dhProfile.set($scope.profile, function() {
             dhInventory.set($scope.inventory, function() {
-                $location.path('/onboarding/4');
+                dhStats.set($scope.stats, function() {
+                    $location.path('/onboarding/4');
+                });
             });
         });
     };
@@ -173,7 +180,11 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             if (sanction.in) $scope.profile.characteristics.in += sanction.in;
             if (sanction.wi) $scope.profile.characteristics.wi += sanction.wi;
             if (sanction.wk) $scope.profile.characteristics.wk += sanction.wk;
-            dhProfile.set($scope.profile, function() { $location.path('/onboarding/psi'); });
+            dhProfile.set($scope.profile, function() {
+                dhStats.set($scope.stats, function() {
+                    $location.path('/onboarding/psi');
+                });
+            });
         } else dhProfile.set($scope.profile, function() { $location.path('/onboarding/done'); });
     };
 
@@ -191,7 +202,11 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     $scope.proceedDone = function() {
         $scope.stats.fate = $scope.profile.progress.fate;
         $scope.stats.wounds = $scope.profile.progress.wounds;
-        dhProfile.set($scope.profile, function() { $location.path('/'); });
+        dhProfile.set($scope.profile, function() {
+            dhStats.set($scope.stats, function() {
+                $location.path('/');
+            });
+        });
     };
 
     $scope.colorCode = function(value, low, high) {
