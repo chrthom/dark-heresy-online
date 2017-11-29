@@ -146,7 +146,34 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     };
 
     $scope.proceed4 = function() {
+        // Changing characteristics based on age
+        $scope.profile.characteristics.ge += Math.round(7 - $scope.profile.appearance.age / 5);
+        $scope.profile.characteristics.wk += Math.round($scope.profile.appearance.age / 5 - 7);
+        // Changing characteristics based on build
+        var build = $scope.getBuild();
+        if (build.ch) $scope.profile.characteristics.ch += build.ch;
+        if (build.ge) $scope.profile.characteristics.ge += build.ge;
+        if (build.st) $scope.profile.characteristics.st += build.st;
+        if (build.wi) $scope.profile.characteristics.wi += build.wi;
+        // If character is psiker, roll sanction and reroute to psipower step
+        if ($scope.profile.career == 'Imperialer Psioniker') {
+            var sanction = dhUtils.getRandomElement($scope.conf.sanctions);
+            $scope.profile.sanction = sanction.name;
+            if (sanction.trait) $scope.profile.traits.push(sanction.trait);
+            if (sanction.thrones) $scope.profile.stats.thrones += sanction.thrones;
+            if (sanction.madness) $scope.profile.stats.madness += sanction.madness;
+            if (sanction.ch) $scope.profile.characteristics.ch += sanction.ch;
+            if (sanction.in) $scope.profile.characteristics.in += sanction.in;
+            if (sanction.wi) $scope.profile.characteristics.wi += sanction.wi;
+            if (sanction.wk) $scope.profile.characteristics.wk += sanction.wk;
+            dhProfile.set($scope.profile, function() { $location.path('/onboarding/psi'); });
+        } else dhProfile.set($scope.profile, function() { $location.path('/onboarding/done'); });
+    };
 
+    $scope.proceedDone = function() {
+        $scope.profile.stats.fate = $scope.profile.progress.fate;
+        $scope.profile.stats.wounds = $scope.profile.progress.wounds;
+        dhProfile.set($scope.profile, function() { $location.path('/'); });
     };
 
     $scope.colorCode = function(value, low, high) {
@@ -232,7 +259,8 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     }
 
     function rollAge() {
-        $scope.profile.appearance.age = dhUtils.getRandomElement($scope.conf.age[$scope.profile.homeworld]) + dhUtils.roll(10);
+        $scope.profile.appearance.age = dhUtils.getRandomElement($scope.conf.age[$scope.profile.homeworld])
+            + dhUtils.roll(10) + ($scope.profile.career == 'Imperialer Psioniker' ? dhUtils.roll(10, 3) : 0);
     }
 
     function rollBuild() {

@@ -26,6 +26,12 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     }).when('/onboarding/4', {
         controller: 'dhOnboarding',
         templateUrl: 'pages/onboarding4.html'
+    }).when('/onboarding/psi', {
+        controller: 'dhOnboarding',
+        templateUrl: 'pages/onboarding_psi.html'
+    }).when('/onboarding/done', {
+        controller: 'dhOnboarding',
+        templateUrl: 'pages/onboarding_done.html'
     }).otherwise({
         redirectTo: '/'
     })
