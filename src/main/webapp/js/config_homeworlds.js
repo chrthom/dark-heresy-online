@@ -118,8 +118,7 @@ config.homeworlds = {
         'Sprache (Niedergotisch)'
       ],
       'traits' : [
-        'Gesegnete Ahnungslosigkeit',
-        'Hagiographie'
+        'Gesegnete Ahnungslosigkeit'
       ],
       'careers' : [
         'Adept',
@@ -155,18 +154,14 @@ config.homeworlds = {
     'Kinder der Leere' : {
       'description' : 'Du wurdest nicht auf einer der Welten des Imperiums geboren, sondern auf einem gewaltigen Schiff in den Tiefen des Raums - vielleicht sogar im Warp selbst. Niemand weiß, warum dich das von deinen Mitmenschen unterscheidet, aber dein Aussehen, Handeln und Denken ist irgendwie anders. Du wuchst im Umfeld von Psionikern auf, und was andere hassen und verabscheuen, ist für dich normal.',
       'basicSkills' : [
-        'Allgemeinwissen (Imperium)',
-        'Allgemeinwissen (Imperiale Religion)',
-        'Allgemeinwissen (Krieg)',
-        'Lesen/Schreiben',
-        'Sprache (Hochgotisch)'
+        'Navigation (Raum)',
+        'Pilot (Raumschiff)'
       ],
       'skills' : [
-        'Sprache (Niedergotisch)'
+        'Sprache (Niedergotisch)',
+        'Sprache (Schiffsdialekt)'
       ],
       'traits' : [
-        'Navigation (Raum)',
-        'Pilot (Raumschiff)',
         'Glückspliz',
         'Unstern',
         'Gewöhnt an die Leere'
@@ -205,7 +200,7 @@ config.homeworlds = {
       ]
     },
     'Fabrikwelt' : {
-      'description' : 'Du bist Teil des gealtigen industriellen Apparats, den das Adeptus Mechanicus auf den Fabrikwelten des Imperiums geschaffen hat. Die meisten Menschen hier sind nicht viel mehr als Zahnrädchen im Getriebe der Produktionskomplexes, doch auch zahlreiche Adepten, Soldaten und Techpriester entstammen diesen Welten.',
+      'description' : 'Du bist Teil des gewaltigen industriellen Apparats, den das Adeptus Mechanicus auf den Fabrikwelten des Imperiums geschaffen hat. Die meisten Menschen hier sind nicht viel mehr als Zahnrädchen im Getriebe der Produktionskomplexes, doch auch zahlreiche Adepten, Soldaten und Techpriester entstammen diesen Welten.',
       'basicSkills' : [
         'Allgemeinwissen (Tech)',
         'Allgemeinwissen (Maschinenkult)'
@@ -214,9 +209,8 @@ config.homeworlds = {
         'Sprache (Niedergotisch)'
       ],
       'traits' : [
-        'Bereit für den Einsatz',
-        'Credo des Omnissiahs',
-        'Technische Prüfung'
+        'Technische Wartung',
+        'Dem Imperialen Kult fremd'
       ],
       'careers' : [
         'Adept',
@@ -262,8 +256,8 @@ config.homeworlds = {
         'Sprache (Niedergotisch)'
       ],
       'traits' : [
+        'Abgestumpftheit',
         'Imperiale Konditionierung',
-        'Durch einen dunklen Schleier',
         'Pistolen (Projektil)',
         'Pistolen (Laser)'
       ],
@@ -362,8 +356,8 @@ config.homeworlds = {
         'Sprache (Niedergotisch)'
       ],
       'traits' : [
-        'Scholastische Ausbildung',
-        'Pistolen (Projektil)',
+        'Behütete Erziehung',
+        'Gemäßigter Wille'
         'Leichte Waffen (Projektil)',
         'Nahkampwaffen (Primitiv)'
       ],

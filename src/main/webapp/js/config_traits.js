@@ -1,13 +1,13 @@
 config.traits = {
   'Abgestumpftheit' : {
-    'asset' : 'Sie erhalten von normalen Schrecken keine Wahnsinnspunkte',
+    'asset' : 'Du erhälst von normalen Schrecken keine Wahnsinnspunkte',
     'wk' : 30
   },
   'Anmut der Maglev' : {
     'asset' : 'Einmal täglich 1W10+WI-Bonus Minuten schweben'
   },
   'Assassinenschlag' : {
-    'asset' : 'Bei einem gelungenen Akrobatik-Wurf nach einem Nahkampfangriff können Sie sich als freie Aktion bewegen',
+    'asset' : 'Bei einem gelungenen Akrobatik-Wurf nach einem Nahkampfangriff kannst du dich als freie Aktion bewegen',
     'ge' : 40,
     'skill' : 'Akrobatik'
   },
@@ -20,6 +20,9 @@ config.traits = {
   },
   'Autosanguniator' : {
     'asset' : 'Kann 2 Schadenspunkte/Tag heilen, immer nur leicht verletzt'
+  },
+  'Behütete Erziehung' : {
+    'asset' : '-10 auf Charme-, Vorgaukeln-, Befehligen- und Forschender Blick-Würfe im Umgang mit Kultisten, Verrätern, Drogenabhängigen, Abschaum, Mutanten und Kriminellen'
   },
   'Beidhändiger Kampf (Nahkampfwaffen)' : {
     'asset' : '2 Angriffe/Runde mit Waffen',
@@ -66,6 +69,9 @@ config.traits = {
     'asset' : 'Unglaublich widerstandsfähig gegen Drogen und Alkohol',
     'wi' : 30
   },
+  'Dem Imperialen Kult fremd' : {
+    'asset' : '-10 auf alle Allgemeinwissen (Imperialer Glaube)-Würfe; -5 auf CH im Umgang mit der Ekklesiarchie'
+  },
   'Disziplin-Fokus (Biomantie)' : {
     'asset' : '+2 zu Kraftwürfen bei der Manifestierung von Biomantie Disziplinkräften',
     'trait' : 'Psi-Wert 3'
@@ -101,6 +107,9 @@ config.traits = {
     'wk' : 30,
     'skill' : 'Befehligen'
   },
+  'Eiserner Magen' : {
+    'asset' : '+10 auf Zechen-Würfe, um den Auswirkungen verzehrter Gifte, Toxine oder verdorbener Lebensmittel zu widerstehen und für Würfe, wenn man sich nicht übergeben will.'
+  },
   'Elektoo-Induktoren' : {
     'asset' : 'Energie abgeben und absaugen',
     'trait' : 'Cybermantel'
@@ -114,6 +123,9 @@ config.traits = {
   'Entwaffnen' : {
     'asset' : 'Gegner zwingen, die Waffe fallenzulassen',
     'ge' : 30
+  },
+  'Etikette' : {
+    'asset' : '+10 auf Charme-, Vorgaukeln- und Forschender Blick-Würfe in formellen Situationen, Adligen oder hohen Autoritäten'
   },
   'Exotische Waffen (Nadelpistole)' : {
     'asset' : 'Nutzung der Nadelpistole ohne Abzug'
@@ -137,6 +149,9 @@ config.traits = {
     'asset' : 'Zusatzangriff bei erfolgreicher Parade',
     'kg' : 40
   },
+  'Gemäßigter Wille' : {
+    'asset' : 'Sehr harte Würfe (-30) werden wie harte Würfe (-20) behandelt'
+  },
   'Geschärfte Sinne (Gehör)' : {
     'asset' : '+10 zu Wahrnehmungstests'
   },
@@ -151,6 +166,18 @@ config.traits = {
   },
   'Geschärfte Sinne (Tastsinn)' : {
     'asset' : '+10 zu Wahrnehmungstests'
+  },
+  'Gesegnete Ahnungslosigkeit' : {
+    'asset' : '-5 auf alle Verbotenes Wissen-Würfe'
+  },
+  'Gewöhnt an die Leere' : {
+    'asset' : 'Immun gegen Raumreisekrankheit; Bereiche ohne oder mit geringer Schwerkraft gelten für dich nicht als schwieriges Gelände'
+  },
+  'Gewöhnt an Menschenmengen' : {
+    'asset' : 'Menschenmengen gelten für dich nicht als schwieriges Gelände; kein Abzug auf GE-Würfe, um in Menschenmengen beim Rennen nicht zu stolpern'
+  },
+  'Glückspilz' : {
+    'asset' : 'Bei einer 9 auf einem W10 verlierst du einen eingesetzten Schicksalspunkt nicht'
   },
   'Gruppenkontakte (Adel)' : {
     'asset' : '+10 auf CH-Würfe bei der Interaktion mit Adel',
@@ -242,7 +269,7 @@ config.traits = {
     'trait' : 'Gruppenkontakte (Ekklesiarchie)'
   },
   'Hart im Nehmen' : {
-    'asset' : 'Senkt kritischen Schaden, den Sie erleiden',
+    'asset' : 'Senkt kritischen Schaden, den du erleidest',
     'wi' : 40
   },
   'Hass (Dämone)' : {
@@ -278,9 +305,15 @@ config.traits = {
   'Hass (Xenos/Vespiden)' : {
     'asset' : '+10 bei Nahkampfangriffen auf Vespiden'
   },
+  'Imperiale Konditionierung' : {
+    'asset' : '+10 bei WK-Würfen um Angst, Besessenheit oder Gedankenkontrolle zu widerstehen'
+  },
   'In der Hölle Schlund' : {
     'asset' : 'Untergebene werden in Ihrer Gegenwart immun gegen Angst und Niederhalten',
     'trait' : 'Eiserne Disziplin'
+  },
+  'Initiationsritus' : {
+    'asset' : 'Du kannst als volle Aktion einen IN-Wurf machen, um eine Blutung zu stoppen'
   },
   'Interface' : {
     'asset' : 'Kommunikation mit Maschinen',
@@ -361,8 +394,11 @@ config.traits = {
     'asset' : 'WK-Wurf, um 2 kg * WK-Bonus an metallischen Gegenständen anzuziehen',
     'trait' : 'Magnetischer Lockruf'
   },
-  'Magnetische Lockruf' : {
+  'Magnetischer Lockruf' : {
     'asset' : 'WK-Wurf, um 1 kg * WK-Bonus an metallischen Gegenständen anzuziehen'
+  },
+  'Makropol-Bindung' : {
+    'asset' : '-10 auf alle Überleben-Würfe; Außerhalb von "ordentlichen Wohnumgebungen" -5 auf alle IN-Würfe'
   },
   'Mechandriten-Nutzung (Manipulator)' : {
     'asset' : 'Kann Manipulator-Mechandrit nutzen'
@@ -459,6 +495,9 @@ config.traits = {
     'asset' : 'Kein Abzug für Angriffe auf bestimmte Trefferzonen',
     'trait' : 'Sicherer Schlag',
     'kg' : 40
+  },
+  'Primitiv' : {
+    'asset' : '-10 auf Würfe auf Tech-Gebrauch (IN) und CH-Würfe in formellem oder zivilisiertem Umfeld'
   },
   'Psi-Wert 1' : {
     'asset' : 'Erhält Kräfte, würfelt 1W10+WK-Bonus für Kraftwürfe'
@@ -588,7 +627,7 @@ config.traits = {
     'asset' : 'Nutzung von schweren Werfern ohne Abzug'
   },
   'Schwer zu treffen' : {
-    'asset' : 'Gegner hat -20 auf BF-Würfe, wenn Sie rennen oder einen Sturmangriff machen',
+    'asset' : 'Gegner hat -20 auf BF-Würfe, wenn du rennst oder einen Sturmangriff machst',
     'ge' : 40
   },
   'Selbstaufopferung' : {
@@ -685,7 +724,7 @@ config.traits = {
   'Talentiert (Zechen)' : {
     'asset' : '+10 auf Fähigkeitswürfe'
   },
-  'Technisches Anklopfen' : {
+  'Technische Wartung' : {
     'asset' : 'Als halbe Aktion Funktionsstörung beheben',
     'in' : 30
   },
@@ -712,6 +751,9 @@ config.traits = {
     'trait' : 'Sicherer Schütze',
     'bf' : 40
   },
+  'Unstern' : {
+    'asset' : '-5 auf CH-Würfe im Umgang mit Personen, die keine Kinder der Leere sind'
+  },
   'Verborgener Hohlraum' : {
     'asset' : 'Geheimer Hohlraum im Körper'
   },
@@ -725,6 +767,9 @@ config.traits = {
   'Vorausschau' : {
     'asset' : 'Nachdenken bringt +10 zum nächsten Wurf',
     'in' : 30
+  },
+  'Wachsam' : {
+    'asset' : '+1 auf Initiativewürfe'
   },
   'Waffenmeister' : {
     'asset' : 'Gegner bekommen für Überzahl keinen Bonus',

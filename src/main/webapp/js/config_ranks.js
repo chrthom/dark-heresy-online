@@ -1874,7 +1874,7 @@ config.ranks = {
         'trait' : 'Schnell nachladen',
         'costs' : 100
       }, {
-        'trait' : 'Technisches Anklopfen',
+        'trait' : 'Technische Wartung',
         'costs' : 100
       }, {
         'trait' : 'Wurfwaffen (Primitiv)',

@@ -97,12 +97,20 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         rollWounds();
         // Instantiate stats
         $scope.profile.stats = {
-            madness : 0,
+            madness : $scope.profile.career == 'Gelöschtes Gedächtnis' ? 2 + dhUtils.roll(10) : 0,
             corruption : 0,
             fatigue : 0,
             thrones : null
         };
         rollThrones();
+        // Increase characteristics if homeword is a forge world
+        if ($scope.profile.homeworld == 'Fabrikwelt') switch ($scope.profile.career) {
+            case 'Abschaum': $scope.profile.characteristics.wa += 4; break;
+            case 'Adept': $scope.profile.characteristics.in += 4; break;
+            case 'Assassine': $scope.profile.characteristics.ge += 3; break;
+            case 'Soldat': $scope.profile.characteristics.bf += 3; break;
+            case 'Techpriester': $scope.profile.characteristics.wk += 4; break;
+        }
         dhProfile.set($scope.profile, function() { $location.path('/onboarding/3'); });
     };
 
