@@ -38,6 +38,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     $scope.proceed1 = function() {
         // Set homeworld
         $scope.profile.homeworld = $scope.onboarding.origin == 'x' ? dhUtils.getRandomElement($scope.conf.homeworlds.chances) : $scope.onboarding.origin;
+        console.log($scope.profile.homeworld); //
         var homeworld = $scope.conf.homeworlds.attributes[$scope.profile.homeworld];
         // Set starting skills for homeworld
         $scope.profile.skills = [];
@@ -118,8 +119,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         // Import skills from career and choices
         var skills = $scope.conf.careers[$scope.profile.career].skills.filter(dhUtils.isValue);
         skills.push.apply(skills, $scope.onboarding.skills);
-        var i;
-        for (i = 0; i < skills.length; i++) dhUtils.addOrUpdateArray($scope.profile.skills, skills[i], 1);
+        for (var i = 0; i < skills.length; i++) dhUtils.addOrUpdateArray($scope.profile.skills, skills[i], 1);
         // Import traits from career and choices
         $scope.profile.traits = [];
         $scope.profile.traits.push.apply($scope.profile.traits,
@@ -165,7 +165,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         if (build.wi) $scope.profile.characteristics.wi += build.wi;
         // If character is psiker, roll sanction and reroute to psipower step
         if ($scope.profile.career == 'Imperialer Psioniker') {
-            var sanction = dhUtils.getRandomElement($scope.conf.sanctions);
+            var sanction = dhUtils.getRandomElement($scope.conf.sanction);
             $scope.profile.sanction = sanction.name;
             if (sanction.trait) $scope.profile.traits.push(sanction.trait);
             if (sanction.thrones) $scope.profile.stats.thrones += sanction.thrones;
@@ -203,7 +203,17 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
                 return $scope.conf.divination[i];
     };
 
+    $scope.getSanction = function() {
+        for (var i = 0; i < $scope.conf.sanction.length; i++)
+            if ($scope.conf.sanction[i].name == $scope.profile.sanction)
+                return $scope.conf.sanction[i];
+    };
+
     $scope.getScenario = getScenario;
+
+    $scope.keys = Object.keys;
+
+    $scope.range = dhUtils.range;
 
     $scope.round = function(x) {
         return Math.round(x);

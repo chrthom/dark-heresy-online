@@ -32,11 +32,11 @@ config.scholastica = {
     'Ipsissimus'
   ],
   'Telepathie' : [
-    'Grammatiker',
-    'Rhetor',
-    'Dilektat',
-    'Trigmestus',
-    'Quadrivit',
-    'Ipsissimus'
+    'Karmesinroter Äon',
+    'Goldener Äon',
+    'Silberner Äon',
+    'Hermetischer Äon',
+    'Stummer Äon',
+    'Geisterhafter Äon'
   ]
 }

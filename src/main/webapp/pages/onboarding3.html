@@ -33,7 +33,6 @@
                 <select ng-model="onboarding.weapons[$index]"
                         ng-init="onboarding.weapons[$index] = weapon[0]"
                         ng-options="choice as choice.name + (choice.ammo && ' mit ' + choice.ammo + (choice.ammo == 1 && ' Magazin' || ' Patronen') || '') for choice in weapon">
-                    <!--<option ng-repeat="choice in weapon">{{choice.name}}</option>-->
                 </select>
             </div>
             <div class="item item-divider" ng-init="onboarding.gears = []">Ausr&uuml;stung</div>

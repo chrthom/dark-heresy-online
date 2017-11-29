@@ -8,7 +8,7 @@ config.homeworlds = {
     'Kinder der Leere',
     'Fabrikwelt',
     'Fabrikwelt',
-    'Gelöschte Erinnerung',
+    'Gelöschte Gedächtnis',
     'Adliger',
     'Schola Progenium',
     'Schola Progenium'
@@ -357,7 +357,7 @@ config.homeworlds = {
       ],
       'traits' : [
         'Behütete Erziehung',
-        'Gemäßigter Wille'
+        'Gemäßigter Wille',
         'Leichte Waffen (Projektil)',
         'Nahkampwaffen (Primitiv)'
       ],

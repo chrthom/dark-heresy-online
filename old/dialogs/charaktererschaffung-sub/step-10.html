@@ -73,7 +73,7 @@
     </td>
     <td ng-init="form.psipowers = []">
       <h4>Anfangs-Psikr&auml;fte</h4>
-      <p ng-repeat="i in range(0, player.characteristics.wk / 13)">
+      <p ng-repeat="i in range(0, round(profile.characteristics.wk / 10))">
         <select ng-model="form.psipowers[$index]" ng-init="form.psipowers[$index] = conf.psi[i]"
             ng-options="choice as choice.name for choice in conf.psi | filter:'Geringere Psikraft'">
         </select>

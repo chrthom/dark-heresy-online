@@ -8,7 +8,68 @@
 <div class="row responsive-lg">
     <div class="col">
         <div class="list card">
-
+            <div class="item item-divider" ng-init="onboarding.psipowers = []">
+                <h2>Anfangs-Psikr&auml;fte</h2>
+            </div>
+            <div class="item item-input item-select" ng-repeat="i in range(1, round((profile.characteristics.wk + 5) / 10))">
+                <div class="input-label" ng-bind="i + '. Psikraft'"></div>
+                <select ng-model="onboarding.psipowers[$index]"
+                        ng-init="onboarding.psipowers[$index] = conf.psi[$index].name"
+                        ng-options="choice.name as choice.name for choice in conf.psi | filter:{discipline:'Geringere Psikraft'}">
+                </select>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">
+                <h2>Scholastica Psykana</h2>
+            </div>
+            <div class="item item-input item-select">
+                <div class="input-label">Rang: {{conf.scholastica[onboarding.scholastica][0]}}</div>
+                <select ng-model="onboarding.scholastica"
+                        ng-init="onboarding.scholastica = 'Prophetie'"
+                        ng-options="choice for choice in keys(conf.scholastica)">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider">
+                <h2>Nebenwirkungen der Sanktionierung</h2>
+            </div>
+            <div class="item">
+                <h2 ng-bind="getSanction().name"></h2>
+                <p ng-bind="getSanction().text"></p>
+            </div>
+            <div class="item">
+                <p ng-show="getSanction().ch">
+                    Charisma:
+                    <font color="red" ng-bind="getSanction().ch"></font>
+                </p>
+                <p ng-show="getSanction().in">
+                    Intelligenz:
+                    <font color="red" ng-bind="getSanction().in"></font>
+                </p>
+                <p ng-show="getSanction().trait">
+                    Merkmal: {{getSanction().trait))
+                </p>
+                <p ng-show="getSanction().thrones">
+                    Startkapital:
+                    <font color="green" ng-bind="'+' + getSanction().thrones"></font>
+                </p>
+                <p ng-show="getSanction().madness">
+                    Wahnsinn:
+                    <font color="red" ng-bind="'+' + getSanction().madness"></font>
+                </p>
+                <p ng-show="getSanction().wi">
+                    Widerstandskraft:
+                    <font color="red" ng-bind="getSanction().wi"></font>
+                </p>
+                <p ng-show="getSanction().wk">
+                    Willenskraft:
+                    <font color="green" ng-bind="'+' + getSanction().wk"></font>
+                </p>
+            </div>
         </div>
     </div>
 </div>
