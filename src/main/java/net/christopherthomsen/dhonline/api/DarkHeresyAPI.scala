@@ -18,20 +18,20 @@ import scala.collection.JavaConverters._
   title = "darkheresy",
   version = "v1")
 class DarkHeresyAPI {
-  @ApiMethod(name = "character.list",
-    path = "character",
+  @ApiMethod(name = "profile.list",
+    path = "profile",
     httpMethod = ApiMethod.HttpMethod.GET)
   def listProfile: JavaList[Profile] = ProfileDAO.list.asJava
 
-  @ApiMethod(name = "character.get",
-    path = "character/{username}",
+  @ApiMethod(name = "profile.get",
+    path = "profile/{username}",
     httpMethod = ApiMethod.HttpMethod.GET)
   def getProfile(@Named("username") username: String): Profile = ProfileDAO getByUsername username
 
-  @ApiMethod(name = "character.set",
-    path = "character",
+  @ApiMethod(name = "profile.set",
+    path = "profile",
     httpMethod = ApiMethod.HttpMethod.POST)
-  def setProfile(character: Profile): Profile = ProfileDAO set character
+  def setProfile(profile: Profile): Profile = ProfileDAO set profile
 
   @ApiMethod(name = "inventory.list",
     path = "inventory",

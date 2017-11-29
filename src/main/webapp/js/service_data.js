@@ -8,12 +8,12 @@ var profileService = function($http, dhAuth) {
         set: function(p, successFunc, errorFunc) {
             successFunc = typeof successFunc !== 'undefined' ? successFunc : function() {};
             errorFunc = typeof errorFunc !== 'undefined' ? errorFunc : function() {};
-            $http.post('/_ah/api/dh/v1/character', p).then(successFunc, errorFunc);
+            $http.post('/_ah/api/dh/v1/profile', p).then(successFunc, errorFunc);
         },
         get: function(successFunc, errorFunc) {
             successFunc = typeof successFunc !== 'undefined' ? successFunc : function() {};
             errorFunc = typeof errorFunc !== 'undefined' ? errorFunc : function() {};
-            $http.get('/_ah/api/dh/v1/character/' + dhAuth.username).then(successFunc, errorFunc);
+            $http.get('/_ah/api/dh/v1/profile/' + dhAuth.username).then(successFunc, errorFunc);
         }
     };
 };
