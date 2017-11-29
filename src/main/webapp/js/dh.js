@@ -11,6 +11,9 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     }).when('/inventory', {
         controller: 'dhInventory',
         templateUrl: 'pages/inventory.html'
+    }).when('/career', {
+        controller: 'dhCareer',
+        templateUrl: 'pages/career.html'
     }).when('/onboarding', {
         controller: 'dhOnboarding',
         templateUrl: 'pages/onboarding0.html'
