@@ -9,7 +9,135 @@
 <div class="row responsive-lg">
     <div class="col">
         <div class="list card">
-
+            <div class="item item-divider item-icon-left ion-refresh"
+                 ng-hide="onboarding.rerolled">
+                Erscheinungsbild neu ausw&uuml;rfeln
+                <span class="badge badge-assertive">1</span>
+            </div>
+            <a class="item item-icon-left ion-calendar"
+               ng-click="rerollAge()"
+               ng-disabled="onboarding.rerolled">
+                Alter zu Beginn der Karriere
+                <span class="item-note" ng-bind="profile.appearance.age + ' Jahre'"></span>
+                <p>
+                    Gewandtheit:
+                    <font color="{{colorCode(round(7 - profile.appearance.age / 5), -1, 1)}}"
+                          ng-bind="(round(7 - profile.appearance.age / 5) > 0 && '+' || '') + round(7 - profile.appearance.age / 5)"></font>
+                </p>
+                <p>
+                    Willenskraft:
+                    <font color="{{colorCode(round(profile.appearance.age / 5 - 7), -1, 1)}}"
+                          ng-bind="(round(profile.appearance.age / 5 - 7) > 0 && '+' || '') + round(profile.appearance.age / 5 - 7)"></font>
+                </p>
+            </a>
+            <a class="item item-icon-left ion-ios-body"
+               ng-click="rerollBuild()"
+               ng-disabled="onboarding.rerolled">
+                K&ouml;rperbau
+                <span class="item-note" ng-bind="(profile.gender == 'w' && 'weiblich' || 'männlich') + ' / ' + profile.appearance.build"></span>
+                <p>Gr&ouml;&szlig;e: {{profile.appearance.height}} cm</p>
+                <p>Gewicht: {{profile.appearance.weight}} kg</p>
+                <p ng-show="getBuild().ch">
+                    Charisma:
+                    <font color="{{colorCode(getBuild().ch, -1, 1)}}"
+                          ng-bind="(getBuild().ch > 0 && '+' || '') + getBuild().ch"></font>
+                </p>
+                <p ng-show="getBuild().ge">
+                    Gewandtheit:
+                    <font color="{{colorCode(getBuild().ge, -1, 1)}}"
+                          ng-bind="(getBuild().ge > 0 && '+' || '') + getBuild().ge"></font>
+                </p>
+                <p ng-show="getBuild().st">
+                    St&auml;rke:
+                    <font color="{{colorCode(getBuild().st, -1, 1)}}"
+                          ng-bind="(getBuild().st > 0 && '+' || '') + getBuild().st"></font>
+                </p>
+                <p ng-show="getBuild().wi">
+                    Widerstandskraft:
+                    <font color="{{colorCode(getBuild().wi, -1, 1)}}"
+                          ng-bind="(getBuild().wi > 0 && '+' || '') + getBuild().wi"></font>
+                </p>
+            </a>
+            <a class="item item-icon-left ion-eye"
+               ng-click="rerollEyes()"
+               ng-disabled="onboarding.rerolled">
+                Augenfarbe
+                <span class="item-note" ng-bind="profile.appearance.eyes"></span>
+            </a>
+            <a class="item item-icon-left ion-contrast"
+               ng-click="rerollHair()"
+               ng-disabled="onboarding.rerolled">
+                Haarfarbe
+                <span class="item-note" ng-bind="profile.appearance.hair"></span>
+            </a>
+            <a class="item item-icon-left ion-happy"
+               ng-click="rerollSkin()"
+               ng-disabled="onboarding.rerolled">
+                Hautfarbe
+                <span class="item-note" ng-bind="profile.appearance.skin"></span>
+            </a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list card">
+            <div class="item item-text-wrap item-icon-left ion-wand">
+                Weissagung
+                <p>"<i ng-bind="profile.divination"></i>"</p>
+                <p ng-show="getDivination().bf">
+                    Ballistische Fertigkeit:
+                    <font color="green" ng-bind="'+' + getDivination().bf"></font>
+                </p>
+                <p ng-show="getDivination().ch">
+                    Charisma:
+                    <font color="{{colorCode(getDivination().ch, -1, 1)}}"
+                          ng-bind="(getDivination().ch > 0 && '+' || '') + getDivination().ch"></font>
+                </p>
+                <p ng-show="getDivination().ge">
+                    Gewandtheit:
+                    <font color="green" ng-bind="'+' + getDivination().ge"></font>
+                </p>
+                <p ng-show="getDivination().in">
+                    Intelligenz:
+                    <font color="{{colorCode(getDivination().in, -1, 1)}}"
+                          ng-bind="(getDivination().in > 0 && '+' || '') + getDivination().in"></font>
+                </p>
+                <p ng-show="getDivination().kg">
+                    Kampfgeschick:
+                    <font color="green" ng-bind="'+' + getDivination().kg"></font>
+                </p>
+                <p ng-show="getDivination().corruption">
+                    Korruption:
+                    <font color="red" ng-bind="'+' + getDivination().corruption"></font>
+                </p>
+                <p ng-show="getDivination().wounds">
+                    Lebenspunkte:
+                    <font color="green" ng-bind="'+' + getDivination().wounds"></font>
+                </p>
+                <p ng-show="getDivination().fate">
+                    Schicksalspunkte:
+                    <font color="green" ng-bind="'+' + getDivination().fate"></font>
+                </p>
+                <p ng-show="getDivination().st">
+                    St&auml;rke:
+                    <font color="green" ng-bind="'+' + getDivination().st"></font>
+                </p>
+                <p ng-show="getDivination().madness">
+                    Wahnsinn:
+                    <font color="red" ng-bind="'+' + getDivination().madness"></font>
+                </p>
+                <p ng-show="getDivination().wa">
+                    Wahrnehmung:
+                    <font color="green" ng-bind="'+' + getDivination().wa"></font>
+                </p>
+                <p ng-show="getDivination().wi">
+                    Widerstandskraft:
+                    <font color="green" ng-bind="'+' + getDivination().wi"></font>
+                </p>
+                <p ng-show="getDivination().wk">
+                    Willenskraft:
+                    <font color="green" ng-bind="'+' + getDivination().wk"></font>
+                </p>
+            </div>
         </div>
     </div>
 </div>

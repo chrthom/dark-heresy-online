@@ -149,8 +149,6 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
 
     };
 
-    $scope.getScenario = getScenario;
-
     $scope.colorCode = function(value, low, high) {
         if (value <= low) return 'red';
         else if (value < high) return 'orange';
@@ -158,6 +156,33 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     };
 
     $scope.fileFormat = dhUtils.fileFormat;
+
+    $scope.getBuild = function() {
+        return !$scope.profile.appearance ? {} : $scope.conf.build.attributes[$scope.profile.appearance.build][$scope.profile.gender];
+    };
+
+    $scope.getDivination = function() {
+        if (!$scope.profile.divination) return {};
+        else for (var i = 0; i < $scope.conf.divination.length; i++)
+            if ($scope.conf.divination[i].text == $scope.profile.divination)
+                return $scope.conf.divination[i];
+    };
+
+    $scope.getScenario = getScenario;
+
+    $scope.round = function(x) {
+        return Math.round(x);
+    };
+
+    $scope.rerollAge = function() {
+        if (!$scope.onboarding.rerolled) rollAge();
+        $scope.onboarding.rerolled = true;
+    };
+
+    $scope.rerollBuild = function() {
+        if (!$scope.onboarding.rerolled) rollBuild();
+        $scope.onboarding.rerolled = true;
+    };
 
     $scope.rerollCareer = function() {
         if ($scope.onboarding.careerRerolls > 0) {
@@ -172,8 +197,23 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         $scope.onboarding.rerolledCharacteristic = true;
     };
 
+    $scope.rerollEyes = function() {
+        if (!$scope.onboarding.rerolled) rollEyes();
+        $scope.onboarding.rerolled = true;
+    };
+
     $scope.rerollFate = function() {
         if (!$scope.onboarding.rerolled) rollFate();
+        $scope.onboarding.rerolled = true;
+    };
+
+    $scope.rerollHair = function() {
+        if (!$scope.onboarding.rerolled) rollHair();
+        $scope.onboarding.rerolled = true;
+    };
+
+    $scope.rerollSkin = function() {
+        if (!$scope.onboarding.rerolled) rollSkin();
         $scope.onboarding.rerolled = true;
     };
 

@@ -53,19 +53,19 @@
                 Startwert neu w&uuml;rfeln
                 <span class="badge badge-assertive">1</span>
             </div>
-            <a class="item item-icon-left ion-android-open"
+            <a class="item item-icon-left ion-heart-broken"
                ng-click="rerollWounds()"
                ng-disabled="onboarding.rerolled">
                 <font color="{{colorCode(profile.progress.wounds, getScenario().wounds + 1, getScenario().wounds + 3)}}"
                       ng-bind="profile.progress.wounds"></font> Lebenspunkte
             </a>
-            <a class="item item-icon-left ion-android-open"
+            <a class="item item-icon-left ion-ios-rose"
                ng-click="rerollFate()"
                ng-disabled="onboarding.rerolled">
                 <font color="{{colorCode(profile.progress.fate, getScenario().fate[0], getScenario().fate[4])}}"
                       ng-bind="profile.progress.fate"></font> Schicksalspunkte
             </a>
-            <a class="item item-icon-left ion-android-open"
+            <a class="item item-icon-left ion-cash"
                ng-click="rerollThrones()"
                ng-disabled="onboarding.rerolled">
                 <font color="{{colorCode(profile.stats.thrones, conf.careers[profile.career].thrones.start + 3 * conf.careers[profile.career].thrones.dices, conf.careers[profile.career].thrones.start + 6 * conf.careers[profile.career].thrones.dices)}}"

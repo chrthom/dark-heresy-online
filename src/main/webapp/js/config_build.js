@@ -102,7 +102,7 @@ config.build = {
       'm' : {
         'height' : 175,
         'weight' : 55,
-        'st' : -1,
+        'st' : -2,
         'wi' : -1,
         'ge' : 1,
         'ch' : 0
@@ -113,7 +113,7 @@ config.build = {
         'st' : -4,
         'wi' : 0,
         'ge' : 1,
-        'ch' : 2
+        'ch' : 1
       }
     },
     'anmutig' : {
@@ -121,17 +121,17 @@ config.build = {
         'height' : 185,
         'weight' : 70,
         'st' : 0,
-        'wi' : 0,
-        'ge' : 0,
-        'ch' : 4
+        'wi' : -2,
+        'ge' : 1,
+        'ch' : 5
       },
       'w' : {
         'height' : 175,
         'weight' : 65,
         'st' : -2,
-        'wi' : 1,
-        'ge' : 0,
-        'ch' : 5
+        'wi' : -1,
+        'ge' : 1,
+        'ch' : 6
       }
     },
     'bullig' : {
@@ -140,7 +140,7 @@ config.build = {
         'weight' : 80,
         'st' : 3,
         'wi' : 2,
-        'ge' : -4,
+        'ge' : -5,
         'ch' : 1
       },
       'w' : {
@@ -174,7 +174,7 @@ config.build = {
       'm' : {
         'height' : 180,
         'weight' : 60,
-        'st' : 0,
+        'st' : -1,
         'wi' : 0,
         'ge' : 0,
         'ch' : 1
@@ -182,7 +182,7 @@ config.build = {
       'w' : {
         'height' : 175,
         'weight' : 60,
-        'st' : -2,
+        'st' : -3,
         'wi' : 1,
         'ge' : 0,
         'ch' : 2
@@ -220,7 +220,7 @@ config.build = {
         'weight' : 85,
         'st' : 0,
         'wi' : 3,
-        'ge' : -5,
+        'ge' : -4,
         'ch' : -5
       }
     },
@@ -231,7 +231,7 @@ config.build = {
         'st' : 1,
         'wi' : 0,
         'ge' : 0,
-        'ch' : 0
+        'ch' : 1
       },
       'w' : {
         'height' : 165,
@@ -239,7 +239,7 @@ config.build = {
         'st' : -1,
         'wi' : 1,
         'ge' : 0,
-        'ch' : 1
+        'ch' : 2
       }
     },
     'gedrungen' : {
@@ -247,17 +247,17 @@ config.build = {
         'height' : 180,
         'weight' : 100,
         'st' : 2,
-        'wi' : 2,
-        'ge' : -4,
-        'ch' : -2
+        'wi' : 3,
+        'ge' : -7,
+        'ch' : -3
       },
       'w' : {
         'height' : 170,
         'weight' : 90,
         'st' : 0,
-        'wi' : 3,
-        'ge' : -4,
-        'ch' : -4
+        'wi' : 4,
+        'ge' : -5,
+        'ch' : -5
       }
     },
     'gut gebaut' : {
@@ -266,7 +266,7 @@ config.build = {
         'weight' : 90,
         'st' : 4,
         'wi' : 3,
-        'ge' : -4,
+        'ge' : -5,
         'ch' : 2
       },
       'w' : {
@@ -275,7 +275,7 @@ config.build = {
         'st' : 2,
         'wi' : 4,
         'ge' : -4,
-        'ch' : 0
+        'ch' : 1
       }
     },
     'hochgewachsen' : {
@@ -285,7 +285,7 @@ config.build = {
         'st' : 0,
         'wi' : 0,
         'ge' : -1,
-        'ch' : 1
+        'ch' : 2
       },
       'w' : {
         'height' : 180,
@@ -293,7 +293,7 @@ config.build = {
         'st' : -2,
         'wi' : 1,
         'ge' : 0,
-        'ch' : 1
+        'ch' : 2
       }
     },
     'kümmerlich' : {
@@ -318,7 +318,7 @@ config.build = {
       'm' : {
         'height' : 175,
         'weight' : 65,
-        'st' : 0,
+        'st' : -1,
         'wi' : 0,
         'ge' : 1,
         'ch' : 0
@@ -326,7 +326,7 @@ config.build = {
       'w' : {
         'height' : 165,
         'weight' : 60,
-        'st' : -2,
+        'st' : -3,
         'wi' : 1,
         'ge' : 1,
         'ch' : 2
@@ -338,7 +338,7 @@ config.build = {
         'weight' : 85,
         'st' : 3,
         'wi' : 0,
-        'ge' : -1,
+        'ge' : -3,
         'ch' : 2
       },
       'w' : {
@@ -346,7 +346,7 @@ config.build = {
         'weight' : 70,
         'st' : 1,
         'wi' : 1,
-        'ge' : -1,
+        'ge' : -2,
         'ch' : 2
       }
     },
@@ -356,7 +356,7 @@ config.build = {
         'weight' : 120,
         'st' : 7,
         'wi' : 3,
-        'ge' : -5,
+        'ge' : -8,
         'ch' : 3
       },
       'w' : {
@@ -364,7 +364,7 @@ config.build = {
         'weight' : 100,
         'st' : 5,
         'wi' : 4,
-        'ge' : -3,
+        'ge' : -6,
         'ch' : 1
       }
     },
@@ -410,16 +410,16 @@ config.build = {
         'weight' : 65,
         'st' : -1,
         'wi' : 0,
-        'ge' : -1,
-        'ch' : 0
+        'ge' : 0,
+        'ch' : 1
       },
       'w' : {
         'height' : 170,
         'weight' : 60,
         'st' : -3,
         'wi' : 1,
-        'ge' : -1,
-        'ch' : 1
+        'ge' : 0,
+        'ch' : 2
       }
     },
     'skelettartig' : {
@@ -455,7 +455,7 @@ config.build = {
         'st' : -2,
         'wi' : 1,
         'ge' : -2,
-        'ch' : 1
+        'ch' : 2
       }
     },
     'verkümmert' : {
@@ -464,7 +464,7 @@ config.build = {
         'weight' : 55,
         'st' : -1,
         'wi' : -1,
-        'ge' : 4,
+        'ge' : 3,
         'ch' : -2
       },
       'w' : {
