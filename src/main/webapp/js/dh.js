@@ -50,6 +50,7 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
 .controller('dhHome', homeCtrl)
 .controller('dhOnboarding', onboardingCtrl)
 .controller('dhProfile', profileCtrl)
+.controller('dhCareer', careerCtrl)
 .factory('dhAuth', authService)
 .factory('dhConfig', configService)
 .factory('dhInventory', inventoryService)

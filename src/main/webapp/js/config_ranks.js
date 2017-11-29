@@ -1977,6 +1977,7 @@ config.ranks = {
   },
   'Großinquisitor' : {
     'stage' : 11,
+    'next' : [],
     'constitution' : {
       'count' : 5,
       'costs' : 1000

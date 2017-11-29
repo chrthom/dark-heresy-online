@@ -1,8 +1,40 @@
+<style>
+path.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+text {
+  fill: #000;
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+</style>
 <div class="row responsive-lg">
     <div class="col">
         <div class="list card">
+            <div class="item item-divider">Karrierepfad</div>
+            <div class="item item-toggle">
+                Alle Karrierepfade anzeigen
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="controls.showAll" ng-change="renderGraph(controls.showAll)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
             <div class="item">
-
+                <svg id="career-graph" width="600" height="600"
+                     viewBox="0 0 600 600"
+                     preserveAspectRatio="xMidYMid meet">
+                </svg>
             </div>
         </div>
     </div>
