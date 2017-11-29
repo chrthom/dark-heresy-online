@@ -76,7 +76,7 @@ class StringTuple extends Container {
 
 class NumericTuple extends Container {
   var key: String = _
-  var value: JavaLong = _
+  var value: JavaInt = _
 
   override def indexed: Set[String] = Set[String]()
 
@@ -87,9 +87,9 @@ class NumericTuple extends Container {
     this
   }
 
-  def getValue: JavaLong = value
+  def getValue: JavaInt = value
 
-  def setValue(value: JavaLong): NumericTuple = {
+  def setValue(value: JavaInt): NumericTuple = {
     this.value = value
     this
   }

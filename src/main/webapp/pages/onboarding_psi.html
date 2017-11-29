@@ -8,13 +8,13 @@
 <div class="row responsive-lg">
     <div class="col">
         <div class="list card">
-            <div class="item item-divider" ng-init="onboarding.psipowers = []">
+            <div class="item item-divider" ng-init="onboarding.psiPowers = []">
                 <h2>Anfangs-Psikr&auml;fte</h2>
             </div>
             <div class="item item-input item-select" ng-repeat="i in range(1, round((profile.characteristics.wk + 5) / 10))">
                 <div class="input-label" ng-bind="i + '. Psikraft'"></div>
-                <select ng-model="onboarding.psipowers[$index]"
-                        ng-init="onboarding.psipowers[$index] = conf.psi[$index].name"
+                <select ng-model="onboarding.psiPowers[$index]"
+                        ng-init="onboarding.psiPowers[$index] = conf.psi[$index].name"
                         ng-options="choice.name as choice.name for choice in conf.psi | filter:{discipline:'Geringere Psikraft'}">
                 </select>
             </div>

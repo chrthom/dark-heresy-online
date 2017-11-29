@@ -163,7 +163,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         if (build.ge) $scope.profile.characteristics.ge += build.ge;
         if (build.st) $scope.profile.characteristics.st += build.st;
         if (build.wi) $scope.profile.characteristics.wi += build.wi;
-        // If character is psiker, roll sanction and reroute to psipower step
+        // If character is psiker, roll sanction and reroute to psi power step
         if ($scope.profile.career == 'Imperialer Psioniker') {
             var sanction = dhUtils.getRandomElement($scope.conf.sanction);
             $scope.profile.sanction = sanction.name;
@@ -176,6 +176,17 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             if (sanction.wk) $scope.profile.characteristics.wk += sanction.wk;
             dhProfile.set($scope.profile, function() { $location.path('/onboarding/psi'); });
         } else dhProfile.set($scope.profile, function() { $location.path('/onboarding/done'); });
+    };
+
+    $scope.proceedPsi = function() {
+        // Set psi powers
+        $scope.profile.psiPowers = $scope.onboarding.psiPowers;
+        // Set scholastica
+        $scope.profile.scholastica = {
+            key: $scope.onboarding.scholastica,
+            value: 0
+        };
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/done'); });
     };
 
     $scope.proceedDone = function() {
