@@ -5,6 +5,7 @@ import java.util.{List => JavaList}
 abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   var username: String = _
   var appearance: ProfileAppearance = _
+  var bionics: JavaList[NumericTuple] = _
   var career: String = _
   var characteristics: ProfileCharacteristics = _
   var divination: String = _
@@ -31,6 +32,10 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   def getAppearance: ProfileAppearance = appearance
 
   def setAppearance(appearance: ProfileAppearance): T = { this.appearance = appearance ; this.asInstanceOf[T] }
+
+  def getBionics: JavaList[NumericTuple] = bionics
+
+  def setBionics(career: JavaList[NumericTuple]): T = { this.bionics = bionics ; this.asInstanceOf[T] }
 
   def getCareer: String = career
 

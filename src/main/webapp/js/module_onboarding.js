@@ -13,6 +13,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         $scope.profile = {
             username: dhAuth.username,
             appearance: null,
+            bionics: [],
             career: null,
             characteristics: null,
             divination: null,
@@ -137,6 +138,11 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         // Import gears from career and choices
         $scope.inventory.gears = $scope.conf.careers[$scope.profile.career].gears.filter(dhUtils.isValue);
         $scope.inventory.gears.push.apply($scope.inventory.gears, $scope.onboarding.gears);
+        // Import bionics
+        $scope.profile.bionics = [];
+        var bionics = $scope.conf.careers[$scope.profile.career].bionics;
+        for (var i = 0; i < bionics.length; i++)
+            $scope.profile.bionics.push.apply($scope.profile.bionics.push.apply, { key: bionics[i], value: 1 });
         // Generate random appearance and divination based on homeworld
         $scope.profile.appearance = {};
         rollAge();

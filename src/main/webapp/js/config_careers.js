@@ -786,6 +786,14 @@ config.careers = {
       'Phiole mit heiligem Maschinenöl',
       'Kleidung (gute Qualität)'
     ],
+    'bionics' : [
+      'Cybermantel',
+      'Elektoo-Induktor',
+      'Interface',
+      'Potentia-Spule',
+      'Respirator',
+      'Schädelschaltkreise'
+    ],
     'training' : {
       'kg' : [
         250, 500, 750, 1000
