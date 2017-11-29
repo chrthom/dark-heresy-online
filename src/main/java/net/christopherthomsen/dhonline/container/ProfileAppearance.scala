@@ -2,7 +2,7 @@ package net.christopherthomsen.dhonline.container
 
 import java.lang.{Integer => JavaInt}
 
-class ProfileAppearance extends Container {
+class ProfileAppearance extends DHContainer {
   var age: JavaInt = _
   var build: String = _
   var eyes: String = _
@@ -10,8 +10,6 @@ class ProfileAppearance extends Container {
   var height: JavaInt = _
   var skin: String = _
   var weight: JavaInt = _
-
-  override def indexed: Set[String] = Set()
 
   def getAge: JavaInt = age
 

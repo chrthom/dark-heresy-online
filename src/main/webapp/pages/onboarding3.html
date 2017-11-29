@@ -74,8 +74,8 @@
             <a class="item item-icon-left ion-cash"
                ng-click="rerollThrones()"
                ng-disabled="onboarding.rerolled">
-                <font color="{{colorCode(profile.stats.thrones, conf.careers[profile.career].thrones.start + 3 * conf.careers[profile.career].thrones.dices, conf.careers[profile.career].thrones.start + 6 * conf.careers[profile.career].thrones.dices)}}"
-                      ng-bind="profile.stats.thrones"></font> Thronen Startkapital
+                <font color="{{colorCode(stats.thrones, conf.careers[profile.career].thrones.start + 3 * conf.careers[profile.career].thrones.dices, conf.careers[profile.career].thrones.start + 6 * conf.careers[profile.career].thrones.dices)}}"
+                      ng-bind="stats.thrones"></font> Thronen Startkapital
             </a>
         </div>
     </div>

@@ -752,13 +752,7 @@ config.careers = {
       'Interfaceverwendung',
       'Leichte Waffen (Laser)',
       'Nahkampwaffen (Primitiv)',
-      'Pistolen (Laser)', [
-        'Elektoo-Induktor',
-        'Potentia-Spule'
-      ], [
-        'Interface',
-        'Respirator'
-      ], 'Cybermantel'
+      'Pistolen (Laser)'
     ],
     'weapons' : [
       {

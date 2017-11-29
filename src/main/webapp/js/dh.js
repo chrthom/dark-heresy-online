@@ -51,6 +51,7 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
 .factory('dhConfig', configService)
 .factory('dhInventory', inventoryService)
 .factory('dhProfile', profileService)
+.factory('dhStats', statsService)
 .factory('dhUtils', utilsService)
 .filter('filterArrays', function(dhUtils) {
   return function(input) {

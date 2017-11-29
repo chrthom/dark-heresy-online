@@ -2,11 +2,9 @@ package net.christopherthomsen.dhonline.container
 
 import java.lang.{Integer => JavaInt}
 
-class InventoryWeapon extends Container {
+class InventoryWeapon extends DHContainer {
   var name: String = _
   var ammo: JavaInt = _
-
-  override def indexed: Set[String] = Set()
 
   def getName: String = name
 

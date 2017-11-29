@@ -8,7 +8,7 @@ config.homeworlds = {
     'Kinder der Leere',
     'Fabrikwelt',
     'Fabrikwelt',
-    'Gelöschte Gedächtnis',
+    'Gelöschtes Gedächtnis',
     'Adliger',
     'Schola Progenium',
     'Schola Progenium'

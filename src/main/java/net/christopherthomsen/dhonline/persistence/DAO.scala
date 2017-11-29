@@ -7,25 +7,17 @@ import com.google.appengine.api.datastore._
 import net.christopherthomsen.dhonline.container.{Container, RootContainer}
 
 import scala.collection.JavaConverters._
+import scala.reflect.ClassTag
 
 abstract class DAO {
-  protected def query[T <: Container](q: Query, c: T, limit: Option[Int] = None) = try { {
+  protected def query[T <: Container](q: Query, limit: Int = 0)(implicit t: ClassTag[T]) = try { {
     (DatastoreServiceFactory.getDatastoreService prepare q) asList {
-      if (limit.isDefined)
-        FetchOptions.Builder withLimit limit.get
-      else
-        FetchOptions.Builder withDefaults
+      if (limit > 0) FetchOptions.Builder withLimit limit
+      else FetchOptions.Builder withDefaults
     } asScala
-  } map (e => entity2Container(e, c.getClass.newInstance))
+  } map (e => entity2Container(e, t.runtimeClass.newInstance.asInstanceOf[T]))
   } catch {
     case _: DatastoreNeedIndexException => Nil
-  }
-
-  protected def queryOne[T <: Container](q: Query, c: T): T = {
-    val entity = (DatastoreServiceFactory.getDatastoreService prepare q asSingleEntity)
-    if (Option(entity).isEmpty)
-      throw new IllegalArgumentException("No elements found")
-    entity2Container(entity, c)
   }
 
   protected def get(key: Key) = DatastoreServiceFactory.getDatastoreService get key
@@ -87,10 +79,8 @@ abstract class DAO {
               }
             case _ => x._2
           }
-          if (c.indexed contains x._1)
-            p setIndexedProperty(x._1, value)
-          else
-            p setUnindexedProperty(x._1, value)
+          if (c.indexed contains x._1) p setIndexedProperty(x._1, value)
+          else p setUnindexedProperty(x._1, value)
         }
     }
     p

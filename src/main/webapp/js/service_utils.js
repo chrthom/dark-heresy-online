@@ -16,7 +16,12 @@ var utilsService = function() {
             array.push({ key: key, value: value });
         },
         fileFormat: function(f) {
-            return !f ? '' : f.toLowerCase().replaceAll(" ", "_");
+            return !f ? '' : f.toLowerCase()
+                .replaceAll(" ", "_")
+                .replaceAll("ö", "oe")
+                .replaceAll("ä", "ae")
+                .replaceAll("ü", "üe")
+                .replaceAll("ß", "ss");
         },
         findName: function(find, target) {
           for (var i = 0; i < target.length; i++)

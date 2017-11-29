@@ -1,15 +1,8 @@
 package net.christopherthomsen.dhonline.container
 
-abstract class PlayerBase[T <: PlayerBase[T]] extends RootContainer[T] {
-  var username: String = _
+abstract class PlayerBase[T <: PlayerBase[T]] extends DHRootContainer[T] {
   var password: String = _
   var gender: String = _
-
-  override def indexed: Set[String] = Set("username")
-
-  def getUsername: String = username
-
-  def setUsername(username: String): T = { this.username = username ; this.asInstanceOf[T] }
 
   def getPassword: String = password
 

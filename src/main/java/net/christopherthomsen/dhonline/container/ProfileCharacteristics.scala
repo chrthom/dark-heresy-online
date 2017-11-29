@@ -2,7 +2,7 @@ package net.christopherthomsen.dhonline.container
 
 import java.lang.{Integer => JavaInt}
 
-class ProfileCharacteristics extends Container {
+class ProfileCharacteristics extends DHContainer {
   var kg: JavaInt = _
   var bf: JavaInt = _
   var st: JavaInt = _
@@ -12,8 +12,6 @@ class ProfileCharacteristics extends Container {
   var wa: JavaInt = _
   var wk: JavaInt = _
   var ch: JavaInt = _
-
-  override def indexed: Set[String] = Set()
 
   def getKg: JavaInt = kg
 

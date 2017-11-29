@@ -2,8 +2,7 @@ package net.christopherthomsen.dhonline.container
 
 import java.util.{List => JavaList}
 
-abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
-  var username: String = _
+abstract class ProfileBase[T <: ProfileBase[T]] extends DHRootContainer[T] {
   var appearance: ProfileAppearance = _
   var bionics: JavaList[NumericTuple] = _
   var career: String = _
@@ -11,7 +10,6 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   var divination: String = _
   var gender: String = _
   var homeworld: String = _
-  var movement: ProfileMovement = _
   var name: String = _
   var progress: ProfileProgress = _
   var psiPowers: JavaList[String] = _
@@ -20,14 +18,7 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   var scholastica: NumericTuple = _
   var skills: JavaList[NumericTuple] = _
   var socialClass: String = _
-  var stats: ProfileStats = _
   var traits: JavaList[String] = _
-
-  override def indexed: Set[String] = Set("username")
-
-  def getUsername: String = username
-
-  def setUsername(username: String): T = { this.username = username ; this.asInstanceOf[T] }
 
   def getAppearance: ProfileAppearance = appearance
 
@@ -56,10 +47,6 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   def getHomeworld: String = homeworld
 
   def setHomeworld(homeworld: String): T = { this.homeworld = homeworld ; this.asInstanceOf[T] }
-
-  def getMovement: ProfileMovement = movement
-
-  def setMovement(movement: ProfileMovement): T = { this.movement = movement ; this.asInstanceOf[T] }
 
   def getName: String = name
 
@@ -92,10 +79,6 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends RootContainer[T] {
   def getSocialClass: String = socialClass
 
   def setSocialClass(socialClass: String): T = { this.socialClass = socialClass ; this.asInstanceOf[T] }
-
-  def getStats: ProfileStats = stats
-
-  def setStats(stats: ProfileStats): T = { this.stats = stats ; this.asInstanceOf[T] }
 
   def getTraits: JavaList[String] = traits
 

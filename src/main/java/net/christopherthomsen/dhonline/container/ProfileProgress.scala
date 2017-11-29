@@ -2,15 +2,13 @@ package net.christopherthomsen.dhonline.container
 
 import java.lang.{Integer => JavaInt}
 
-class ProfileProgress extends Container {
+class ProfileProgress extends DHContainer {
   var fate: JavaInt = _
   var income: JavaInt = _
   var level: JavaInt = _
   var wounds: JavaInt = _
   var xp: JavaInt = _
   var xpFree: JavaInt = _
-
-  override def indexed: Set[String] = Set()
 
   def getFate: JavaInt = fate
 

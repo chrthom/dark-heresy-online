@@ -2,16 +2,9 @@ package net.christopherthomsen.dhonline.container
 
 import java.util.{List => JavaList}
 
-abstract class InventoryBase[T <: InventoryBase[T]] extends RootContainer[T] {
-  var username: String = _
+abstract class InventoryBase[T <: InventoryBase[T]] extends DHRootContainer[T] {
   var weapons: JavaList[InventoryWeapon] = _
   var gears: JavaList[String] = _
-
-  override def indexed: Set[String] = Set("username")
-
-  def getUsername: String = username
-
-  def setUsername(username: String): T = { this.username = username ; this.asInstanceOf[T] }
 
   def getWeapons: JavaList[InventoryWeapon] = weapons
 

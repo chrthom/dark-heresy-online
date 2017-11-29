@@ -1,4 +1,4 @@
-var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, dhProfile, dhUtils) {
+var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, dhProfile, dhStats, dhUtils) {
     $scope.pageTile = 'Charaktererstellung';
     $scope.conf = dhConfig;
 
@@ -7,6 +7,8 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     dhInventory.get(function(res) { $scope.inventory = res.data });
     $scope.profile = {};
     dhProfile.get(function(res) { $scope.profile = res.data });
+    $scope.stats = {};
+    dhStats.get(function(res) { $scope.stats = res.data });
 
     $scope.proceed0 = function() {
         // Setup profile stub
@@ -19,7 +21,6 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             divination: null,
             gender: dhAuth.gender,
             homeworld: null,
-            movement: null,
             name: null,
             progress: null,
             psiPowers: [],
@@ -28,7 +29,6 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             scholastica: null,
             skills: [],
             socialClass: null,
-            stats: null,
             traits: []
         };
         // Set character name
@@ -74,13 +74,6 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     $scope.proceed2 = function() {
         // Starting rank
         $scope.profile.rank = $scope.conf.careers[$scope.profile.career].rank;
-        // Movement based on characteristics
-        $scope.profile.movement = {
-            half : Math.floor($scope.profile.characteristics.ge / 10),
-            full : Math.floor($scope.profile.characteristics.ge / 5),
-            charge : Math.floor($scope.profile.characteristics.ge * 3 / 10),
-            run : Math.floor($scope.profile.characteristics.ge * 2 / 5)
-        };
         // Set social class except if existing social class (from origin) is better
         if (!$scope.profile.socialClass
                 || $scope.conf.socialClasses[$scope.profile.socialClass].income
@@ -98,14 +91,14 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         rollFate();
         rollWounds();
         // Instantiate stats
-        $scope.profile.stats = {
+        $scope.stats = {
             madness : $scope.profile.career == 'Gelöschtes Gedächtnis' ? 2 + dhUtils.roll(10) : 0,
             corruption : 0,
             fatigue : 0,
             thrones : null
         };
         rollThrones();
-        // Increase characteristics if homeword is a forge world
+        // Increase characteristics if homeworld is a forge world
         if ($scope.profile.homeworld == 'Fabrikwelt') switch ($scope.profile.career) {
             case 'Abschaum': $scope.profile.characteristics.wa += 4; break;
             case 'Adept': $scope.profile.characteristics.in += 4; break;
@@ -174,8 +167,8 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             var sanction = dhUtils.getRandomElement($scope.conf.sanction);
             $scope.profile.sanction = sanction.name;
             if (sanction.trait) $scope.profile.traits.push(sanction.trait);
-            if (sanction.thrones) $scope.profile.stats.thrones += sanction.thrones;
-            if (sanction.madness) $scope.profile.stats.madness += sanction.madness;
+            if (sanction.thrones) $scope.stats.thrones += sanction.thrones;
+            if (sanction.madness) $scope.stats.madness += sanction.madness;
             if (sanction.ch) $scope.profile.characteristics.ch += sanction.ch;
             if (sanction.in) $scope.profile.characteristics.in += sanction.in;
             if (sanction.wi) $scope.profile.characteristics.wi += sanction.wi;
@@ -196,8 +189,8 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     };
 
     $scope.proceedDone = function() {
-        $scope.profile.stats.fate = $scope.profile.progress.fate;
-        $scope.profile.stats.wounds = $scope.profile.progress.wounds;
+        $scope.stats.fate = $scope.profile.progress.fate;
+        $scope.stats.wounds = $scope.profile.progress.wounds;
         dhProfile.set($scope.profile, function() { $location.path('/'); });
     };
 
@@ -313,8 +306,8 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     function rollDivination() {
         var divination = dhUtils.getRandomElement($scope.conf.divination);
         $scope.profile.divination = divination.text;
-        if (divination.corruption) $scope.profile.stats.corruption += divination.corruption;
-        if (divination.madness) $scope.profile.stats.madness += divination.madness;
+        if (divination.corruption) $scope.stats.corruption += divination.corruption;
+        if (divination.madness) $scope.stats.madness += divination.madness;
         if (divination.fate) $scope.profile.progress.fate += divination.fate;
         if (divination.wounds) $scope.profile.progress.wounds += divination.wounds;
         if (divination.bf) $scope.profile.characteristics.bf += divination.bf;
@@ -346,7 +339,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
 
     function rollThrones() {
       var thrones = $scope.conf.careers[$scope.profile.career].thrones;
-      $scope.profile.stats.thrones = thrones.start + dhUtils.roll(10, thrones.dices);
+      $scope.stats.thrones = thrones.start + dhUtils.roll(10, thrones.dices);
     }
 
     function rollWounds() {
