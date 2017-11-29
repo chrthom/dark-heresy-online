@@ -43,6 +43,7 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
 .controller('dhProfile', profileCtrl)
 .factory('dhAuth', authService)
 .factory('dhConfig', configService)
+.factory('dhInventory', inventoryService)
 .factory('dhProfile', profileService)
 .factory('dhUtils', utilsService)
 .filter('filterArrays', function(dhUtils) {

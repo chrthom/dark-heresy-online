@@ -25,11 +25,15 @@
                 </select>
             </div>
             <div class="item item-divider" ng-init="onboarding.weapons = []">Waffen</div>
-            <div class="item" align="right" ng-repeat="weapon in conf.careers[profile.career].weapons | filterValues" ng-bind="weapon.type"></div>
+            <div class="item" align="right"
+                 ng-repeat="weapon in conf.careers[profile.career].weapons | filterValues"
+                 ng-bind="weapon.name + (weapon.ammo && ' mit ' + weapon.ammo + (weapon.ammo == 1 && ' Magazin' || ' Schuss') || '')"></div>
             <div class="item item-input item-select" ng-repeat="weapon in conf.careers[profile.career].weapons | filterArrays">
                 <div class="input-label">&nbsp;</div>
-                <select ng-model="onboarding.weapons[$index]" ng-init="onboarding.weapons[$index] = weapon[0].type">
-                    <option ng-repeat="choice in weapon">{{choice.type}}</option>
+                <select ng-model="onboarding.weapons[$index]"
+                        ng-init="onboarding.weapons[$index] = weapon[0]"
+                        ng-options="choice as choice.name + (choice.ammo && ' mit ' + choice.ammo + (choice.ammo == 1 && ' Magazin' || ' Patronen') || '') for choice in weapon">
+                    <!--<option ng-repeat="choice in weapon">{{choice.name}}</option>-->
                 </select>
             </div>
             <div class="item item-divider" ng-init="onboarding.gears = []">Ausr&uuml;stung</div>

@@ -1,8 +1,10 @@
-var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dhUtils) {
+var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, dhProfile, dhUtils) {
     $scope.pageTile = 'Charaktererstellung';
     $scope.conf = dhConfig;
 
     $scope.onboarding = {};
+    $scope.inventory = {};
+    dhInventory.get(function(res) { $scope.inventory = res.data });
     $scope.profile = {};
     dhProfile.get(function(res) { $scope.profile = res.data });
 
@@ -30,7 +32,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
         };
         // Set character name
         $scope.profile.name = $scope.onboarding.name;
-        dhProfile.set($scope.profile, function() { $location.path('/onboarding/1') });
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/1'); });
     };
 
     $scope.proceed1 = function() {
@@ -64,7 +66,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
         if (homeworld.socialclass) $scope.profile.socialClass = homeworld.socialclass;
         // Roll initial career
         rollCareer();
-        dhProfile.set($scope.profile, function() { $location.path('/onboarding/2') });
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/2'); });
     };
 
     $scope.proceed2 = function() {
@@ -101,26 +103,32 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
             thrones : null
         };
         rollThrones();
-        dhProfile.set($scope.profile, function() { $location.path('/onboarding/3') });
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/3'); });
     };
 
     $scope.proceed3 = function() {
-        // Import skills, traits, wounds, fate and thrones from career
-        var i;
+        // Import skills from career and choices
         var skills = $scope.conf.careers[$scope.profile.career].skills.filter(dhUtils.isValue);
         skills.push.apply(skills, $scope.onboarding.skills);
+        var i;
         for (i = 0; i < skills.length; i++) dhUtils.addOrUpdateArray($scope.profile.skills, skills[i], 1);
+        // Import traits from career and choices
+        $scope.profile.traits = [];
         $scope.profile.traits.push.apply($scope.profile.traits,
             $scope.conf.careers[$scope.profile.career].traits.filter(dhUtils.isValue));
         $scope.profile.traits.push.apply($scope.profile.traits, $scope.onboarding.traits);
-        /*
-          var weapons = getCareer($scope).weapons.filter(isValue);
-          weapons.push.apply(weapons, $scope.form.weapons);
-          $scope.profile.weapons = weapons;
-          var gears = getCareer($scope).gears.filter(isValue);
-          gears.push.apply(gears, $scope.form.gears);
-          $scope.profile.gears = gears;
-          */
+        // Initiate empty inventory object
+        $scope.inventory = {
+            username: dhAuth.username,
+            gears: [],
+            weapons: []
+        };
+        // Import weapons from career and choices
+        $scope.inventory.weapons = $scope.conf.careers[$scope.profile.career].weapons.filter(dhUtils.isValue);
+        $scope.inventory.weapons.push.apply($scope.inventory.weapons, $scope.onboarding.weapons);
+        // Import gears from career and choices
+        $scope.inventory.gears = $scope.conf.careers[$scope.profile.career].gears.filter(dhUtils.isValue);
+        $scope.inventory.gears.push.apply($scope.inventory.gears, $scope.onboarding.gears);
         // Generate random appearance and divination based on homeworld
         $scope.profile.appearance = {};
         rollAge();
@@ -130,7 +138,11 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhProfile, dh
         rollSkin();
         // Roll divination
         rollDivination();
-        dhProfile.set($scope.profile, function() { $location.path('/onboarding/4') });
+        dhProfile.set($scope.profile, function() {
+            dhInventory.set($scope.inventory, function() {
+                $location.path('/onboarding/4');
+            });
+        });
     };
 
     $scope.proceed4 = function() {

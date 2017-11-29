@@ -27,23 +27,23 @@ config.careers = {
     'weapons' : [
       [
         {
-          'type' : 'Sturmgewehr',
+          'name' : 'Sturmgewehr',
           'ammo' : 30
         }, { 
-          'type' : 'Schrotflinte',
+          'name' : 'Schrotflinte',
           'ammo' : 12
         }
       ], {
-        'type' : 'Maschinenpistole',
+        'name' : 'Maschinenpistole',
         'ammo' : '18'
       }, [
         {
-          'type' : 'Schlagring'
+          'name' : 'Schlagring'
         }, {
-          'type' : 'Knüppel'
+          'name' : 'Knüppel'
         }
       ], {
-        'type' : 'Messer'
+        'name' : 'Messer'
       }
     ],
     'gears' : [
@@ -124,10 +124,10 @@ config.careers = {
     'weapons' : [
       [
         {
-          'type' : 'Revolver',
+          'name' : 'Revolver',
           'ammo' : 6
         }, { 
-          'type' : 'Stab'
+          'name' : 'Stab'
         }
       ]
     ],
@@ -203,12 +203,12 @@ config.careers = {
     ],
     'weapons' : [
       {
-        'type' : 'Schrotflinte',
+        'name' : 'Schrotflinte',
         'ammo' : 12
       }, {
-        'type' :'Knüppel'
+        'name' :'Knüppel'
       }, {
-        'type' : 'Schlagring'
+        'name' : 'Schlagring'
       }
     ],
     'gears' : [
@@ -291,25 +291,25 @@ config.careers = {
     'weapons' : [
       [
         {
-          'type' : 'Schrotflinte',
+          'name' : 'Schrotflinte',
           'ammo' : 12
         }, {
-          'type' : 'Jagdgewehr',
+          'name' : 'Jagdgewehr',
           'ammo' : 16
         }, {
-          'type' : 'Sturmgewehr',
+          'name' : 'Sturmgewehr',
           'ammo' : 30
         }
       ], {
-        'type' : 'Schwert'
+        'name' : 'Schwert'
       }, {
-        'type' : 'Messer'
+        'name' : 'Messer'
       }, [
         {
-          'type' : 'Laserpistole',
+          'name' : 'Laserpistole',
           'ammo' : 1
         }, {
-          'type' : 'Wurfmesser',
+          'name' : 'Wurfmesser',
           'ammo' : 10
         }
       ]
@@ -383,22 +383,22 @@ config.careers = {
     'weapons' : [
       [
         {
-          'type' : 'Axt'
+          'name' : 'Axt'
         }, {
-          'type' : 'Schwert'
+          'name' : 'Schwert'
         }
       ], {
-        'type' : 'Stab'
+        'name' : 'Stab'
       }, [
         {
-          'type' : 'Revolver',
+          'name' : 'Revolver',
           'ammo' : 3
         }, {
-          'type' : 'Laserpistole',
+          'name' : 'Laserpistole',
           'ammo' : 1
         }
       ], {
-        'type' : 'Messer'
+        'name' : 'Messer'
       }
     ],
     'gears' : [
@@ -476,24 +476,24 @@ config.careers = {
     'weapons' : [
       [
         {
-          'type' : 'Hammer'
+          'name' : 'Hammer'
         }, {
-          'type' : 'Schwert'
+          'name' : 'Schwert'
         }
       ], [
         {
-          'type' : 'Revolver',
+          'name' : 'Revolver',
           'ammo' : 6
         }, {
-          'type' : 'Maschinenpistole',
+          'name' : 'Maschinenpistole',
           'ammo' : 18
         }
       ], [
         {
-          'type' : 'Armbrust',
+          'name' : 'Armbrust',
           'ammo' : 10
         }, {
-          'type' : 'Wurfmesser',
+          'name' : 'Wurfmesser',
           'ammo' : 5
         }
       ]
@@ -574,36 +574,36 @@ config.careers = {
     'weapons' : [
       [
         {
-          'type' : 'Axt'
+          'name' : 'Axt'
         }, {
-          'type' : 'Hammer'
+          'name' : 'Hammer'
         }, {
-          'type' : 'Schwert'
+          'name' : 'Schwert'
         }
       ], [
         {
-          'type' : 'Steinschlosspistole',
+          'name' : 'Steinschlosspistole',
           'ammo' : 12
         }, {
-          'type' : 'Laserpistole',
+          'name' : 'Laserpistole',
           'ammo' : 1
         }
       ], {
-        'type' : 'Lasergewehr',
+        'name' : 'Lasergewehr',
         'ammo' : 1
       }, [
         {
-          'type' : 'Bogen',
+          'name' : 'Bogen',
           'ammo' : 10
         }, {
-          'type' : 'Muskete',
+          'name' : 'Muskete',
           'ammo' : 12
         }, {
-          'type' : 'Schrotflinte',
+          'name' : 'Schrotflinte',
           'ammo' : 12
         }
       ], {
-        'type' : 'Messer'
+        'name' : 'Messer'
       }
     ],
     'gears' : [
@@ -677,14 +677,14 @@ config.careers = {
     'weapons' : [
       [
         {
-          'type' : 'Knüppel'
+          'name' : 'Knüppel'
         }, {
-          'type' : 'Flegel'
+          'name' : 'Flegel'
         }, {
-          'type' : 'Stab'
+          'name' : 'Stab'
         }
       ], {
-        'type' : 'Laserpistole',
+        'name' : 'Laserpistole',
         'ammo' : 1
       }
     ],
@@ -762,15 +762,15 @@ config.careers = {
     ],
     'weapons' : [
       {
-        'type' : 'Stab'
+        'name' : 'Stab'
       }, {
-        'type' : 'Laserpistole',
+        'name' : 'Laserpistole',
         'ammo' : 1
       }, {
-        'type' : 'Laserkarabiner',
+        'name' : 'Laserkarabiner',
         'ammo' : 1
       }, {
-        'type' : 'Messer'
+        'name' : 'Messer'
       }
     ],
     'gears' : [

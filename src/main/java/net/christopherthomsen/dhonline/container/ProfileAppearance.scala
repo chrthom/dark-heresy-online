@@ -1,21 +1,21 @@
 package net.christopherthomsen.dhonline.container
 
-import java.lang.{Long => JavaLong}
+import java.lang.{Integer => JavaInt}
 
 class ProfileAppearance extends Container {
-  var age: JavaLong = _
+  var age: JavaInt = _
   var build: String = _
   var eyes: String = _
   var hair: String = _
-  var height: JavaLong = _
+  var height: JavaInt = _
   var skin: String = _
-  var weight: JavaLong = _
+  var weight: JavaInt = _
 
   override def indexed: Set[String] = Set()
 
-  def getAge: JavaLong = age
+  def getAge: JavaInt = age
 
-  def setAge(age: JavaLong): ProfileAppearance = { this.age = age ; this }
+  def setAge(age: JavaInt): ProfileAppearance = { this.age = age ; this }
 
   def getBuild: String = build
 
@@ -29,15 +29,15 @@ class ProfileAppearance extends Container {
 
   def setHair(hair: String): ProfileAppearance = { this.hair = hair ; this }
 
-  def getHeight: JavaLong = height
+  def getHeight: JavaInt = height
 
-  def setHeight(height: JavaLong): ProfileAppearance = { this.height = height ; this }
+  def setHeight(height: JavaInt): ProfileAppearance = { this.height = height ; this }
 
   def getSkin: String = skin
 
   def setSkin(skin: String): ProfileAppearance = { this.skin = skin ; this }
 
-  def getWeight: JavaLong = weight
+  def getWeight: JavaInt = weight
 
-  def setWeight(weight: JavaLong): ProfileAppearance = { this.weight = weight ; this }
+  def setWeight(weight: JavaInt): ProfileAppearance = { this.weight = weight ; this }
 }

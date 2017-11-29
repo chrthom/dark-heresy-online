@@ -1,28 +1,28 @@
 package net.christopherthomsen.dhonline.container
 
-import java.lang.{Long => JavaLong}
+import java.lang.{Integer => JavaInt}
 
 class ProfileStats extends Container {
-  var corruption: JavaLong = _
-  var fatigue: JavaLong = _
-  var madness: JavaLong = _
-  var thrones: JavaLong = _
+  var corruption: JavaInt = _
+  var fatigue: JavaInt = _
+  var madness: JavaInt = _
+  var thrones: JavaInt = _
 
   override def indexed: Set[String] = Set()
 
-  def getCorruption: JavaLong = corruption
+  def getCorruption: JavaInt = corruption
 
-  def setCorruption(corruption: JavaLong): ProfileStats = { this.corruption = corruption ; this }
+  def setCorruption(corruption: JavaInt): ProfileStats = { this.corruption = corruption ; this }
 
-  def getFatigue: JavaLong = fatigue
+  def getFatigue: JavaInt = fatigue
 
-  def setFatigue(fatigue: JavaLong): ProfileStats = { this.fatigue = fatigue ; this }
+  def setFatigue(fatigue: JavaInt): ProfileStats = { this.fatigue = fatigue ; this }
 
-  def getMadness: JavaLong = madness
+  def getMadness: JavaInt = madness
 
-  def setMadness(madness: JavaLong): ProfileStats = { this.madness = madness ; this }
+  def setMadness(madness: JavaInt): ProfileStats = { this.madness = madness ; this }
 
-  def getThrones: JavaLong = thrones
+  def getThrones: JavaInt = thrones
 
-  def setThrones(thrones: JavaLong): ProfileStats = { this.thrones = thrones ; this }
+  def setThrones(thrones: JavaInt): ProfileStats = { this.thrones = thrones ; this }
 }

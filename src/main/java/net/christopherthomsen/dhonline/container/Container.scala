@@ -1,7 +1,7 @@
 package net.christopherthomsen.dhonline.container
 
 import java.lang.reflect.Field
-import java.lang.{Long => JavaLong}
+import java.lang.{Long => JavaLong, Integer => JavaInt}
 
 abstract class Container {
   def get: Map[String, Any] =
@@ -12,12 +12,12 @@ abstract class Container {
 
   def set(k: String, v: Any): Unit = if (Option(v).isDefined)
     this.getClass.getMethods find (_.getName == k + "_$eq") foreach {
-      _.invoke(this, if (v.isInstanceOf[Integer])
-        v.asInstanceOf[Integer]
-      else if (v.isInstanceOf[JavaLong])
-        v.asInstanceOf[JavaLong]
-      else
-        v.asInstanceOf[AnyRef])
+      m =>
+        if (v.isInstanceOf[JavaLong]) try {
+          m.invoke(this, v.asInstanceOf[JavaLong])
+        } catch {
+          case _: IllegalArgumentException => m.invoke(this, v.asInstanceOf[JavaLong].toInt.asInstanceOf[JavaInt])
+        } else m.invoke(this, v.asInstanceOf[AnyRef])
     }
 
   def fieldType(k: String): Class[_] =

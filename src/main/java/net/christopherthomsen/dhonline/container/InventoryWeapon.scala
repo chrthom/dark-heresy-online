@@ -1,10 +1,10 @@
 package net.christopherthomsen.dhonline.container
 
-import java.lang.{Long => JavaLong}
+import java.lang.{Integer => JavaInt}
 
 class InventoryWeapon extends Container {
   var name: String = _
-  var ammo: JavaLong = _
+  var ammo: JavaInt = _
 
   override def indexed: Set[String] = Set()
 
@@ -12,7 +12,7 @@ class InventoryWeapon extends Container {
 
   def setName(name: String): InventoryWeapon = { this.name = name ; this }
 
-  def getAmmo: JavaLong = ammo
+  def getAmmo: JavaInt = ammo
 
-  def setAmmo(ammo: JavaLong): InventoryWeapon = { this.ammo = ammo ; this }
+  def setAmmo(ammo: JavaInt): InventoryWeapon = { this.ammo = ammo ; this }
 }
