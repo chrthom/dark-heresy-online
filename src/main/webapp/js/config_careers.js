@@ -746,12 +746,13 @@ config.careers = {
       ],
       'Geheimsprache (Tech)',
       'Tech-Gebrauch',
+      'Tech-Gebrauch',
       'Sprache (Niedergotisch)'
     ],
     'traits' : [
       'Interfaceverwendung',
       'Leichte Waffen (Laser)',
-      'Nahkampwaffen (Primitiv)',
+      'Nahkampfwaffen (Primitiv)',
       'Pistolen (Laser)'
     ],
     'weapons' : [
@@ -783,7 +784,7 @@ config.careers = {
     'bionics' : [
       'Cybermantel',
       'Elektoo-Induktor',
-      'Interface',
+      'Gedankenimpulseinheit',
       'Potentia-Spule',
       'Respirator',
       'Schädelschaltkreise'

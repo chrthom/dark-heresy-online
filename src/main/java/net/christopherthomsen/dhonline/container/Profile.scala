@@ -28,7 +28,7 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends DHRootContainer[T] {
 
   def getBionics: JavaList[NumericTuple] = bionics
 
-  def setBionics(career: JavaList[NumericTuple]): T = { this.bionics = bionics ; this.asInstanceOf[T] }
+  def setBionics(bionics: JavaList[NumericTuple]): T = { this.bionics = bionics ; this.asInstanceOf[T] }
 
   def getCareer: String = career
 

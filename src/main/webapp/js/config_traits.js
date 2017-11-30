@@ -62,9 +62,6 @@ config.traits = {
   'Chemische Kastration' : {
     'asset' : 'Immun gegen Verführung, charmeresistent'
   },
-  'Cybermantel' : {
-    'asset' : 'ANkerpunkt für Mechanicus-Implantate'
-  },
   'Dekadenz' : {
     'asset' : 'Unglaublich widerstandsfähig gegen Drogen und Alkohol',
     'wi' : 30
@@ -109,10 +106,6 @@ config.traits = {
   },
   'Eiserner Magen' : {
     'asset' : '+10 auf Zechen-Würfe, um den Auswirkungen verzehrter Gifte, Toxine oder verdorbener Lebensmittel zu widerstehen und für Würfe, wenn man sich nicht übergeben will.'
-  },
-  'Elektoo-Induktoren' : {
-    'asset' : 'Energie abgeben und absaugen',
-    'trait' : 'Cybermantel'
   },
   'Elektrischer Beistand' : {
     'asset' : '+10 auf WI-Würfe, um Erschöpfung loszuwerden'
@@ -315,10 +308,6 @@ config.traits = {
   'Initiationsritus' : {
     'asset' : 'Du kannst als volle Aktion einen IN-Wurf machen, um eine Blutung zu stoppen'
   },
-  'Interface' : {
-    'asset' : 'Kommunikation mit Maschinen',
-    'trait': 'Cybermantel'
-  },
   'Interfaceverwendung' : {
     'asset' : '+10 auf Nachforschungen, Tech-Gebrauch und Allgemeinwissen',
     'trait' : 'Interface'
@@ -487,10 +476,6 @@ config.traits = {
   'Pistolen (Werfer)' : {
     'asset' : 'Nutzung von Werferpistolen ohne Abzug'
   },
-  'Potentia-Spule' : {
-    'asset' : 'Energie speichern und Magnetfelder erzeugen',
-    'trait' : 'Cybermantel'
-  },
   'Präziser Schlag' : {
     'asset' : 'Kein Abzug für Angriffe auf bestimmte Trefferzonen',
     'trait' : 'Sicherer Schlag',
@@ -539,10 +524,6 @@ config.traits = {
   },
   'Religiöser Wahn' : {
     'asset' : 'Auswirkungen von Schocks erneut würfeln'
-  },
-  'Respirator' : {
-    'asset' : '+20% auf Widerstand gegen Giftgase',
-    'trait' : 'Cybermantel'
   },
   'Revolverheld' : {
     'asset' : 'Kampf mit 2 Pistolen verursacht nur -10',

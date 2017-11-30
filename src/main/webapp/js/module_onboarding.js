@@ -142,7 +142,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         $scope.profile.bionics = [];
         var bionics = $scope.conf.careers[$scope.profile.career].bionics;
         if (bionics) for (var i = 0; i < bionics.length; i++)
-            $scope.profile.bionics.push.apply($scope.profile.bionics.push.apply, { key: bionics[i], value: 1 });
+            $scope.profile.bionics.push({ key: bionics[i], value: 1 });
         // Generate random appearance and divination based on homeworld
         $scope.profile.appearance = {};
         rollAge();

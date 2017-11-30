@@ -96,7 +96,10 @@
         </div>
         <div class="list card">
             <div class="item item-divider">Talente und Eigenschaften</div>
-            <div class="item" ng-repeat="trait in profile.traits | orderBy:'toString()'" ng-bind="trait"></div>
+            <div class="item item-text-wrap" ng-repeat="trait in profile.traits | orderBy:'toString()'">
+                <h2 ng-bind="trait"></h2>
+                <p ng-bind="conf.traits[trait].asset"></p>
+            </div>
         </div>
         <div class="list card" ng-show="profile.psiPowers.length">
             <div class="item item-divider">
@@ -104,6 +107,24 @@
                 <p>Stufe {{profile.scholastica.value + 1}}: {{conf.scholastica[profile.scholastica.key][profile.scholastica.value]}}</p>
             </div>
             <div class="item" ng-repeat="psiPower in profile.psiPowers | orderBy:'toString()'" ng-bind="psiPower"></div>
+        </div>
+        <div class="list card" ng-show="profile.bionics.length">
+            <div class="item item-divider">
+                Bionische Implantate
+                <p><i class="icon ion-android-star-outline"></i> = Schlechte Qualit&auml;t</p>
+                <p><i class="icon ion-android-star-half"></i> = Durchschnittliche Qualit&auml;t</p>
+                <p><i class="icon ion-android-star"></i> = Gute Qualit&auml;t</p>
+            </div>
+            <div class="item item-icon-right item-text-wrap" ng-repeat="bionic in profile.bionics | orderBy:'key'">
+                {{bionic.key}}
+                <p ng-bind="conf.bionics[bionic.key].asset"></p>
+                <p ng-bind="conf.bionics[bionic.key].bad" ng-show="conf.bionics[bionic.key].bad && bionic.value == 0"></p>
+                <p ng-bind="conf.bionics[bionic.key].normal" ng-show="conf.bionics[bionic.key].normal && bionic.value == 1"></p>
+                <p ng-bind="conf.bionics[bionic.key].good" ng-show="conf.bionics[bionic.key].good && bionic.value == 2"></p>
+                <i class="icon ion-android-star-outline" ng-show="bionic.value == 0"></i>
+                <i class="icon ion-android-star-half" ng-show="bionic.value == 1"></i>
+                <i class="icon ion-android-star" ng-show="bionic.value == 2"></i>
+            </div>
         </div>
     </div>
     <div class="col">
