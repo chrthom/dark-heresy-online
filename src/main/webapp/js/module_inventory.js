@@ -1,4 +1,4 @@
-var inventoryCtrl = function($scope, dhConfig, dhProfile, dhInventory, dhStats) {
+var inventoryCtrl = function($scope, dhConfig, dhInventory, dhProfile, dhStats) {
     $scope.conf = dhConfig;
     $scope.inventory = {};
     dhInventory.get(function(res) { $scope.inventory = res.data; });

@@ -1,3 +1,30 @@
+config.age = {
+  'Adliger' : [
+    15, 15, 20, 25, 35, 45, 55, 65, 75, 85
+  ],
+  'Fabrikwelt' : [
+    15, 15, 20, 25, 25, 30, 35, 45, 55, 65
+  ],
+  'Gelöschtes Gedächtnis' : [
+    20, 20, 20, 20, 25, 30, 35, 40, 45, 50
+  ],
+  'Imperiale Welt' : [
+    20, 20, 20, 20, 25, 25, 30, 35, 40, 40
+  ],
+  'Kinder der Leere' : [
+    15, 15, 15, 20, 25, 30, 40, 50, 50, 50
+  ],
+  'Makropolenwelt' : [
+    15, 15, 20, 20, 25, 25, 25, 25, 30, 35
+  ],
+  'Schola Progenium' : [
+    15, 15, 15, 15, 15, 15, 20, 20, 25, 30
+  ],
+  'Urzeitwelt' : [
+    15, 15, 15, 15, 15, 15, 20, 25, 25, 25
+  ]
+};
+
 config.sanction = [
   {
     'name' : 'Rekonstruierter Schädel',
@@ -56,4 +83,86 @@ config.sanction = [
     'text' : 'Eine mächtige Konditionierung lässt Sie jedes Mal, wenn Sie schlafen oder bewusstlos sind, im Flüsterton die Litanei des Schutzes vor sich hinsingen.',
     'wk' : 3
   }
-]
+];
+
+config.scholastica = {
+  'Biomantie' : [
+    'Novize des Fleisches',
+    'Novize des Blutes',
+    'Novize des Denkens',
+    'Novize des Wissens',
+    'Novize des Geistes',
+    'Novize des Schatten'
+  ],
+  'Pyromantie' : [
+    'Glimmer',
+    'Brenner',
+    'Flammer',
+    'Loderer',
+    'Brandstifter',
+    'Einäscherer'
+  ],
+  'Prophetie' : [
+    'Karmesinroter Äon',
+    'Goldener Äon',
+    'Silberner Äon',
+    'Hermetischer Äon',
+    'Stummer Äon',
+    'Geisterhafter Äon'
+  ],
+  'Telekinese' : [
+    'Grammatiker',
+    'Rhetor',
+    'Dilektat',
+    'Trigmestus',
+    'Quadrivit',
+    'Ipsissimus'
+  ],
+  'Telepathie' : [
+    'Karmesinroter Äon',
+    'Goldener Äon',
+    'Silberner Äon',
+    'Hermetischer Äon',
+    'Stummer Äon',
+    'Geisterhafter Äon'
+  ]
+};
+
+config.socialClasses = {
+  'Ausgestoßene' : {
+    'income' : 0,
+    'increase' : 15
+  },
+  'Arbeiter' : {
+    'income' : 30,
+    'increase' : 3
+  },
+  'Militär' : {
+    'income' : 50,
+    'increase' : 5
+  },
+  'Dienende' : {
+    'income' : 70,
+    'increase' : 7
+  },
+  'Gelehrte' : {
+    'income' : 100,
+    'increase' : 10
+  },
+  'Händler' : {
+    'income' : 120,
+    'increase' : 12
+  },
+  'Mechanicus' : {
+    'income' : 150,
+    'increase' : 15
+  },
+  'Ministorum' : {
+    'income' : 200,
+    'increase' : 20
+  },
+  'Adel' : {
+    'income' : 500,
+    'increase' : 50
+  }
+};

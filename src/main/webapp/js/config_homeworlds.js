@@ -57,6 +57,42 @@ config.homeworlds = {
       'wounds' : 9,
       'fate' : [
         1, 1, 2, 2, 3
+      ],
+      'skin' : [
+        'dunkel',
+        'dunkel',
+        'dunkel',
+        'gebräunt',
+        'gebräunt',
+        'hell',
+        'hell',
+        'rötlich',
+        'rötlich',
+        'bronzen'
+      ],
+      'hair' : [
+        'rot',
+        'rot',
+        'rot',
+        'blond',
+        'blond',
+        'braun',
+        'braun',
+        'schwarz',
+        'schwarz',
+        'grau'
+      ],
+      'eyes' : [
+        'blau',
+        'blau',
+        'blau',
+        'grau',
+        'grau',
+        'braun',
+        'braun',
+        'grün',
+        'grün',
+        'gelb'
       ]
     },
     'Makropolenwelt' : {
@@ -103,6 +139,42 @@ config.homeworlds = {
       'wounds' : 8,
       'fate' : [
         1, 1, 2, 2, 3
+      ],
+      'skin' : [
+        'dunkel',
+        'dunkel',
+        'dunkel',
+        'gebräunt',
+        'gebräunt',
+        'hell',
+        'hell',
+        'rötlich',
+        'rötlich',
+        'gefleckt'
+      ],
+      'hair' : [
+        'braun',
+        'braun',
+        'braun',
+        'mausgrau',
+        'mausgrau',
+        'grün gefärbt',
+        'violett gefärbt',
+        'blau gefärbt',
+        'schwarz',
+        'grau'
+      ],
+      'eyes' : [
+        'blau',
+        'blau',
+        'blau',
+        'grau',
+        'grau',
+        'braun',
+        'braun',
+        'grün',
+        'grün',
+        'farbige Linsen'
       ]
     },
     'Imperiale Welt' : {
@@ -149,6 +221,42 @@ config.homeworlds = {
       'wounds' : 8,
       'fate' : [
         1, 2, 2, 2, 3
+      ],
+      'skin' : [
+        'dunkel',
+        'dunkel',
+        'dunkel',
+        'gebräunt',
+        'gebräunt',
+        'hell',
+        'hell',
+        'rötlich',
+        'blau gefärbt',
+        'rot gefärbt'
+      ],
+      'hair' : [
+        'braun',
+        'braun',
+        'blond',
+        'blond',
+        'blau gefärbt',
+        'grün gefärbt',
+        'violett gefärbt',
+        'schwarz',
+        'schwarz',
+        'grau'
+      ],
+      'eyes' : [
+        'blau',
+        'blau',
+        'blau',
+        'grau',
+        'grau',
+        'braun',
+        'braun',
+        'grün',
+        'grün',
+        'farbige Linsen'
       ]
     },
     'Kinder der Leere' : {
@@ -197,6 +305,42 @@ config.homeworlds = {
       'wounds' : 6,
       'fate' : [
         1, 2, 3, 3, 3
+      ],
+      'skin' : [
+        'porzellanfarbend',
+        'porzellanfarbend',
+        'porzellanfarbend',
+        'bläulich',
+        'bläulich',
+        'hell',
+        'hell',
+        'gräulich',
+        'gräulich',
+        'milchig'
+      ],
+      'hair' : [
+        'ingwerfarbend',
+        'ingwerfarbend',
+        'ingwerfarbend',
+        'blond',
+        'blond',
+        'kupferrot',
+        'kupferrot',
+        'schwarz',
+        'schwarz',
+        'kastanienfarbend'
+      ],
+      'eyes' : [
+        'blau',
+        'blau',
+        'blau',
+        'violett',
+        'grau',
+        'braun',
+        'braun',
+        'grün',
+        'grün',
+        'grau'
       ]
     },
     'Fabrikwelt' : {
@@ -242,6 +386,42 @@ config.homeworlds = {
       'wounds' : 7,
       'fate' : [
         1, 1, 2, 2, 3
+      ],
+      'skin' : [
+        'hell',
+        'hell',
+        'hell',
+        'gebräunt',
+        'gebräunt',
+        'dunkel',
+        'dunkel',
+        'rötlich',
+        'rötlich',
+        'gefleckt'
+      ],
+      'hair' : [
+        'braun',
+        'braun',
+        'braun',
+        'mausgrau',
+        'mausgrau',
+        'grün gefärbt',
+        'violett gefärbt',
+        'blau gefärbt',
+        'schwarz',
+        'grau'
+      ],
+      'eyes' : [
+        'blau',
+        'blau',
+        'blau',
+        'grau',
+        'grau',
+        'braun',
+        'braun',
+        'grün',
+        'grün',
+        'farbige Linsen'
       ]
     },
     'Gelöschtes Gedächtnis' : {
@@ -289,6 +469,42 @@ config.homeworlds = {
       'wounds' : 8,
       'fate' : [
         2, 3, 3, 3, 4
+      ],
+      'skin' : [
+        'dunkel',
+        'dunkel',
+        'gebräunt',
+        'gebräunt',
+        'hell',
+        'hell',
+        'hell',
+        'rötlich',
+        'blau gefärbt',
+        'rot gefärbt'
+      ],
+      'hair' : [
+        'braun',
+        'braun',
+        'blond',
+        'blond',
+        'blau gefärbt',
+        'grün gefärbt',
+        'violett gefärbt',
+        'schwarz',
+        'schwarz',
+        'grau'
+      ],
+      'eyes' : [
+        'blau',
+        'blau',
+        'blau',
+        'grau',
+        'grau',
+        'braun',
+        'braun',
+        'grün',
+        'grün',
+        'farbige Linsen'
       ]
     },
     'Adliger' : {
@@ -338,7 +554,43 @@ config.homeworlds = {
       'fate' : [
         1, 1, 1, 1, 2
       ],
-      'socialclass' : 'Adel'
+      'socialclass' : 'Adel',
+      'skin' : [
+        'dunkel',
+        'dunkel',
+        'dunkel',
+        'gebräunt',
+        'gebräunt',
+        'hell',
+        'hell',
+        'rötlich',
+        'blau gefärbt',
+        'rot gefärbt'
+      ],
+      'hair' : [
+        'braun',
+        'braun',
+        'blond',
+        'blond',
+        'blau gefärbt',
+        'rot',
+        'schwarz',
+        'schwarz',
+        'grau',
+        'grau'
+      ],
+      'eyes' : [
+        'blau',
+        'blau',
+        'blau',
+        'grau',
+        'grau',
+        'braun',
+        'braun',
+        'grün',
+        'grün',
+        'farbige Linsen'
+      ]
     },
     'Schola Progenium' : {
       'description' : 'Du bist ein Waise, hattest jedoch das Glück auf Grund des Standes oder der Verdienste deiner verstorbenen Eltern in der Schola Progenium aufgenommen zu werden. In dieser werden Jünglinge zur nächsten Generation der Elite des Imperiums ausgebildet. Du erhielst hier intensive Indoktrination des Imperialen Glaubens und seiner Werte sowie eine exzellente Ausbildung, um dem Imperium zu dienen.',
@@ -382,7 +634,43 @@ config.homeworlds = {
       'fate' : [
         1, 2, 2, 2, 2
       ],
-      'socialclass' : 'Dienende'
+      'socialclass' : 'Dienende',
+      'skin' : [
+        'dunkel',
+        'dunkel',
+        'dunkel',
+        'gebräunt',
+        'gebräunt',
+        'hell',
+        'hell',
+        'rötlich',
+        'blau gefärbt',
+        'rot gefärbt'
+      ],
+      'hair' : [
+        'braun',
+        'braun',
+        'blond',
+        'blond',
+        'blau gefärbt',
+        'rot',
+        'violett gefärbt',
+        'schwarz',
+        'schwarz',
+        'grau'
+      ],
+      'eyes' : [
+        'blau',
+        'blau',
+        'blau',
+        'grau',
+        'grau',
+        'braun',
+        'braun',
+        'grün',
+        'grün',
+        'farbige Linsen'
+      ]
     }
   }
 }
