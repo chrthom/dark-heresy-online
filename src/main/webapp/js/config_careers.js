@@ -50,9 +50,6 @@ config.careers = {
       [
         'Wattierte Weste',
         'Tierfell'
-      ], [
-        'Auto-Feder',
-        'Schreibzeug'
       ],
       'Kleidung (schlechte Qualität)'
     ],
@@ -219,15 +216,15 @@ config.careers = {
       ],
       'Uniform',
       'Kleidung (gute Qualität)',
-      'Stimm-Pack',
-      'Stimm-Pack',
-      'Stimm-Pack',
+      'Stim',
+      'Stim',
+      'Stim',
       'Arbitratorenausweis',
       'Dienstmarke',
       'Chrono',
       [
-        'Packung Lho-Stäbchen',
-        'Fläschchen Amasec'
+        'Lho-Stäbchen',
+        'Amasec'
       ]
     ],
     'training' : {
@@ -315,11 +312,10 @@ config.careers = {
       ]
     ],
     'gears' : [
-      'Stimm-Pack',
-      'Stimm-Pack',
-      'Stimm-Pack',
-      'Amulett aus Leichenhaar',
-      'Schwarzer Ganzkörperanzug',
+      'Stim',
+      'Stim',
+      'Stim',
+      'Amulett',
       'Kleidung (normale Qualität)'
     ],
     'training' : {
@@ -510,7 +506,7 @@ config.careers = {
       'Kerze',
       'Kerze',
       'Kerze',
-      'Amulett (Schädel)',
+      'Amulett',
       'Rucksack'
     ],
     'training' : {
@@ -614,7 +610,9 @@ config.careers = {
         'Tarnkleidung'
       ],
       'Kleidung (normale Qualität)',
-      'Wochenration Leichenfett',
+      'Eiserne Ration',
+      'Eiserne Ration',
+      'Eiserne Ration',
       [
         'Söldnerlizenz',
         'Sprengkragen',
@@ -689,7 +687,7 @@ config.careers = {
       }
     ],
     'gears' : [
-      'Aquila Halsband',
+      'Aquila-Halskette',
       'Ecclesiasticus Kranz',
       'Kerze',
       'Kerze',
@@ -777,7 +775,7 @@ config.careers = {
       'Ersatzteil',
       'Ersatzteil',
       'Ersatzteil',
-      'Phiole mit heiligem Maschinenöl',
+      'Geweihtes Maschinenöl',
       'Kleidung (gute Qualität)'
     ],
     'bionics' : [

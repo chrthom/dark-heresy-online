@@ -2,8 +2,8 @@
     <div class="col">
         <div class="list card">
             <div class="item item-divider">Nahkampfwaffen</div>
-            <div class="item" ng-repeat="weapon in inventory.meleeWeapons | orderBy:'name'">
-                {{weapon.name}}
+            <div class="item" ng-repeat="weapon in inventory.meleeWeapons | orderBy:'name' track by $index">
+                <h2 ng-bind="weapon.name"></h2>
                 <p ng-bind="'Gattung: ' + conf.meleeWeapons[weapon.name].type"></p>
                 <p>
                     Qualität:
@@ -29,8 +29,8 @@
         </div>
         <div class="list card">
             <div class="item item-divider">Fernkampfwaffen</div>
-            <div class="item" ng-repeat="weapon in inventory.missileWeapons | orderBy:'name'">
-                {{weapon.name}}
+            <div class="item" ng-repeat="weapon in inventory.missileWeapons | orderBy:'name' track by $index">
+                <h2 ng-bind="weapon.name"></h2>
                 <p ng-bind="'Gattung: ' + conf.missileWeapons[weapon.name].type"></p>
                 <p>
                     Qualität:
@@ -58,6 +58,26 @@
             </div>
         </div>
     </div>
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider">Ausr&uuml;stung</div>
+            <div class="item" ng-repeat="gear in inventory.gears | orderBy:'toString()' track by $index">
+                <h2 ng-bind="gear"></h2>
+                <p>
+                    Wert:
+                    <span ng-show="conf.gears[gear]" ng-bind="'ca. ' + conf.gears[gear].price"></span>
+                    <span ng-show="conf.armour[gear]" ng-bind="'ca. ' + conf.armour[gear].price"></span>
+                    <span ng-hide="conf.gears[gear] || conf.armour[gear]">&lt; 5</span>
+                    Thronen
+                </p>
+                <p>
+                    Gewicht:
+                    <span ng-show="conf.gears[gear]" ng-bind="conf.gears[gear].weight"></span>
+                    <span ng-show="conf.armour[gear]" ng-bind="conf.armour[gear].weight"></span>
+                    <span ng-hide="conf.gears[gear] || conf.armour[gear]">0.5</span>
+                    kg
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-
-{{inventory}}
