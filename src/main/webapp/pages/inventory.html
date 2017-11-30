@@ -1,6 +1,28 @@
 <div class="row responsive-lg">
     <div class="col">
         <div class="list card">
+            <div class="item item-icon-left ion-bag">
+                Tragekapazit&auml;t
+                <span class="badge badge-stable" ng-bind="totalWeight() + ' kg'"></span>
+                <p ng-show="totalWeight() > profile.characteristics.st && totalWeight() < profile.characteristics.st * 2">
+                    <font color="orange">
+                        Achtung! Optimale Tragekapazit&auml;t von {{profile.characteristics.st}} &uuml;berschritten.
+                        {{profile.name}} erleidet Ersch&ouml;pfung!
+                    </font>
+                </p>
+                <p ng-show="totalWeight() >= profile.characteristics.st * 2">
+                    <font color="red">
+                        Achtung! Maximale Tragekapazit&auml;t von {{profile.characteristics.st}} &uuml;berschritten.
+                        {{profile.name}} kann das nicht tragen!
+                    </font>
+                </p>
+            </div>
+            <div class="item item-icon-left ion-cash">
+                Verm&ouml;gen
+                <span class="badge badge-stable" ng-bind="stats.thrones + ' Thronen'"></span>
+            </div>
+        </div>
+        <div class="list card">
             <div class="item item-divider">Nahkampfwaffen</div>
             <div class="item" ng-repeat="weapon in inventory.meleeWeapons | orderBy:'name' track by $index">
                 <h2 ng-bind="weapon.name"></h2>
