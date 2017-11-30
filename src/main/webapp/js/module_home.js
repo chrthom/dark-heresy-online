@@ -1,5 +1,5 @@
 var homeCtrl = function($scope, dhConfig, dhInventory, dhProfile, dhStats) {
-    $scope.pageTile = 'Übersicht';
+    $scope.pageTitle = 'Übersicht';
     $scope.conf = dhConfig;
     $scope.inventory = {};
     dhInventory.get(function(res) { $scope.inventory = res.data });

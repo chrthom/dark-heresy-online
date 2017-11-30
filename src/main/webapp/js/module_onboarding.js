@@ -1,5 +1,5 @@
 var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, dhProfile, dhStats, dhUtils) {
-    $scope.pageTile = 'Charaktererstellung';
+    $scope.pageTitle = 'Charaktererstellung';
     $scope.conf = dhConfig;
     $scope.onboarding = {};
     $scope.inventory = {};

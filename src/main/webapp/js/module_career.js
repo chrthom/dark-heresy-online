@@ -1,5 +1,5 @@
 var careerCtrl = function($scope, dhConfig, dhProfile) {
-    $scope.pageTile = 'Karriere';
+    $scope.pageTitle = 'Karriere';
     $scope.conf = dhConfig;
     $scope.profile = {};
     dhProfile.get(function(res) {

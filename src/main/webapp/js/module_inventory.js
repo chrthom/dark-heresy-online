@@ -1,4 +1,4 @@
 var profileCtrl = function($scope, dhConfig) {
-    $scope.pageTile = 'Inventar';
+    $scope.pageTitle = 'Inventar';
     $scope.conf = dhConfig;
 };

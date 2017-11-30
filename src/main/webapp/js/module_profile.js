@@ -1,4 +1,9 @@
+console.log("MAPP");
+
 var profileCtrl = function($scope, dhConfig, dhProfile) {
-    $scope.pageTile = 'Profil';
+console.log("BLAAAA"); //
+    $scope.pageTitle = 'Profil';
     $scope.conf = dhConfig;
+    $scope.profile = {};
+    dhProfile.get(function(res) { $scope.profile = res.data });
 };
