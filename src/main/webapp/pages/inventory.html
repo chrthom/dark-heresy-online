@@ -2,15 +2,60 @@
     <div class="col">
         <div class="list card">
             <div class="item item-divider">Nahkampfwaffen</div>
-            <!--
-            <div class="item" ng-repeat="weapon in inventory.weapons | orderBy:'name'">
-                {{skill.key}} [{{toUpperCase(conf.skills[skill.key])}}]
-                <i class="icon ion-android-close" ng-show="skill.value == 0"></i>
-                <i class="icon ion-android-radio-button-off" ng-show="skill.value == 1"></i>
-                <i class="icon ion-android-done" ng-show="skill.value == 2"></i>
-                <i class="icon ion-android-done-all" ng-show="skill.value == 3"></i>
+            <div class="item" ng-repeat="weapon in inventory.meleeWeapons | orderBy:'name'">
+                {{weapon.name}}
+                <p ng-bind="'Gattung: ' + conf.meleeWeapons[weapon.name].type"></p>
+                <p>
+                    Qualität:
+                    <span ng-show="weapon.quality == 0">gering</span>
+                    <span ng-show="weapon.quality == 1">normal</span>
+                    <span ng-show="weapon.quality == 2">gut</span>
+                    <span ng-show="weapon.quality == 3">hervorragend</span>
+                </p>
+                <p ng-bind="'Schaden: ' + conf.meleeWeapons[weapon.name].damage"></p>
+                <p ng-bind="'Durchschlag: ' + conf.meleeWeapons[weapon.name].ap"></p>
+                <p ng-bind="'Wurfreichweite: ' + conf.meleeWeapons[weapon.name].range + ' m'" ng-show="conf.meleeWeapons[weapon.name].range > 0"></p>
+                <p ng-bind="'Speziell: ' + conf.meleeWeapons[weapon.name].special"></p>
+                <p>
+                    Wert: ca.
+                    <span ng-bind="conf.meleeWeapons[weapon.name].price / 2" ng-show="weapon.quality == 0"></span>
+                    <span ng-bind="conf.meleeWeapons[weapon.name].price" ng-show="weapon.quality == 1"></span>
+                    <span ng-bind="conf.meleeWeapons[weapon.name].price * 3" ng-show="weapon.quality == 2"></span>
+                    <span ng-bind="conf.meleeWeapons[weapon.name].price * 10" ng-show="weapon.quality == 3"></span>
+                    Thronen
+                </p>
+                <p ng-bind="'Gewicht: ' + conf.meleeWeapons[weapon.name].weight + ' kg'"></p>
             </div>
-            -->
+        </div>
+        <div class="list card">
+            <div class="item item-divider">Fernkampfwaffen</div>
+            <div class="item" ng-repeat="weapon in inventory.missileWeapons | orderBy:'name'">
+                {{weapon.name}}
+                <p ng-bind="'Gattung: ' + conf.missileWeapons[weapon.name].type"></p>
+                <p>
+                    Qualität:
+                    <span ng-show="weapon.quality == 0">gering</span>
+                    <span ng-show="weapon.quality == 1">normal</span>
+                    <span ng-show="weapon.quality == 2">gut</span>
+                    <span ng-show="weapon.quality == 3">hervorragend</span>
+                </p>
+                <p ng-bind="'Schaden: ' + conf.missileWeapons[weapon.name].damage"></p>
+                <p ng-bind="'Durchschlag: ' + conf.missileWeapons[weapon.name].ap"></p>
+                <p ng-bind="'Reichweite: ' + conf.missileWeapons[weapon.name].range + ' m'"></p>
+                <p ng-bind="'Feuermodi: ' + conf.missileWeapons[weapon.name].rof"></p>
+                <p ng-bind="'Magazingröße: ' + conf.missileWeapons[weapon.name].clip"></p>
+                <p ng-bind="'Nachladezeit: ' + conf.missileWeapons[weapon.name].reload"></p>
+                <p ng-bind="'Speziell: ' + conf.missileWeapons[weapon.name].special"></p>
+                <p>
+                    Wert: ca.
+                    <span ng-bind="conf.missileWeapons[weapon.name].price / 2" ng-show="weapon.quality == 0"></span>
+                    <span ng-bind="conf.missileWeapons[weapon.name].price" ng-show="weapon.quality == 1"></span>
+                    <span ng-bind="conf.missileWeapons[weapon.name].price * 3" ng-show="weapon.quality == 2"></span>
+                    <span ng-bind="conf.missileWeapons[weapon.name].price * 10" ng-show="weapon.quality == 3"></span>
+                    Thronen
+                </p>
+                <p ng-bind="'Gewicht: ' + conf.missileWeapons[weapon.name].weight + ' kg'"></p>
+            </div>
         </div>
     </div>
 </div>
