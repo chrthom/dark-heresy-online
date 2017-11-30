@@ -1,7 +1,6 @@
 var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, dhProfile, dhStats, dhUtils) {
     $scope.pageTile = 'Charaktererstellung';
     $scope.conf = dhConfig;
-
     $scope.onboarding = {};
     $scope.inventory = {};
     dhInventory.get(function(res) { $scope.inventory = res.data });
@@ -22,6 +21,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             gender: dhAuth.gender,
             homeworld: null,
             name: null,
+            onboardingStep: 0,
             progress: null,
             psiPowers: [],
             rank: null,
@@ -33,6 +33,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         };
         // Set character name
         $scope.profile.name = $scope.onboarding.name;
+        $scope.profile.onboardingStep = 1;
         dhProfile.set($scope.profile, function() { $location.path('/onboarding/1'); });
     };
 
@@ -68,6 +69,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         if (homeworld.socialclass) $scope.profile.socialClass = homeworld.socialclass;
         // Roll initial career
         rollCareer();
+        $scope.profile.onboardingStep = 2;
         dhProfile.set($scope.profile, function() { $location.path('/onboarding/2'); });
     };
 
@@ -107,6 +109,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             case 'Soldat': $scope.profile.characteristics.bf += 3; break;
             case 'Techpriester': $scope.profile.characteristics.wk += 4; break;
         }
+        $scope.profile.onboardingStep = 3;
         dhProfile.set($scope.profile, function() {
             dhStats.set($scope.stats, function() {
                 $location.path('/onboarding/3');
@@ -150,6 +153,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         rollSkin();
         // Roll divination
         rollDivination();
+        $scope.profile.onboardingStep = 4;
         dhProfile.set($scope.profile, function() {
             dhInventory.set($scope.inventory, function() {
                 dhStats.set($scope.stats, function() {
@@ -180,12 +184,16 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             if (sanction.in) $scope.profile.characteristics.in += sanction.in;
             if (sanction.wi) $scope.profile.characteristics.wi += sanction.wi;
             if (sanction.wk) $scope.profile.characteristics.wk += sanction.wk;
+            $scope.profile.onboardingStep = 50;
             dhProfile.set($scope.profile, function() {
                 dhStats.set($scope.stats, function() {
-                    $location.path('/onboarding/psi');
+                    $location.path('/onboarding/50');
                 });
             });
-        } else dhProfile.set($scope.profile, function() { $location.path('/onboarding/done'); });
+        } else {
+            $scope.profile.onboardingStep = 99;
+            dhProfile.set($scope.profile, function() { $location.path('/onboarding/99'); });
+        }
     };
 
     $scope.proceedPsi = function() {
@@ -196,12 +204,14 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
             key: $scope.onboarding.scholastica,
             value: 0
         };
-        dhProfile.set($scope.profile, function() { $location.path('/onboarding/done'); });
+        $scope.profile.onboardingStep = 99;
+        dhProfile.set($scope.profile, function() { $location.path('/onboarding/99'); });
     };
 
     $scope.proceedDone = function() {
         $scope.stats.fate = $scope.profile.progress.fate;
         $scope.stats.wounds = $scope.profile.progress.wounds;
+        $scope.profile.onboardingStep = 100;
         dhProfile.set($scope.profile, function() {
             dhStats.set($scope.stats, function() {
                 $location.path('/');

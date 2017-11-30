@@ -29,23 +29,24 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     }).when('/onboarding/4', {
         controller: 'dhOnboarding',
         templateUrl: 'pages/onboarding4.html'
-    }).when('/onboarding/psi', {
+    }).when('/onboarding/50', {
         controller: 'dhOnboarding',
         templateUrl: 'pages/onboarding_psi.html'
-    }).when('/onboarding/done', {
+    }).when('/onboarding/99', {
         controller: 'dhOnboarding',
         templateUrl: 'pages/onboarding_done.html'
     }).otherwise({
         redirectTo: '/'
     })
 })
-.controller('dhMain', function($location) {
-    /*
-    dhProfile.get(null, function(res) {
+.controller('dhMain', function($location, dhProfile) {
+    dhProfile.get(function(res) {
+        if (res.data.onboardingStep < 100) $location.path('/onboarding/' + res.data.onboardingStep);
+    },
+    function(res) {
         if (res.status == 404) $location.path('/onboarding');
         else console.log('Ein Fehler ist aufgetreten. Bitte vesuchen sie es später erneut.\n\n' + res.statusText);
     });
-    */
 })
 .controller('dhHome', homeCtrl)
 .controller('dhOnboarding', onboardingCtrl)

@@ -1,5 +1,6 @@
 package net.christopherthomsen.dhonline.container
 
+import java.lang.{Integer => JavaInt}
 import java.util.{List => JavaList}
 
 abstract class ProfileBase[T <: ProfileBase[T]] extends DHRootContainer[T] {
@@ -11,6 +12,7 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends DHRootContainer[T] {
   var gender: String = _
   var homeworld: String = _
   var name: String = _
+  var onboardingStep: JavaInt = _
   var progress: ProfileProgress = _
   var psiPowers: JavaList[String] = _
   var rank: String = _
@@ -51,6 +53,10 @@ abstract class ProfileBase[T <: ProfileBase[T]] extends DHRootContainer[T] {
   def getName: String = name
 
   def setName(name: String): T = { this.name = name ; this.asInstanceOf[T] }
+
+  def getOnboardingStep: JavaInt = onboardingStep
+
+  def setOnboardingStep(onboardingStep: JavaInt): T = { this.onboardingStep = onboardingStep ; this.asInstanceOf[T] }
 
   def getProgress: ProfileProgress = progress
 
