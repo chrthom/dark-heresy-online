@@ -1,13 +1,12 @@
 var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, dhProfile, dhStats, dhUtils) {
-    $scope.pageTitle = 'Charaktererstellung';
     $scope.conf = dhConfig;
     $scope.onboarding = {};
     $scope.inventory = {};
-    dhInventory.get(function(res) { $scope.inventory = res.data });
+    dhInventory.get(function(res) { $scope.inventory = res.data; });
     $scope.profile = {};
-    dhProfile.get(function(res) { $scope.profile = res.data });
+    dhProfile.get(function(res) { $scope.profile = res.data; });
     $scope.stats = {};
-    dhStats.get(function(res) { $scope.stats = res.data });
+    dhStats.get(function(res) { $scope.stats = res.data; });
 
     $scope.proceed0 = function() {
         // Setup profile stub
@@ -40,7 +39,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     $scope.proceed1 = function() {
         // Set homeworld
         $scope.profile.homeworld = $scope.onboarding.origin == 'x' ? dhUtils.getRandomElement($scope.conf.homeworlds.chances) : $scope.onboarding.origin;
-        console.log($scope.profile.homeworld); //
+        $scope.profile.homeworld = $scope.onboarding.origin == 'x' ? dhUtils.getRandomElement($scope.conf.homeworlds.chances) : $scope.onboarding.origin;
         var homeworld = $scope.conf.homeworlds.attributes[$scope.profile.homeworld];
         // Set starting skills for homeworld
         $scope.profile.skills = [];

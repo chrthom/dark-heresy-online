@@ -154,7 +154,7 @@ config.homeworlds = {
     'Kinder der Leere' : {
       'description' : 'Du wurdest nicht auf einer der Welten des Imperiums geboren, sondern auf einem gewaltigen Schiff in den Tiefen des Raums - vielleicht sogar im Warp selbst. Niemand weiß, warum dich das von deinen Mitmenschen unterscheidet, aber dein Aussehen, Handeln und Denken ist irgendwie anders. Du wuchst im Umfeld von Psionikern auf, und was andere hassen und verabscheuen, ist für dich normal.',
       'basicSkills' : [
-        'Navigation (Raum)',
+        'Navigation (Stellar)',
         'Pilot (Raumschiff)'
       ],
       'skills' : [

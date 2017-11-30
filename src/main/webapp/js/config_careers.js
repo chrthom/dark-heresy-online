@@ -365,7 +365,7 @@ config.careers = {
     'skills' : [
       'Anrufung',
       [
-        'Beruf (Händler)',
+        'Beruf (Kaufmann)',
         'Beruf (Wahrsager)'
       ],
       'Lesen/Schreiben',

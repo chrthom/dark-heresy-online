@@ -1,0 +1,127 @@
+<div class="row responsive-lg">
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider">Allgemeines</div>
+            <div class="item">
+                Charaktername
+                <span class="badge badge-stable" ng-bind="profile.name"></span>
+            </div>
+            <div class="item">
+                Herkunft
+                <span class="badge badge-stable" ng-bind="profile.homeworld"></span>
+            </div>
+            <div class="item">
+                Karrierepfad
+                <span class="badge badge-stable" ng-bind="profile.career"></span>
+            </div>
+            <div class="item">
+                Rang
+                <span class="badge badge-stable" ng-bind="profile.rank"></span>
+            </div>
+            <div class="item">
+                Weissagung
+                <span class="badge badge-stable" ng-bind="profile.divination"></span>
+            </div>
+            <div class="item">
+                Geschlecht
+                <span class="badge badge-stable" ng-bind="profile.gender == 'w' && 'weiblich' || 'männlich'"></span>
+            </div>
+            <div class="item">
+                K&ouml;rperbau
+                <span class="badge badge-stable" ng-bind="profile.appearance.build"></span>
+            </div>
+            <div class="item">
+                Gr&ouml;&szlig;e
+                <span class="badge badge-stable" ng-bind="profile.appearance.height + ' cm'"></span>
+            </div>
+            <div class="item">
+                Gewicht
+                <span class="badge badge-stable" ng-bind="profile.appearance.weight + ' kg'"></span>
+            </div>
+            <div class="item">
+                Hautfarbe
+                <span class="badge badge-stable" ng-bind="profile.appearance.skin"></span>
+            </div>
+            <div class="item">
+                Haarfarbe
+                <span class="badge badge-stable" ng-bind="profile.appearance.hair"></span>
+            </div>
+            <div class="item">
+                Augenfarbe
+                <span class="badge badge-stable" ng-bind="profile.appearance.eyes"></span>
+            </div>
+            <div class="item">
+                Alter
+                <span class="badge badge-stable" ng-bind="profile.appearance.age + ' Jahre'"></span>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">Profilwerte</div>
+            <div class="item">
+                Kampfgeschick
+                <span class="badge badge-stable" ng-bind="profile.characteristics.kg"></span>
+            </div>
+            <div class="item">
+                Ballistische Fertigkeit
+                <span class="badge badge-stable" ng-bind="profile.characteristics.bf"></span>
+            </div>
+            <div class="item">
+                St&auml;rke
+                <span class="badge badge-stable" ng-bind="profile.characteristics.st"></span>
+            </div>
+            <div class="item">
+                Widerstand
+                <span class="badge badge-stable" ng-bind="profile.characteristics.wi"></span>
+            </div>
+            <div class="item">
+                Gewandtheit
+                <span class="badge badge-stable" ng-bind="profile.characteristics.ge"></span>
+            </div>
+            <div class="item">
+                Intelligenz
+                <span class="badge badge-stable" ng-bind="profile.characteristics.in"></span>
+            </div>
+            <div class="item">
+                Wahrnehmung
+                <span class="badge badge-stable" ng-bind="profile.characteristics.wa"></span>
+            </div>
+            <div class="item">
+                Willenskraft
+                <span class="badge badge-stable" ng-bind="profile.characteristics.wk"></span>
+            </div>
+            <div class="item">
+                Charisma
+                <span class="badge badge-stable" ng-bind="profile.characteristics.ch"></span>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">Talente und Eigenschaften</div>
+            <div class="item" ng-repeat="trait in profile.traits | orderBy:'toString()'" ng-bind="trait"></div>
+        </div>
+        <div class="list card" ng-show="profile.psiPowers.length">
+            <div class="item item-divider">
+                Psikr&auml;fte der {{profile.scholastica.key}}
+                <p>Stufe {{profile.scholastica.value + 1}}: {{conf.scholastica[profile.scholastica.key][profile.scholastica.value]}}</p>
+            </div>
+            <div class="item" ng-repeat="psiPower in profile.psiPowers | orderBy:'toString()'" ng-bind="psiPower"></div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider">
+                Fertigkeiten
+                <p><i class="icon ion-android-close"></i> = Intuitive Grundlagen</p>
+                <p><i class="icon ion-android-radio-button-off"></i> = Erlernt</p>
+                <p><i class="icon ion-android-done"></i> = Fortgeschritten</p>
+                <p><i class="icon ion-android-done-all"></i> = Gemeistert</p>
+            </div>
+            <div class="item item-icon-right" ng-repeat="skill in profile.skills | orderBy:'key'">
+                {{skill.key}} [{{toUpperCase(conf.skills[skill.key])}}]
+                <i class="icon ion-android-close" ng-show="skill.value == 0"></i>
+                <i class="icon ion-android-radio-button-off" ng-show="skill.value == 1"></i>
+                <i class="icon ion-android-done" ng-show="skill.value == 2"></i>
+                <i class="icon ion-android-done-all" ng-show="skill.value == 3"></i>
+            </div>
+        </div>
+    </div>
+</div>

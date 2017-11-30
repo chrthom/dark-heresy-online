@@ -5,9 +5,9 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     $routeProvider.when('/', {
         controller: 'home',
         templateUrl: 'pages/home.html'
-    }).when('/profile', {
-        controller: 'profile',
-        templateUrl: 'pages/profile.html'
+    }).when('/character', {
+        controller: 'character',
+        templateUrl: 'pages/character.html'
     }).when('/inventory', {
         controller: 'inventory',
         templateUrl: 'pages/inventory.html'
@@ -51,7 +51,7 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
         if (next.$$route.originalPath.startsWith('/onboarding')) $scope.pageTitle = 'Charaktererstellung';
         else switch(next.$$route.originalPath) {
             case '/': $scope.pageTitle = 'Übersicht'; break;
-            case '/profile': $scope.pageTitle = 'Profil'; break;
+            case '/chracter': $scope.pageTitle = 'Characterprofil'; break;
             case '/inventory': $scope.pageTitle = 'Inventar'; break;
             case '/career': $scope.pageTitle = 'Karriere'; break;
         }
@@ -59,7 +59,7 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
 })
 .controller('home', homeCtrl)
 .controller('onboarding', onboardingCtrl)
-.controller('profile', profileCtrl)
+.controller('character', characterCtrl)
 .controller('career', careerCtrl)
 .factory('dhAuth', authService)
 .factory('dhConfig', configService)
