@@ -24,7 +24,7 @@ config.build = {
       'kümmerlich',
       'kümmerlich'
     ],
-    'Gelöschte Erinnerung' : [
+    'Gelöschtes Gedächtnis' : [
       'mager',
       'mager',
       'anmutig',

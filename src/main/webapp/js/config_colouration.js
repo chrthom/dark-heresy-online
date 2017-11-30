@@ -189,13 +189,13 @@ config.colouration = {
       'farbige Linsen'
     ]
   },
-  'Gelöschte Erinnerung' : {
+  'Gelöschtes Gedächtnis' : {
     'skin' : [
       'dunkel',
       'dunkel',
-      'dunkel',
       'gebräunt',
       'gebräunt',
+      'hell',
       'hell',
       'hell',
       'rötlich',

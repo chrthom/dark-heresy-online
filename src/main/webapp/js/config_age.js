@@ -5,7 +5,7 @@ config.age = {
   'Fabrikwelt' : [
     15, 15, 20, 25, 25, 30, 35, 45, 55, 65
   ],
-  'Gelöschte Erinnerung' : [
+  'Gelöschtes Gedächtnis' : [
     20, 20, 20, 20, 25, 30, 35, 40, 45, 50
   ],
   'Imperiale Welt' : [

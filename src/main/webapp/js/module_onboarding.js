@@ -130,11 +130,20 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         $scope.inventory = {
             username: dhAuth.username,
             gears: [],
-            weapons: []
+            meleeWeapons: [],
+            rangedWeapons: []
         };
         // Import weapons from career and choices
-        $scope.inventory.weapons = $scope.conf.careers[$scope.profile.career].weapons.filter(dhUtils.isValue);
-        $scope.inventory.weapons.push.apply($scope.inventory.weapons, $scope.onboarding.weapons);
+        var weapons = $scope.conf.careers[$scope.profile.career].weapons.filter(dhUtils.isValue);
+        weapons.push.apply(weapons, $scope.onboarding.weapons);
+        weapons.forEach(function(weapon, index, weapons) {
+            weapon.quality = 1;
+            weapons[index] = weapon;
+        });
+        $scope.inventory.meleeWeapons.push.apply(
+            $scope.inventory.meleeWeapons, weapons.filter(function(w) { return !(w.ammo >= 0); }));
+        $scope.inventory.rangedWeapons.push.apply(
+            $scope.inventory.rangedWeapons, weapons.filter(function(w) { return w.ammo >= 0; }));
         // Import gears from career and choices
         $scope.inventory.gears = $scope.conf.careers[$scope.profile.career].gears.filter(dhUtils.isValue);
         $scope.inventory.gears.push.apply($scope.inventory.gears, $scope.onboarding.gears);

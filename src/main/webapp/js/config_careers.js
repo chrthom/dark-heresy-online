@@ -746,7 +746,6 @@ config.careers = {
       ],
       'Geheimsprache (Tech)',
       'Tech-Gebrauch',
-      'Tech-Gebrauch',
       'Sprache (Niedergotisch)'
     ],
     'traits' : [

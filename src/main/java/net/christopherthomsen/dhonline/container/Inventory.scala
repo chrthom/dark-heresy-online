@@ -3,12 +3,17 @@ package net.christopherthomsen.dhonline.container
 import java.util.{List => JavaList}
 
 abstract class InventoryBase[T <: InventoryBase[T]] extends DHRootContainer[T] {
-  var weapons: JavaList[InventoryWeapon] = _
+  var meleeWeapons: JavaList[InventoryWeapon] = _
+  var rangedWeapons: JavaList[InventoryWeapon] = _
   var gears: JavaList[String] = _
 
-  def getWeapons: JavaList[InventoryWeapon] = weapons
+  def getMeleeWeapons: JavaList[InventoryWeapon] = meleeWeapons
 
-  def setWeapons(weapons: JavaList[InventoryWeapon]): T = { this.weapons = weapons ; this.asInstanceOf[T] }
+  def setMeleeWeapons(meleeWeapons: JavaList[InventoryWeapon]): T = { this.meleeWeapons = meleeWeapons ; this.asInstanceOf[T] }
+
+  def getRangedWeapons: JavaList[InventoryWeapon] = rangedWeapons
+
+  def setRangedWeapons(rangedWeapons: JavaList[InventoryWeapon]): T = { this.rangedWeapons = rangedWeapons ; this.asInstanceOf[T] }
 
   def getGears: JavaList[String] = gears
 
