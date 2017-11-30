@@ -2,7 +2,7 @@
     <div class="col">
         <div class="list card">
             <div class="item item-icon-left ion-bag">
-                Tragekapazit&auml;t
+                Gesamtgewicht des Inventars
                 <span class="badge badge-stable" ng-bind="totalWeight() + ' kg'"></span>
                 <p ng-show="totalWeight() > profile.characteristics.st && totalWeight() < profile.characteristics.st * 2">
                     <font color="orange">
@@ -77,6 +77,7 @@
                     Thronen
                 </p>
                 <p ng-bind="'Gewicht: ' + conf.missileWeapons[weapon.name].weight + ' kg'"></p>
+                <span class="badge badge-stable" ng-bind="weapon.ammo + ' Schuss'"></span>
             </div>
         </div>
     </div>

@@ -8,6 +8,9 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     }).when('/character', {
         controller: 'character',
         templateUrl: 'pages/character.html'
+    }).when('/status', {
+        controller: 'status',
+        templateUrl: 'pages/status.html'
     }).when('/inventory', {
         controller: 'inventory',
         templateUrl: 'pages/inventory.html'
@@ -60,6 +63,7 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
 .controller('home', homeCtrl)
 .controller('onboarding', onboardingCtrl)
 .controller('character', characterCtrl)
+.controller('status', statusCtrl)
 .controller('inventory', inventoryCtrl)
 .controller('career', careerCtrl)
 .factory('dhAuth', authService)

@@ -1,0 +1,88 @@
+<div class="row responsive-lg">
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider item-icom-left ion-heart">
+                Lebenspunkte
+            </div>
+            <div class="item">
+                Summe
+                <span class="badge badge-assertive" ng-bind="profile.progress.wounds"></span>
+            </div>
+            <div class="item">
+                Aktuell
+                <span class="badge badge-assertive" ng-bind="stats.wounds"></span>
+            </div>
+            <div class="item">
+                Kritischer Schaden
+                <p>Keiner</p><!-- TODO: Implement -->
+            </div>
+            <div class="item">
+                Ersch&ouml;pfung
+                <span class="badge badge-assertive" ng-bind="stats.fatigue"></span>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider item-icom-left ion-ios-rose">
+                Schicksalspunkte
+            </div>
+            <div class="item">
+                Summe
+                <span class="badge badge-assertive" ng-bind="profile.progress.fate"></span>
+            </div>
+            <div class="item">
+                Aktuell
+                <span class="badge badge-assertive" ng-bind="stats.fate"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider item-icom-left ion-sad">
+                Wahnsinn
+            </div>
+            <div class="item">
+                Wahnsinnspunkte
+                <span class="badge badge-assertive" ng-bind="stats.madness"></span>
+            </div>
+            <div class="item">
+                Wahnsinnsgrad
+                <span class="badge badge-assertive" ng-show="stats.madness < 10">stabil</span>
+                <span class="badge badge-assertive" ng-show="stats.madness < 40 && stats.madness >= 10">gest&ouml;rt</span>
+                <span class="badge badge-assertive" ng-show="stats.madness < 60 && stats.madness >= 40">verwirrt</span>
+                <span class="badge badge-assertive" ng-show="stats.madness < 80 && stats.madness >= 60">verr&uuml;ckt</span>
+                <span class="badge badge-assertive" ng-show="stats.madness < 100 && stats.madness >= 80">umnachtet</span>
+                <span class="badge badge-assertive" ng-show="stats.madness >= 100">wahnsinnig</span>
+            </div>
+            <div class="item">
+                Geistesst&ouml;rungen
+                <p>Keine</p><!-- TODO: Implement -->
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider item-icom-left ion-flame">
+                Verderbnis
+            </div>
+            <div class="item">
+                Verderbnispunkte
+                <span class="badge badge-assertive" ng-bind="stats.corruption"></span>
+            </div>
+            <div class="item">
+                Verderbnisgrad
+                <span class="badge badge-assertive" ng-show="stats.corruption == 0">unbefleckt</span>
+                <span class="badge badge-assertive" ng-show="stats.corruption <= 30 && stats.corruption > 0">befleckt</span>
+                <span class="badge badge-assertive" ng-show="stats.corruption <= 60 && stats.corruption > 30">beschmutzt</span>
+                <span class="badge badge-assertive" ng-show="stats.corruption <= 90 && stats.corruption > 60">besudelt</span>
+                <span class="badge badge-assertive" ng-show="stats.corruption < 100 && stats.corruption > 90">gottesl&auml;sterlich</span>
+                <span class="badge badge-assertive" ng-show="stats.corruption >= 100">verdammt</span>
+            </div>
+            <div class="item">
+                Metastasen
+                <p>Keine</p><!-- TODO: Implement -->
+            </div>
+            <div class="item">
+                Mutationen
+                <p>Keine</p><!-- TODO: Implement -->
+            </div>
+        </div>
+    </div>
+</div>

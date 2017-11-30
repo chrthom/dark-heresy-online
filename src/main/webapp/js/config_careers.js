@@ -304,7 +304,7 @@ config.careers = {
       }, [
         {
           'name' : 'Laserpistole',
-          'ammo' : 1
+          'ammo' : 30
         }, {
           'name' : 'Wurfmesser',
           'ammo' : 10
@@ -391,7 +391,7 @@ config.careers = {
           'ammo' : 3
         }, {
           'name' : 'Laserpistole',
-          'ammo' : 1
+          'ammo' : 30
         }
       ], {
         'name' : 'Messer'
@@ -582,11 +582,11 @@ config.careers = {
           'ammo' : 12
         }, {
           'name' : 'Laserpistole',
-          'ammo' : 1
+          'ammo' : 30
         }
       ], {
         'name' : 'Lasergewehr',
-        'ammo' : 1
+        'ammo' : 60
       }, [
         {
           'name' : 'Bogen',
@@ -683,7 +683,7 @@ config.careers = {
         }
       ], {
         'name' : 'Laserpistole',
-        'ammo' : 1
+        'ammo' : 30
       }
     ],
     'gears' : [
@@ -757,10 +757,10 @@ config.careers = {
         'name' : 'Stab'
       }, {
         'name' : 'Laserpistole',
-        'ammo' : 1
+        'ammo' : 30
       }, {
         'name' : 'Laserkarabiner',
-        'ammo' : 1
+        'ammo' : 40
       }, {
         'name' : 'Messer'
       }

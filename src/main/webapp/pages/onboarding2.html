@@ -16,13 +16,13 @@
                 <span class="badge badge-assertive" ng-bind="onboarding.careerRerolls"></span>
             </a>
             <div class="item item-avatar item-text-wrap">
-                <img src="/style/images/logo-imperium.png">
+                <img src="/style/images/logo-imperium.png" />
                 <h2 ng-bind="profile.career"></h2>
                 <p>"<i ng-bind="conf.careers[profile.career].quote"></i>"</p>
                 <p ng-bind="conf.careers[profile.career].quoteby"></p>
             </div>
             <div class="item item-image">
-                <img style="max-width:500px;" ng-src="/style/images/careers/{{fileFormat(profile.career)}}_{{profile.gender}}.jpg">
+                <img style="max-width:500px;" ng-src="/style/images/careers/{{fileFormat(profile.career)}}_{{profile.gender}}.jpg" />
             </div>
             <div class="item item-text-wrap">
                 <p ng-bind="conf.careers[profile.career].description"></p>

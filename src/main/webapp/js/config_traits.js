@@ -308,6 +308,10 @@ config.traits = {
   'Initiationsritus' : {
     'asset' : 'Du kannst als volle Aktion einen IN-Wurf machen, um eine Blutung zu stoppen'
   },
+  'Interface' : {
+    'asset' : 'Kommunikation mit Maschinen',
+    'trait': 'Cybermantel'
+  },
   'Interfaceverwendung' : {
     'asset' : '+10 auf Nachforschungen, Tech-Gebrauch und Allgemeinwissen',
     'trait' : 'Interface'
@@ -476,6 +480,10 @@ config.traits = {
   'Pistolen (Werfer)' : {
     'asset' : 'Nutzung von Werferpistolen ohne Abzug'
   },
+  'Potentia-Spule' : {
+    'asset' : 'Energie speichern und Magnetfelder erzeugen',
+    'trait' : 'Cybermantel'
+  },
   'Präziser Schlag' : {
     'asset' : 'Kein Abzug für Angriffe auf bestimmte Trefferzonen',
     'trait' : 'Sicherer Schlag',
@@ -548,7 +556,7 @@ config.traits = {
     'wi' : 40
   },
   'Scharfschütze' : {
-    'asset' : 'Keine Abzüge für Schüsse auf große oder extreme Entfernung',
+    'asset' : 'Keinen Abzug für Schüsse auf große oder extreme Entfernung',
     'bf' : 35
   },
   'Schnell nachladen' : {
@@ -728,7 +736,7 @@ config.traits = {
     'asset' : 'Gescheiterte Angst-Würfe wiederholen'
   },
   'Unfehlbarer Schütze' : {
-    'asset' : 'Gezielte Schüsse ohne Abzüge',
+    'asset' : 'Gezielte Schüsse ohne Abzug',
     'trait' : 'Sicherer Schütze',
     'bf' : 40
   },
@@ -788,10 +796,10 @@ config.traits = {
     'asset' : 'Einmal pro Tag W5 Schaden regenerieren'
   },
   'Wurfwaffen (Granate)' : {
-    'asset' : 'Nutzung von Granaten ohne Abzüge'
+    'asset' : 'Nutzung von Granaten ohne Abzug'
   },
   'Wurfwaffen (Primitiv)' : {
-    'asset' : 'Nutzung von primitiven Wurfwaffen ohne Abzüge'
+    'asset' : 'Nutzung von primitiven Wurfwaffen ohne Abzug'
   },
   'Wütender Schlag' : {
     'asset' : '+2 Schaden mit Nahkampfwaffen',

@@ -355,7 +355,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     }
 
     function rollEyes() {
-      $scope.profile.appearance.eyes = dhUtils.getRandomElement($scope.conf.homeworlds[$scope.profile.homeworld].eyes);
+      $scope.profile.appearance.eyes = dhUtils.getRandomElement($scope.conf.homeworlds.attributes[$scope.profile.homeworld].eyes);
     }
 
     function rollFate() {
@@ -363,11 +363,11 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     }
 
     function rollHair() {
-      $scope.profile.appearance.hair = dhUtils.getRandomElement($scope.conf.homeworlds[$scope.profile.homeworld].hair);
+      $scope.profile.appearance.hair = dhUtils.getRandomElement($scope.conf.homeworlds.attributes[$scope.profile.homeworld].hair);
     }
 
     function rollSkin() {
-      $scope.profile.appearance.skin = dhUtils.getRandomElement($scope.conf.homeworlds[$scope.profile.homeworld].skin);
+      $scope.profile.appearance.skin = dhUtils.getRandomElement($scope.conf.homeworlds.attributes[$scope.profile.homeworld].skin);
     }
 
     function rollThrones() {

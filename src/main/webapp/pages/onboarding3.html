@@ -33,12 +33,12 @@
             </div>
             <div class="item" align="right"
                  ng-repeat="weapon in conf.careers[profile.career].weapons | filterValues"
-                 ng-bind="weapon.name + (weapon.ammo && ' mit ' + weapon.ammo + (weapon.ammo == 1 && ' Magazin' || ' Schuss') || '')"></div>
+                 ng-bind="weapon.name + (weapon.ammo && ' mit ' + weapon.ammo + ' Schuss')"></div>
             <div class="item item-input item-select" ng-repeat="weapon in conf.careers[profile.career].weapons | filterArrays">
                 <div class="input-label">&nbsp;</div>
                 <select ng-model="onboarding.weapons[$index]"
                         ng-init="onboarding.weapons[$index] = weapon[0]"
-                        ng-options="choice as choice.name + (choice.ammo && ' mit ' + choice.ammo + (choice.ammo == 1 && ' Magazin' || ' Schuss') || '') for choice in weapon">
+                        ng-options="choice as choice.name + (choice.ammo && ' mit ' + choice.ammo + ' Schuss') for choice in weapon">
                 </select>
             </div>
             <div class="item item-divider item-icon-left ion-android-settings" ng-init="onboarding.gears = []">
