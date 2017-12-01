@@ -96,7 +96,7 @@ config.careers = {
     'skills' : [
       'Allgemeinwissen (Imperium)',
       [
-        'Allgemeinwissen (Tech)',
+        'Allgemeinwissen (Technik)',
         'Scholastisches Wissen (Legenden)'
       ],
       'Lesen/Schreiben',
@@ -109,7 +109,7 @@ config.careers = {
     'traits' : [
       [
         'Leichter Schlaf',
-        'Widerstandsfähigkeit'
+        'Widerstandsfähigkeit (Kälte)'
       ], [
         'Nahkampfwaffen (Primitiv)',
         'Pistolen (Projektil)'

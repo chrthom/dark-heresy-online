@@ -788,7 +788,7 @@ config.traits = {
     'asset' : '+10 zu Widerstandsfähigkeits-Würfen gegen Psikräfte'
   },
   'Willensstärke' : {
-    'asset' : 'Gescheiterte WK-Würfe zum WIderstand gegen Psikräfte erneut würfeln',
+    'asset' : 'Gescheiterte WK-Würfe zum Widerstand gegen Psikräfte erneut würfeln',
     'trait' : 'Widerstandsfähigkeit (Psi)',
     'wk' : 30
   },

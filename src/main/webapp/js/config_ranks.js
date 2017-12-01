@@ -994,7 +994,7 @@ config.ranks = {
     },
     'skills' : [
       {
-        'skill' : 'Beruf (Koch)',
+        'skill' : 'Beruf (Kopist)',
         'level' : 1,
         'costs' : 100
       }, {

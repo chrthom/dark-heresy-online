@@ -5,9 +5,69 @@ var careerCtrl = function($scope, dhConfig, dhProfile) {
         $scope.profile = res.data;
         $scope.renderGraph($scope.controls.showAll);
     });
+
+    $scope.toUpperCase = function(s) { return s.toUpperCase(); };
+
     $scope.controls = {
         showAll: false
     };
+
+    $scope.getAvailableConstitution = function() {
+
+    };
+
+    $scope.getAvailableSkills = function() {
+        var skills = [];
+        getAllRanks().forEach(function(rank) {
+            skills.push.apply(skills, $scope.conf.ranks[rank].skills.filter(function(s) {
+                var unknownSkill = true;
+                $scope.profile.skills.forEach(function(s2) {
+                    if (s.skill == s2.key && s.level <= s2.value) unknownSkill = false;
+                });
+                return unknownSkill;
+            }));
+        });
+        return skills;
+    };
+
+    $scope.getAvailableTraits = function() {
+        var traits = [];
+        getAllRanks().forEach(function(rank) {
+            traits.push.apply(traits, $scope.conf.ranks[rank].traits.filter(function(t) {
+                if ($scope.profile.traits.indexOf(t.trait) >= 0) return false
+                var trait = $scope.conf.traits[t.trait];
+                if (trait.kg && $scope.profile.characteristics.kg < trait.kg ||
+                    trait.bf && $scope.profile.characteristics.bf < trait.bf ||
+                    trait.st && $scope.profile.characteristics.st < trait.st ||
+                    trait.wi && $scope.profile.characteristics.wi < trait.wi ||
+                    trait.ge && $scope.profile.characteristics.ge < trait.ge ||
+                    trait.in && $scope.profile.characteristics.in < trait.in ||
+                    trait.wa && $scope.profile.characteristics.wa < trait.wa ||
+                    trait.wk && $scope.profile.characteristics.wk < trait.wk ||
+                    trait.ch && $scope.profile.characteristics.ch < trait.ch) return false
+                if (trait.skill) {
+                    var hasSkill = false;
+                    $scope.profile.skills.forEach(function(s) {
+                        if (s.key == trait.skill) hasSkill = true;
+                    });
+                    if (!hasSkill) return false;
+                }
+                if (trait.trait && $scope.profile.traits.indexOf(trait.trait) < 0) return false;
+                return true;
+            }));
+        });
+        return traits;
+    };
+
+    function getAllRanks() {
+        if (!$scope.profile.rank) return [];
+        else {
+            var allRanks = [];
+            allRanks.push.apply(allRanks, $scope.profile.progress.previousRanks);
+            allRanks.push($scope.profile.rank);
+            return allRanks;
+        }
+    }
 
     $scope.renderGraph = function(all) {
         var links = [];
