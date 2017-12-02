@@ -96,7 +96,7 @@ config.careers = {
     'skills' : [
       'Allgemeinwissen (Imperium)',
       [
-        'Allgemeinwissen (Technik)',
+        'Allgemeinwissen (Tech)',
         'Scholastisches Wissen (Legenden)'
       ],
       'Lesen/Schreiben',

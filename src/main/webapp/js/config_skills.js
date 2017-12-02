@@ -8,7 +8,7 @@ config.skills = {
   'Allgemeinwissen (Imperium)' : 'in',
   'Allgemeinwissen (Krieg)' : 'in',
   'Allgemeinwissen (Maschinenkult)' : 'in',
-  'Allgemeinwissen (Technik)' : 'in',
+  'Allgemeinwissen (Tech)' : 'in',
   'Allgemeinwissen (Unterwelt)' : 'in',
   'Anrufung' : 'wk',
   'Aufmerksamkeit' : 'wa',

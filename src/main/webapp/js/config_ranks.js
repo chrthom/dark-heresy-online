@@ -1809,7 +1809,7 @@ config.ranks = {
         'level' : 1,
         'costs' : 100
       }, {
-        'skill' : 'Allgemeinwissen (Technik)',
+        'skill' : 'Allgemeinwissen (Tech)',
         'level' : 1,
         'costs' : 100
       }, {
@@ -1879,18 +1879,6 @@ config.ranks = {
       }, {
         'trait' : 'Wurfwaffen (Primitiv)',
         'costs' : 300
-      }, {
-        'trait' : 'Elektoo-Induktor',
-        'costs' : 50
-      }, {
-        'trait' : 'Potentia-Spule',
-        'costs' : 50
-      }, {
-        'trait' : 'Interface',
-        'costs' : 50
-      }, {
-        'trait' : 'Respirator',
-        'costs' : 50
       }
     ]
   },

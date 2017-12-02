@@ -12,8 +12,22 @@ var careerCtrl = function($scope, dhConfig, dhProfile) {
         showAll: false
     };
 
-    $scope.getAvailableConstitution = function() {
+    $scope.getCharacteristicsCost = function(attr) {
+        var usedUpgrades = $scope.profile.progress ? $scope.profile.progress['increased' + $scope.toUpperCase(attr)] : 0;
+        if (usedUpgrades > 3 || !$scope.profile.progress) return 5000;
+        else return $scope.conf.careers[$scope.profile.career].training[attr][usedUpgrades];
+    };
 
+    $scope.getConstitutionCost = function() {
+        var usedUpgrades = $scope.profile.progress ? $scope.profile.progress.increasedConstitution : 0;
+        var costs = 5000;
+        getAllRanks().forEach(function(rank) {
+            if (rank.constitution) {
+                usedUpgrades -= rank.constitution.count;
+                if (usedUpgrades < 0 && rank.constitution.costs < costs) costs = rank.constitution.costs;
+            }
+        });
+        return costs;
     };
 
     $scope.getAvailableSkills = function() {

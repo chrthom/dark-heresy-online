@@ -7,15 +7,15 @@ class ProfileProgress extends DHContainer {
   var fate: JavaInt = _
   var income: JavaInt = _
   var increasedConstitution: JavaInt = _
-  var increasedKg: JavaInt = _
-  var increasedBf: JavaInt = _
-  var increasedSt: JavaInt = _
-  var increasedWi: JavaInt = _
-  var increasedGe: JavaInt = _
-  var increasedIn: JavaInt = _
-  var increasedWa: JavaInt = _
-  var increasedWk: JavaInt = _
-  var increasedCh: JavaInt = _
+  var increasedKG: JavaInt = _
+  var increasedBF: JavaInt = _
+  var increasedST: JavaInt = _
+  var increasedWI: JavaInt = _
+  var increasedGE: JavaInt = _
+  var increasedIN: JavaInt = _
+  var increasedWA: JavaInt = _
+  var increasedWK: JavaInt = _
+  var increasedCH: JavaInt = _
   var level: JavaInt = _
   var previousRanks: JavaList[String] = _
   var wounds: JavaInt = _
@@ -34,41 +34,41 @@ class ProfileProgress extends DHContainer {
 
   def setIncreasedConstitution(increasedConstitution: JavaInt): ProfileProgress = { this.increasedConstitution = increasedConstitution ; this }
 
-  def getIncreasedKg: JavaInt = increasedKg
+  def getIncreasedKG: JavaInt = increasedKG
 
-  def setIncreasedKg(increasedKg: JavaInt): ProfileProgress = { this.increasedKg = increasedKg ; this }
+  def setIncreasedKG(increasedKG: JavaInt): ProfileProgress = { this.increasedKG = increasedKG ; this }
 
-  def getIncreasedBf: JavaInt = increasedBf
+  def getIncreasedBF: JavaInt = increasedBF
 
-  def setIncreasedBf(increasedBf: JavaInt): ProfileProgress = { this.increasedBf = increasedBf ; this }
+  def setIncreasedBF(increasedBF: JavaInt): ProfileProgress = { this.increasedBF = increasedBF ; this }
 
-  def getIncreasedSt: JavaInt = increasedSt
+  def getIncreasedST: JavaInt = increasedST
 
-  def setIncreasedSt(increasedSt: JavaInt): ProfileProgress = { this.increasedSt = increasedSt ; this }
+  def setIncreasedST(increasedST: JavaInt): ProfileProgress = { this.increasedST = increasedST ; this }
 
-  def getIncreasedWi: JavaInt = increasedWi
+  def getIncreasedWI: JavaInt = increasedWI
 
-  def setIncreasedWi(increasedWi: JavaInt): ProfileProgress = { this.increasedWi = increasedWi ; this }
+  def setIncreasedWI(increasedWI: JavaInt): ProfileProgress = { this.increasedWI = increasedWI ; this }
 
-  def getIncreasedGe: JavaInt = increasedGe
+  def getIncreasedGE: JavaInt = increasedGE
 
-  def setIncreasedGe(increasedGe: JavaInt): ProfileProgress = { this.increasedGe = increasedGe ; this }
+  def setIncreasedGE(increasedGE: JavaInt): ProfileProgress = { this.increasedGE = increasedGE ; this }
 
-  def getIncreasedIn: JavaInt = increasedIn
+  def getIncreasedIN: JavaInt = increasedIN
 
-  def setIncreasedIn(increasedIn: JavaInt): ProfileProgress = { this.increasedIn = increasedIn ; this }
+  def setIncreasedIN(increasedIN: JavaInt): ProfileProgress = { this.increasedIN = increasedIN ; this }
 
-  def getIncreasedWa: JavaInt = increasedWa
+  def getIncreasedWA: JavaInt = increasedWA
 
-  def setIncreasedWa(increasedWa: JavaInt): ProfileProgress = { this.increasedWa = increasedWa ; this }
+  def setIncreasedWA(increasedWA: JavaInt): ProfileProgress = { this.increasedWA = increasedWA ; this }
 
-  def getIncreasedWk: JavaInt = increasedWk
+  def getIncreasedWK: JavaInt = increasedWK
 
-  def setIncreasedWk(increasedWk: JavaInt): ProfileProgress = { this.increasedWk = increasedWk ; this }
+  def setIncreasedWK(increasedWK: JavaInt): ProfileProgress = { this.increasedWK = increasedWK ; this }
 
-  def getIncreasedCh: JavaInt = increasedCh
+  def getIncreasedCH: JavaInt = increasedCH
 
-  def setIncreasedCh(increasedCh: JavaInt): ProfileProgress = { this.increasedCh = increasedCh ; this }
+  def setIncreasedCH(increasedCH: JavaInt): ProfileProgress = { this.increasedCH = increasedCH ; this }
 
   def getLevel: JavaInt = level
 

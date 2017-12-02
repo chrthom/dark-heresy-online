@@ -36,7 +36,7 @@ var profileService = function($http, dhAuth) {
             errorFunc = typeof errorFunc !== 'undefined' ? errorFunc : function() {};
             $http.get('/_ah/api/dh/v1/profile/' + dhAuth.username).then(function(res) {
                 if (!res.data.bionics) res.data.bionics = [];
-                if (!res.data.progress.previousRanks) res.data.progress.previousRanks = [];
+                if (res.data.progress && !res.data.progress.previousRanks) res.data.progress.previousRanks = [];
                 if (!res.data.psiPowers) res.data.psiPowers = [];
                 successFunc(res);
             }, errorFunc);

@@ -23,7 +23,7 @@ text {
             <div class="item item-divider" ng-bind="'Karrierepfad ' + profile.career"></div>
             <div class="item">
                 <h2>Insgesamt vergebene XP</h2>
-                <span class="badge badge-assertive" ng-bind="profile.progress.xp"></span>
+                <span class="badge badge-stable" ng-bind="profile.progress.xp"></span>
             </div>
             <div class="item range range-assertive">
                 <i class="icon ion-person"></i>
@@ -49,20 +49,30 @@ text {
                 </svg>
             </div>
         </div>
-    </div>
-    <div class="col">
         <div class="list card" ng-show="profile.progress.xpFree > 0">
             <div class="item item-divider">
                 <h2>Noch zu vergebene XP</h2>
-                <span class="badge badge-assertive" ng-bind="profile.progress.xpFree"></span>
+                <span class="badge badge-stable" ng-bind="profile.progress.xpFree"></span>
             </div>
-            <div class="item">Konstitution verbessern</div>
+            <div class="item">
+                Konstitution um 1 verbessern
+                <span class="badge {{getConstitutionCost() > profile.progress.xpFree && 'badge-assertive' || 'badge-balanced'}}"
+                      ng-bind="getConstitutionCost()"></span>
+            </div>
+            <div class="item" ng-repeat="characteristic in ['kg', 'bf', 'st', 'wi', 'ge', 'in', 'wa', 'wk', 'ch']">
+                {{toUpperCase(characteristic)}} um 5 verbessern
+                <span class="badge {{getCharacteristicsCost(characteristic) > profile.progress.xpFree && 'badge-assertive' || 'badge-balanced'}}"
+                      ng-bind="getCharacteristicsCost(characteristic)"></span>
+            </div>
         </div>
+    </div>
+    <div class="col">
         <div class="list card">
             <div class="item item-divider">Fertigkeiten erlernen / steigern</div>
             <div class="item" ng-repeat="skill in getAvailableSkills() | orderBy:'skill'">
                 {{skill.skill}} [{{toUpperCase(conf.skills[skill.skill])}}]
-                <span class="badge badge-assertive" ng-bind="skill.costs"></span>
+                <span class="badge {{skill.costs > profile.progress.xpFree && 'badge-assertive' || 'badge-balanced'}}"
+                      ng-bind="skill.costs"></span>
                 <p ng-show="skill.level == 1">Erlernen</p>
                 <p ng-show="skill.level == 2">Verbessern</p>
                 <p ng-show="skill.level == 3">Meistern</p>
@@ -72,7 +82,8 @@ text {
             <div class="item item-divider">Talente oder Eigenschaften aneignen</div>
             <div class="item" ng-repeat="trait in getAvailableTraits() | orderBy:'toString()'">
                 {{trait.trait}}
-                <span class="badge badge-assertive" ng-bind="trait.costs"></span>
+                <span class="badge {{trait.costs > profile.progress.xpFree && 'badge-assertive' || 'badge-balanced'}}"
+                      ng-bind="trait.costs"></span>
                 <p ng-bind="$scope.conf.traits[trait.trait].asset"></p>
                 <p ng-show="$scope.conf.traits[trait.trait].trait">Ersetzt "{{$scope.conf.traits[trait.trait].trait}}"</p>
             </div>
