@@ -5,11 +5,39 @@ var careerCtrl = function($scope, dhConfig, dhProfile) {
         $scope.profile = res.data;
         $scope.renderGraph($scope.controls.showAll);
     });
+    $scope.controls = {
+        showAll: false
+    };
 
     $scope.toUpperCase = function(s) { return s.toUpperCase(); };
 
-    $scope.controls = {
-        showAll: false
+    $scope.buySkill = function(skill) {
+        if (skill.costs <= $scope.profile.progress.xpFree) {
+            var skillExists = false;
+            for (var i = 0; i < $scope.profile.skills.length; i++) {
+                if ($scope.profile.skills[i].key == skill.skill) {
+                    skillExists = true;
+                    $scope.profile.skills[i].value = skill.level;
+                    break;
+                }
+            }
+            if (!skillExists) $scope.profile.skills.push({
+                key: skill.skill,
+                value: skill.level
+            });
+            $scope.profile.progress.xpFree -= skill.costs;
+            $scope.profile.progress.xp += skill.costs;
+            dhProfile.set($scope.profile);
+        }
+    };
+
+    $scope.buyTrait = function(trait) {
+        if (trait.costs <= $scope.profile.progress.xpFree) {
+            $scope.profile.traits.push(trait.trait);
+            $scope.profile.progress.xpFree -= trait.costs;
+            $scope.profile.progress.xp += trait.costs;
+            dhProfile.set($scope.profile);
+        }
     };
 
     $scope.getCharacteristicsCost = function(attr) {
@@ -35,10 +63,12 @@ var careerCtrl = function($scope, dhConfig, dhProfile) {
         getAllRanks().forEach(function(rank) {
             skills.push.apply(skills, $scope.conf.ranks[rank].skills.filter(function(s) {
                 var unknownSkill = true;
+                var requiredLevelMet = s.level == 1;
                 $scope.profile.skills.forEach(function(s2) {
-                    if (s.skill == s2.key && s.level <= s2.value) unknownSkill = false;
+                    if (unknownSkill && s.skill == s2.key && s.level <= s2.value) unknownSkill = false;
+                    else if (!requiredLevelMet && s.skill == s2.key && s.level == s2.value + 1) requiredLevelMet = true;
                 });
-                return unknownSkill;
+                return unknownSkill && requiredLevelMet;
             }));
         });
         return skills;

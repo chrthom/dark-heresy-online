@@ -69,24 +69,28 @@ text {
     <div class="col">
         <div class="list card">
             <div class="item item-divider">Fertigkeiten erlernen / steigern</div>
-            <div class="item" ng-repeat="skill in getAvailableSkills() | orderBy:'skill'">
+            <a class="item" ng-click="buySkill(skill)"
+               ng-repeat="skill in getAvailableSkills() | orderBy:'skill'"
+               ng-disabled="skill.costs > profile.progress.xpFree">
                 {{skill.skill}} [{{toUpperCase(conf.skills[skill.skill])}}]
                 <span class="badge {{skill.costs > profile.progress.xpFree && 'badge-assertive' || 'badge-balanced'}}"
                       ng-bind="skill.costs"></span>
                 <p ng-show="skill.level == 1">Erlernen</p>
                 <p ng-show="skill.level == 2">Verbessern</p>
                 <p ng-show="skill.level == 3">Meistern</p>
-            </div>
+            </a>
         </div>
         <div class="list card">
             <div class="item item-divider">Talente oder Eigenschaften aneignen</div>
-            <div class="item" ng-repeat="trait in getAvailableTraits() | orderBy:'toString()'">
+            <a class="item" ng-click="buyTrait(trait)"
+               ng-repeat="trait in getAvailableTraits() | orderBy:'toString()'"
+               ng-disabled="trait.costs > profile.progress.xpFree">
                 {{trait.trait}}
                 <span class="badge {{trait.costs > profile.progress.xpFree && 'badge-assertive' || 'badge-balanced'}}"
                       ng-bind="trait.costs"></span>
                 <p ng-bind="$scope.conf.traits[trait.trait].asset"></p>
                 <p ng-show="$scope.conf.traits[trait.trait].trait">Ersetzt "{{$scope.conf.traits[trait.trait].trait}}"</p>
-            </div>
+            </a>
         </div>
     </div>
 </div>
