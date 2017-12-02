@@ -33,6 +33,11 @@ text {
                        value="{{min(profile.progress.xp, conf.xpReq[profile.progress.level])}}" readonly disabled>
                 <i class="icon ion-person-add"></i>
             </div>
+            <a class="item ion-icon-left ion-plus" ng-click="promoteTo(rank)"
+               ng-repeat="rank in conf.ranks[profile.rank].next"
+               ng-show="profile.progress.xp >= conf.xpReq[profile.progress.level]">
+                <b>Bef&ouml;rderung zum {{rank}}</b>
+            </a>
             <div class="item item-toggle">
                 Alle Karrierepfade anzeigen
                 <label class="toggle toggle-assertive">

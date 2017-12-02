@@ -64,24 +64,6 @@ var careerCtrl = function($scope, dhConfig, dhProfile) {
         }
     };
 
-    $scope.getCharacteristicsCost = function(c) {
-        var usedUpgrades = $scope.profile.progress ? $scope.profile.progress['increased' + $scope.toUpperCase(c)] : 0;
-        if (usedUpgrades > 3 || !$scope.profile.progress) return 5000;
-        else return $scope.conf.careers[$scope.profile.career].training[c][usedUpgrades];
-    };
-
-    $scope.getConstitutionCost = function() {
-        var usedUpgrades = $scope.profile.progress ? $scope.profile.progress.increasedConstitution : 0;
-        var costs = 5000;
-        getAllRanks().forEach(function(rank) {
-            if (rank.constitution) {
-                usedUpgrades -= rank.constitution.count;
-                if (usedUpgrades < 0 && rank.constitution.costs < costs) costs = rank.constitution.costs;
-            }
-        });
-        return costs;
-    };
-
     $scope.getAvailableSkills = function() {
         var skills = [];
         getAllRanks().forEach(function(rank) {
@@ -125,6 +107,32 @@ var careerCtrl = function($scope, dhConfig, dhProfile) {
             }));
         });
         return traits;
+    };
+
+    $scope.getCharacteristicsCost = function(c) {
+        var usedUpgrades = $scope.profile.progress ? $scope.profile.progress['increased' + $scope.toUpperCase(c)] : 0;
+        if (usedUpgrades > 3 || !$scope.profile.progress) return 5000;
+        else return $scope.conf.careers[$scope.profile.career].training[c][usedUpgrades];
+    };
+
+    $scope.getConstitutionCost = function() {
+        var usedUpgrades = $scope.profile.progress ? $scope.profile.progress.increasedConstitution : 0;
+        var costs = 5000;
+        getAllRanks().forEach(function(rank) {
+            if (rank.constitution) {
+                usedUpgrades -= rank.constitution.count;
+                if (usedUpgrades < 0 && rank.constitution.costs < costs) costs = rank.constitution.costs;
+            }
+        });
+        return costs;
+    };
+
+    $scope.promoteTo = function(rank) {
+        $scope.profile.rank = rank;
+        $scope.profile.progress.level++;
+        $scope.profile.progress.income += config.socialClasses[$scope.profile.socialClass].increase;
+        dhProfile.set($scope.profile);
+        $scope.renderGraph($scope.controls.showAll);
     };
 
     function getAllRanks() {
