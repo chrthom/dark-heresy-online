@@ -30,7 +30,7 @@ text {
                 <input type="range"
                        min="{{conf.xpReq[profile.progress.level - 1]}}"
                        max="{{conf.xpReq[profile.progress.level]}}"
-                       value="{{profile.progress.xp}}" readonly disabled>
+                       value="{{min(profile.progress.xp, conf.xpReq[profile.progress.level])}}" readonly disabled>
                 <i class="icon ion-person-add"></i>
             </div>
             <div class="item item-toggle">
@@ -49,21 +49,24 @@ text {
                 </svg>
             </div>
         </div>
-        <div class="list card" ng-show="profile.progress.xpFree > 0">
+        <div class="list card">
             <div class="item item-divider">
                 <h2>Noch zu vergebene XP</h2>
                 <span class="badge badge-stable" ng-bind="profile.progress.xpFree"></span>
             </div>
-            <div class="item">
+            <a class="item" ng-click="buyConstitution()"
+               ng-disabled="getConstitutionCost() > profile.progress.xpFree">
                 Konstitution um 1 verbessern
                 <span class="badge {{getConstitutionCost() > profile.progress.xpFree && 'badge-assertive' || 'badge-balanced'}}"
                       ng-bind="getConstitutionCost()"></span>
-            </div>
-            <div class="item" ng-repeat="characteristic in ['kg', 'bf', 'st', 'wi', 'ge', 'in', 'wa', 'wk', 'ch']">
+            </a>
+            <a class="item" ng-click="buyCharacteristic(characteristic)"
+               ng-repeat="characteristic in ['kg', 'bf', 'st', 'wi', 'ge', 'in', 'wa', 'wk', 'ch']"
+               ng-disabled="getCharacteristicsCost(characteristic) > profile.progress.xpFree">
                 {{toUpperCase(characteristic)}} um 5 verbessern
                 <span class="badge {{getCharacteristicsCost(characteristic) > profile.progress.xpFree && 'badge-assertive' || 'badge-balanced'}}"
                       ng-bind="getCharacteristicsCost(characteristic)"></span>
-            </div>
+            </a>
         </div>
     </div>
     <div class="col">

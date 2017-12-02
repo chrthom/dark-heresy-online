@@ -9,7 +9,31 @@ var careerCtrl = function($scope, dhConfig, dhProfile) {
         showAll: false
     };
 
+    $scope.min = function(a, b) { return Math.min(a, b); };
+
     $scope.toUpperCase = function(s) { return s.toUpperCase(); };
+
+    $scope.buyCharacteristic = function(c) {
+        var costs = $scope.getCharacteristicsCost(c);
+        if (costs <= $scope.profile.progress.xpFree) {
+            $scope.profile.progress['increased' + $scope.toUpperCase(c)]++;
+            $scope.profile.characteristics[c] += 5;
+            $scope.profile.progress.xpFree -= costs;
+            $scope.profile.progress.xp += costs;
+            dhProfile.set($scope.profile);
+        }
+    };
+
+    $scope.buyConstitution = function() {
+        var costs = $scope.getConstitutionCost();
+        if (costs <= $scope.profile.progress.xpFree) {
+            $scope.profile.progress.increasedConstitution++;
+            $scope.profile.progress.wounds++;
+            $scope.profile.progress.xpFree -= costs;
+            $scope.profile.progress.xp += costs;
+            dhProfile.set($scope.profile);
+        }
+    };
 
     $scope.buySkill = function(skill) {
         if (skill.costs <= $scope.profile.progress.xpFree) {
@@ -40,10 +64,10 @@ var careerCtrl = function($scope, dhConfig, dhProfile) {
         }
     };
 
-    $scope.getCharacteristicsCost = function(attr) {
-        var usedUpgrades = $scope.profile.progress ? $scope.profile.progress['increased' + $scope.toUpperCase(attr)] : 0;
+    $scope.getCharacteristicsCost = function(c) {
+        var usedUpgrades = $scope.profile.progress ? $scope.profile.progress['increased' + $scope.toUpperCase(c)] : 0;
         if (usedUpgrades > 3 || !$scope.profile.progress) return 5000;
-        else return $scope.conf.careers[$scope.profile.career].training[attr][usedUpgrades];
+        else return $scope.conf.careers[$scope.profile.career].training[c][usedUpgrades];
     };
 
     $scope.getConstitutionCost = function() {
