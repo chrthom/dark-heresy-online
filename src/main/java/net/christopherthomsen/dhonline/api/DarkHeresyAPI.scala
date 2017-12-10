@@ -4,7 +4,7 @@ import java.util.{List => JavaList}
 
 import com.google.api.server.spi.config._
 import com.google.api.server.spi.response.{ForbiddenException, UnauthorizedException}
-import net.christopherthomsen.dhonline.container.{Inventory, Player, Profile, Stats}
+import net.christopherthomsen.dhonline.container._
 import net.christopherthomsen.dhonline.persistence.{InventoryDAO, PlayerDAO, ProfileDAO, StatsDAO}
 
 import scala.collection.JavaConverters._
@@ -30,12 +30,9 @@ class DarkHeresyAPI {
   @ApiMethod(name = "auth.login",
     path = "auth",
     httpMethod = ApiMethod.HttpMethod.POST)
-  def login(auth: Player): Player = {
-    if (Option(auth.username).isEmpty || Option(auth.password).isEmpty)
-      throw new UnauthorizedException("Username and password must not be empty")
-    else if ((PlayerDAO getByUsername auth.username).password != auth.password)
-      throw new ForbiddenException("Password is incorrect")
-    else PlayerDAO getByUsername auth.username
+  def login(auth: DHRequest[Player]): Player = {
+    checkLogin(auth)
+    PlayerDAO getByUsername auth.username
   }
 
   @ApiMethod(name = "profile.list",
@@ -51,7 +48,10 @@ class DarkHeresyAPI {
   @ApiMethod(name = "profile.set",
     path = "profile",
     httpMethod = ApiMethod.HttpMethod.POST)
-  def setProfile(profile: Profile): Profile = ProfileDAO set profile
+  def setProfile(profile: DHRequest[Profile]): Profile = {
+    checkLogin(profile)
+    ProfileDAO set profile.container
+  }
 
   @ApiMethod(name = "inventory.list",
     path = "inventory",
@@ -66,7 +66,10 @@ class DarkHeresyAPI {
   @ApiMethod(name = "inventory.set",
     path = "inventory",
     httpMethod = ApiMethod.HttpMethod.POST)
-  def setInventory(inventory: Inventory): Inventory = InventoryDAO set inventory
+  def setInventory(inventory: DHRequest[Inventory]): Inventory = {
+    checkLogin(inventory)
+    InventoryDAO set inventory.container
+  }
 
   @ApiMethod(name = "stats.list",
     path = "stats",
@@ -81,5 +84,16 @@ class DarkHeresyAPI {
   @ApiMethod(name = "stats.set",
     path = "stats",
     httpMethod = ApiMethod.HttpMethod.POST)
-  def setStats(stats: Stats): Stats = StatsDAO set stats
+  def setStats(stats: DHRequest[Stats]): Stats = {
+    checkLogin(stats)
+    StatsDAO set stats.container
+  }
+
+  private def checkLogin(request: DHRequest[_]): Unit = {
+    println(s"Username: ${request.username}\nPassword: ${request.password}")
+    if (Option(request.username).isEmpty || Option(request.password).isEmpty)
+      throw new UnauthorizedException("Username and password must not be empty")
+    else if ((PlayerDAO getByUsername request.username).password != request.password)
+      throw new ForbiddenException("Password is incorrect")
+  }
 }
