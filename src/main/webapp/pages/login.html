@@ -7,6 +7,7 @@
         <span class="input-label">Password</span>
         <input ng-model="user.password" type="password" placeholder="Passwort">
     </label>
+    <div class="item ion-item-left ion-alert-circled assertive" ng-bind="' ' + error" ng-hide="!error"></div>
 </ion-list>
 <a ng-click="login()"
    class="button button-assertive button-block icon-right ion-log-in"

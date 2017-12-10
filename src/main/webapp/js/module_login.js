@@ -1,13 +1,16 @@
 var loginCtrl = function($scope, $location, dhAuth) {
     $scope.auth = dhAuth;
     $scope.user = {};
+    $scope.error = '';
     $scope.login = function() {
         dhAuth.login($scope.user, function(res) {
-            console.log("Success => " + JSON.stringify(res)); //
-            console.log(dhAuth.player()); ////
             $location.path('/');
         }, function(res) {
-            console.log("Failed => " + JSON.stringify(res)); ////
+            switch (res.data.error.code) {
+                case 403 : $scope.error = 'Das eingegebene Passwort ist inkorrekt'; break;
+                case 404 : $scope.error = 'Der Benutzer "' + $scope.user.username + '" existiert nicht'; break;
+                default : $scope.error = 'Ein unerwarteter Fehler ist aufgetreten'
+            }
         });
     };
 };
