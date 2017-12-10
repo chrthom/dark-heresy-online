@@ -90,7 +90,6 @@ class DarkHeresyAPI {
   }
 
   private def checkLogin(request: DHRequest[_]): Unit = {
-    println(s"Username: ${request.username}\nPassword: ${request.password}")
     if (Option(request.username).isEmpty || Option(request.password).isEmpty)
       throw new UnauthorizedException("Username and password must not be empty")
     else if ((PlayerDAO getByUsername request.username).password != request.password)
