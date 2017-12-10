@@ -38,34 +38,43 @@ angular.module('dh', ['ionic', 'ngRoute']).config(function($routeProvider) {
     }).when('/onboarding/99', {
         controller: 'onboarding',
         templateUrl: 'pages/onboarding_done.html'
+    }).when('/login', {
+        controller: 'login',
+        templateUrl: 'pages/login.html'
     }).otherwise({
         redirectTo: '/'
     })
 })
-.controller('dhMain', function($scope, $location, dhProfile) {
-    dhProfile.get(function(res) {
-        if (res.data.onboardingStep < 100) $location.path('/onboarding/' + res.data.onboardingStep);
-    },
-    function(res) {
-        if (res.status == 404) $location.path('/onboarding');
-        else console.log('Ein Fehler ist aufgetreten. Bitte vesuchen sie es später erneut.\n\n' + res.statusText);
-    });
+.controller('dhMain', function($scope, $location, dhAuth, dhProfile) {
     $scope.$on('$routeChangeStart', function($event, next, current) {
+        if (!dhAuth.player().username) $location.path('/login');
+        else {
+            dhProfile.get(function(res) {
+                if (res.data.onboardingStep < 100) $location.path('/onboarding/' + res.data.onboardingStep);
+            },
+            function(res) {
+                if (res.status == 404) $location.path('/onboarding');
+                else console.log('Ein Fehler ist aufgetreten. Bitte vesuchen sie es später erneut.\n\n' + res.statusText);
+            });
+        }
         if (next.$$route.originalPath.startsWith('/onboarding')) $scope.pageTitle = 'Charaktererstellung';
         else switch(next.$$route.originalPath) {
             case '/': $scope.pageTitle = 'Übersicht'; break;
-            case '/chracter': $scope.pageTitle = 'Characterprofil'; break;
+            case '/chracter': $scope.pageTitle = 'Charakterprofil'; break;
+            case '/status': $scope.pageTitle = 'Status'; break;
             case '/inventory': $scope.pageTitle = 'Inventar'; break;
             case '/career': $scope.pageTitle = 'Karriere'; break;
+            case '/login': $scope.pageTitle = 'Login'; break;
         }
     });
 })
 .controller('home', homeCtrl)
-.controller('onboarding', onboardingCtrl)
 .controller('character', characterCtrl)
 .controller('status', statusCtrl)
 .controller('inventory', inventoryCtrl)
 .controller('career', careerCtrl)
+.controller('onboarding', onboardingCtrl)
+.controller('login', loginCtrl)
 .factory('dhAuth', authService)
 .factory('dhConfig', configService)
 .factory('dhInventory', inventoryService)

@@ -3,8 +3,9 @@ package net.christopherthomsen.dhonline.api
 import java.util.{List => JavaList}
 
 import com.google.api.server.spi.config._
-import net.christopherthomsen.dhonline.container.{Inventory, Profile, Stats}
-import net.christopherthomsen.dhonline.persistence.{InventoryDAO, ProfileDAO, StatsDAO}
+import com.google.api.server.spi.response.{ForbiddenException, UnauthorizedException}
+import net.christopherthomsen.dhonline.container.{Inventory, Player, Profile, Stats}
+import net.christopherthomsen.dhonline.persistence.{InventoryDAO, PlayerDAO, ProfileDAO, StatsDAO}
 
 import scala.collection.JavaConverters._
 
@@ -18,6 +19,25 @@ import scala.collection.JavaConverters._
   title = "darkheresy",
   version = "v1")
 class DarkHeresyAPI {
+  @ApiMethod(name = "auth.new",
+    path = "auth/admin/create/{admin}",
+    httpMethod = ApiMethod.HttpMethod.POST)
+  def createPlayer(@Named("admin") adminPassword: String, player: Player): Unit = {
+    if (adminPassword != "dh") throw new ForbiddenException("Admin password is incorrect")
+    else PlayerDAO set player
+  }
+
+  @ApiMethod(name = "auth.login",
+    path = "auth",
+    httpMethod = ApiMethod.HttpMethod.POST)
+  def login(auth: Player): Player = {
+    if (Option(auth.username).isEmpty || Option(auth.password).isEmpty)
+      throw new UnauthorizedException("Username and password must not be empty")
+    else if ((PlayerDAO getByUsername auth.username).password != auth.password)
+      throw new ForbiddenException("Password is incorrect")
+    else PlayerDAO getByUsername auth.username
+  }
+
   @ApiMethod(name = "profile.list",
     path = "profile",
     httpMethod = ApiMethod.HttpMethod.GET)

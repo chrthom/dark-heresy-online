@@ -29,6 +29,7 @@ abstract class DHDAO[T <: DHRootContainer[T]] extends DAO {
   }
 }
 
+object PlayerDAO extends DHDAO[Player]
 object InventoryDAO extends DHDAO[Inventory]
 object ProfileDAO extends DHDAO[Profile]
 object StatsDAO extends DHDAO[Stats]

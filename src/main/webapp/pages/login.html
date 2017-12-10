@@ -1,0 +1,13 @@
+<ion-list>
+    <label class="item item-input item-floating-label">
+        <span class="input-label">Benutzername</span>
+        <input ng-model="user.username" type="text" placeholder="Benutzername">
+    </label>
+    <label class="item item-input item-floating-label">
+        <span class="input-label">Password</span>
+        <input ng-model="user.password" type="password" placeholder="Passwort">
+    </label>
+</ion-list>
+<a ng-click="login()"
+   class="button button-assertive button-block icon-right ion-log-in"
+   ng-disabled="!user.username || !user.password">Anmelden</a>
