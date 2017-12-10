@@ -7,17 +7,18 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
     dhProfile.get(function(res) { $scope.profile = res.data; });
     $scope.stats = {};
     dhStats.get(function(res) { $scope.stats = res.data; });
+    var playerGender = dhAuth.player().gender;
 
     $scope.proceed0 = function() {
         // Setup profile stub
         $scope.profile = {
-            username: dhAuth.username,
+            username: dhAuth.player().username,
             appearance: null,
             bionics: [],
             career: null,
             characteristics: null,
             divination: null,
-            gender: dhAuth.gender,
+            gender: dhAuth.player().gender,
             homeworld: null,
             name: null,
             onboardingStep: 0,
@@ -104,7 +105,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         rollWounds();
         // Instantiate stats
         $scope.stats = {
-            username : dhAuth.username,
+            username : dhAuth.player().username,
             madness : $scope.profile.career == 'Gelöschtes Gedächtnis' ? 2 + dhUtils.roll(10) : 0,
             corruption : 0,
             fatigue : 0,
@@ -139,7 +140,7 @@ var onboardingCtrl = function($scope, $location, dhAuth, dhConfig, dhInventory, 
         $scope.profile.traits.push.apply($scope.profile.traits, $scope.onboarding.traits);
         // Initiate empty inventory object
         $scope.inventory = {
-            username: dhAuth.username,
+            username: dhAuth.player().username,
             gears: [],
             meleeWeapons: [],
             missileWeapons: []

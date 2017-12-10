@@ -1,8 +1,6 @@
 var authService = function($http) {
     var player = {};
     return {
-        username: 'test',
-        gender: 'w',
         player: function() { return player; },
         login: function(login, successFunc, errorFunc) {
             successFunc = typeof successFunc !== 'undefined' ? successFunc : function() {};

@@ -13,7 +13,7 @@ var inventoryService = function($http, dhAuth) {
         get: function(successFunc, errorFunc) {
             successFunc = typeof successFunc !== 'undefined' ? successFunc : function() {};
             errorFunc = typeof errorFunc !== 'undefined' ? errorFunc : function() {};
-            $http.get('/_ah/api/dh/v1/inventory/' + dhAuth.username).then(function(res) {
+            $http.get('/_ah/api/dh/v1/inventory/' + dhAuth.player().username).then(function(res) {
                 if (!res.data.meleeWeapons) res.data.meleeWeapons = [];
                 if (!res.data.missileWeapons) res.data.missileWeapons = [];
                 if (!res.data.gears) res.data.gears = [];
@@ -34,7 +34,7 @@ var profileService = function($http, dhAuth) {
         get: function(successFunc, errorFunc) {
             successFunc = typeof successFunc !== 'undefined' ? successFunc : function() {};
             errorFunc = typeof errorFunc !== 'undefined' ? errorFunc : function() {};
-            $http.get('/_ah/api/dh/v1/profile/' + dhAuth.username).then(function(res) {
+            $http.get('/_ah/api/dh/v1/profile/' + dhAuth.player().username).then(function(res) {
                 if (!res.data.bionics) res.data.bionics = [];
                 if (res.data.progress && !res.data.progress.previousRanks) res.data.progress.previousRanks = [];
                 if (!res.data.psiPowers) res.data.psiPowers = [];
@@ -54,7 +54,7 @@ var statsService = function($http, dhAuth) {
         get: function(successFunc, errorFunc) {
             successFunc = typeof successFunc !== 'undefined' ? successFunc : function() {};
             errorFunc = typeof errorFunc !== 'undefined' ? errorFunc : function() {};
-            $http.get('/_ah/api/dh/v1/stats/' + dhAuth.username).then(successFunc, errorFunc);
+            $http.get('/_ah/api/dh/v1/stats/' + dhAuth.player().username).then(successFunc, errorFunc);
         }
     };
 };

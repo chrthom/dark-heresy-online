@@ -11,6 +11,10 @@
         <span class="input-label">Name</span>
         <input ng-model="onboarding.name" type="text" placeholder="Name">
     </label>
+    <div class="item">
+        Geschlecht
+        <span class="badge badge-stable" ng-bind="playerGender == 'w' && 'weiblich' || 'männlich'"></span>
+    </div>
 </ion-list>
 <a ng-click="proceed0()"
    class="button button-assertive button-block icon-right ion-chevron-right"

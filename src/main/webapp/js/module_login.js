@@ -1,5 +1,4 @@
 var loginCtrl = function($scope, $location, dhAuth) {
-    $scope.auth = dhAuth;
     $scope.user = {};
     $scope.error = '';
     $scope.login = function() {
