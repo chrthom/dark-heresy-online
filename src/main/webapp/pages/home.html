@@ -7,5 +7,96 @@
                 <p ng-bind="profile.rank"></p>
             </div>
         </div>
+        <div class="list card">
+            <div class="item item-divider item-icon-left ion-heart">
+                Verletzung einstecken
+            </div>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Schadensh&ouml;he</span>
+                <input type="number" min="0" step="1" placeholder="Schadensh&ouml;he">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Schadensart</div>
+                <select>
+                    <option value="e">Energie</option>
+                    <option value="r">Rei&szlig;end</option>
+                    <option value="w">Wucht</option>
+                    <option value="x">Explosion</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Trefferzone</div>
+                <select>
+                    <option value="1">Kopf</option>
+                    <option value="2">K&ouml;rper</option>
+                    <option value="3">Linker Arm</option>
+                    <option value="4">Rechter Arm</option>
+                    <option value="5">Linkes Bein</option>
+                    <option value="6">Rechtes Bein</option>
+                </select>
+            </label>
+        </div>
+        <div class="list card">
+            <div class="item item-divider item-icon-left ion-heart-broken">
+                Belastung
+            </div>
+            <a class="item">Ersch&ouml;pfung</a>
+            <a class="item">Schicksalspunkt nutzen</a>
+            <a class="item">Schicksalspunkt verbrennen</a>
+            <a class="item">Leichtes Trauma</a>
+            <a class="item">Mittleres Trauma</a>
+            <a class="item">Schweres Trauma</a>
+            <a class="item">Schreckliches Trauma</a>
+            <a class="item">Kontakt mit verbotenem Wissen</a>
+            <a class="item">Kontakt mit dunklen Kr&auml;ften</a>
+            <a class="item">Kontakt mit Immaterium</a>
+        </div>
+        <div class="list card">
+            <div class="item item-divider item-icon-left ion-heart">
+                Erholung
+            </div>
+            <a class="item">Eine Stunde rasten</a>
+            <a class="item">Einen Tage rasten</a>
+            <a class="item">&Uuml;bernachten in einfacher Unterkunft</a>
+            <a class="item">&Uuml;bernachten in gehobener Unterkunft</a>
+            <a class="item">&Uuml;bernachten in luxori&ouml;ser Unterkunft</a>
+            <a class="item">Primitive medzinische Versorgung</a>
+            <a class="item">Normale medizinische Versorgung</a>
+            <a class="item">Bestm&ouml;gliche medizinische Versorgung</a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list card">
+            <div class="item item-divider item-icon-left ion-heart">
+                Handeln
+            </div>
+            <div class="item item-toggle">
+                Verkaufen
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+            <label class="item item-input item-select">
+                <div class="input-label">Typ</div>
+                <select>
+                    <option value="bionics">Bionische Implantate</option>
+                    <option value="gears">Gegenst&auml;nde</option>
+                    <option value="ammo">Munition</option>
+                    <option value="meleeweapons">Nahkampfwaffen</option>
+                    <option value="armour">R&uuml;stungen</option>
+                    <option value="missileweapons">Schusswaffen</option>
+                </select>
+            </label>
+        </div>
+        <div class="list card">
+            <div class="item item-divider item-icon-left ion-heart">
+                Waffe nutzen
+            </div>
+        </div>
     </div>
 </div>
+
+<p><b>Aktionen TBD:</b> Waffe nutzen, Verletzung einstecken, Rasten, Handeln</p>
